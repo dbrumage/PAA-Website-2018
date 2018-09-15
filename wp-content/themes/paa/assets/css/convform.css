@@ -120,7 +120,7 @@ form.convFormDynamic input.userInputDynamic {
 
 div.conv-form-wrapper div#messages {
     max-height: 80vh;
-
+    -webkit-overflow-scrolling: touch;
     overflow-y: scroll;
 }
 div.conv-form-wrapper div#messages:after {

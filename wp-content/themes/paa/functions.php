@@ -56,14 +56,6 @@ function paa_setup() {
         );
 
         wp_enqueue_script(
-            'jlinq',
-            get_template_directory_uri() . '/assets/js/jlinq.js',
-            array('jquery'),
-            '3.0.1',
-            true
-        );
-
-        wp_enqueue_script(
             'app',
             get_template_directory_uri() . '/assets/js/app.js',
             array('jquery'),
