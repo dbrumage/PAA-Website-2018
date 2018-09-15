@@ -1,5 +1,34 @@
 jQuery(function ($) {
-	var count = 0;
+
+	jQuery('body').on('click', '.option', function () {
+		jQuery('#userInput').attr('value', 'watch the showreel');
+		jQuery("button").click();
+	});
+
+	function do_something(j, content, type, answers) {
+		setTimeout(function () {
+			jQuery("body").find('#messages').append('<div class="message to typing"><div class="typing_loader"></div></div>');
+			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
+			
+			jQuery(".message.to.typing").remove();
+
+			console.log(j);
+			if (j===5) {
+				jQuery("body").find('#convForm .options').append('<div class="option">prompt 1</div><div class="option">prompt 2</div>');
+			}
+
+			jQuery("#messages").scrollDown;
+			// convState.current.next = convState.newState({
+			// 	type: type,
+			// 	name: 'dynamic-question-' + count,
+			// 	questions: [content],
+			// 	answers: answers
+			// });
+			// setTimeout(ready, Math.random() * 500 + 100);
+
+		}, 2000 * j);
+	}
+
 	var convForm = $('#chat').convform({
 		eventList: {
 			onInputSubmit: function (convState, ready) {
@@ -15,44 +44,77 @@ jQuery(function ($) {
 					setTimeout(ready, Math.random() * 500 + 100);
 
 				} else {
-
 					jQuery.ajax({
 						type: 'POST',
-						dataType: 'html',
+						dataType: 'JSON',
 						url: 'chat-query?term=' + convState.current.answer.value,
 						success: function (response) {
-							// console.log(response);
+							
+
+							
+
+							console.log(response);
+							var count = 0;
+					
+							for (var i in response) {
+
+								var type = response[i].response_type;
+
+								if (type==="Text") {
+									var content = response[i].text_response;
+								} else if (type === "Prompt") {
+									var content = response[i].prompt_response;
+									var answers = response[i].prompt_data_array;
+								} else if (type === "User Input") {
+									var content = "something";
+									var answers = response[i].user_input_data_array;
+								} else if (type === "Video") {
+									var content = response[i].video_response;
+								}
+								
+								// if (type === "Prompt") {
+								// 	var type = "select";
+								// }
+								
+								do_something(count, content, type, answers);
+								
+								
+								// convState.current.next = convState.newState({
+								// 	type: type,
+								// 	name: 'dynamic-question-' + count,
+								// 	questions: [content],
+								// 	answers: answers
+								// });
+								// setTimeout(ready, Math.random() * 500 + 100);	
+									
+
+								count++;
+							}
+
+							// function doSetTimeout(i, cont) {
+							// 	setTimeout(function () {
+									
+							// 	}, 1000);
+							// }
+
+							// console.log(response[5].response_type);
+
+							
+							// console.log(content);
+							
+
+							// console.log(response[5].response_type);
 							// jQuery(".typing").hide();
 							// jQuery("body").find('#messages').append('<div class="message to ready">'+response+'</div>');
-							convState.current.next = convState.newState({
-								type: 'text',
-								name: 'dynamic-question',
-								questions: [response],
-								// answers: [
-								//     {text: 'Answer 1', value: '1'},
-								//     {text: 'Answer 2', value: '2'},
-								//     {text: 'END', value: 'end'}
-								// ]
-							});
-							setTimeout(ready, Math.random() * 500 + 100);
 							
 						},
 						error: function (XMLHttpRequest, textStatus, errorThrown) {
-							// console.log("Status: " + textStatus); console.log("Error: " + errorThrown);
+							console.log("Status: " + textStatus); console.log("Error: " + errorThrown);
 						}
 					});
-
-					// var str = convState.current.answer.value;
-					// if (str.includes('work')) {
-					// 	$response = "Heres some work 👇👇👇<br/><br/><img src='http://gifimage.net/wp-content/uploads/2018/06/zach-galifianakis-calculations-gif-6.gif' width='100%'>";
-					// } else {
-					// 	$response = "This response is dynamically loaded from the database API using the term (" + escapeHtml(convState.current.answer.text) + ")";
-					// }
-					
-					//emulating random response time (100-600ms)
 					
 				}
-				count++;
+			
 			}
 		},
 		placeHolder: "Start typing here",

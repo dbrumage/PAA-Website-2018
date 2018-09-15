@@ -1,3 +1,13 @@
+function createCallback(res) {
+    if (res) {
+        console.log('yes');
+    } else {
+        console.log('no');
+    }
+    console.log(res);
+    return true;
+}
+
 var entityMap = {
     '&': '&amp;',
     '<': '&lt;',
@@ -45,7 +55,7 @@ ConvState.prototype.newState = function(options) {
         selected: "",
         answers: []
     }, options);
-    input.element = jQuery('<input type="text" name="'+input.name+'"/>');
+    input.element = jQuery('<input type="text" name="' + input.name +'"/>');
     return new SingleConvState(input);
 };
 ConvState.prototype.next = function(){
@@ -113,7 +123,7 @@ ConvState.prototype.printQuestion = function(){
             }
         }
         jQuery(this.wrapper).find(this.parameters.inputIdHashTagName).focus();
-    }.bind(this), 500);
+    }.bind(this), 1000);
 };
 ConvState.prototype.printAnswers = function(answers, multiple){
     this.wrapper.find('div.options div.option').remove();
@@ -236,7 +246,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
             eventList : {
                 onSubmitForm : function(convState) {
                     console.log('completed');
-                    convState.form.submit();
+                    // convState.form.submit();
                     return true;
                 },
                 onInputSubmit : function(convState, readyCallback) {readyCallback()}

@@ -28,7 +28,7 @@
                                             $requires_answer = 'data-no-answer="'.get_sub_field('requires_answer').'"';
                                         }
                                         if (get_sub_field('response_type')=="Text") {
-                                            echo '<input type="text" name="home-'.$i.'" data-conv-question="'.get_sub_field('text_response').'" '.$requires_answer.'>';
+                                            echo '<input type="text" name="home-'.$i.'"  data-conv-question="'.get_sub_field('text_response').'" '.$requires_answer.'>';
                                         }
                                     $i++;
                                     endwhile;
@@ -38,13 +38,13 @@
                                     <option value="understood">Understood</option>
                                     <option value="okay">Okay, captain!</option>
                                 </select> -->
-                                <input type="text" data-conv-question="convForm also supports regex patterns. Look:" data-no-answer="true">
+                                <!-- <input type="text" data-conv-question="convForm also supports regex patterns. Look:" data-no-answer="true">
 	                                <input data-conv-question="Type in your e-mail" data-pattern="^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$" id="email" type="email" name="email" required placeholder="What's your e-mail?">
 	                                <input data-conv-question="Now tell me a secret (like a password)" type="password" data-minlength="6" id="senha" name="password" required placeholder="password">
 									<select data-conv-question="Selects also support callback functions. For example, try one of these:">
 											<option value="google" data-callback="google">Google</option>
 											<option value="bing" data-callback="bing">Bing</option>
-									</select>
+									</select> -->
                             </form>
                         </div>
 	                </div>

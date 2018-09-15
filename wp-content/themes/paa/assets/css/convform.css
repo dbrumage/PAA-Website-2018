@@ -120,7 +120,7 @@ form.convFormDynamic input.userInputDynamic {
 
 div.conv-form-wrapper div#messages {
     max-height: 80vh;
-    height: auto !important;
+
     overflow-y: scroll;
 }
 div.conv-form-wrapper div#messages:after {
@@ -186,7 +186,7 @@ textarea.userInputDynamic {
 div.conv-form-wrapper div#messages {
     position: absolute;
     top: 0px;
-    height: auto !important;
+
     width: 100%;
     padding-top: 20px;
 }
