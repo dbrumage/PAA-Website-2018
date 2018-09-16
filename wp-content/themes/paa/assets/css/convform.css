@@ -82,88 +82,55 @@
 
 form.convFormDynamic {
     width: 100%;
-    margin: 40px auto;
-    padding: 0 !important;
-    position: relative;
+    margin: 0px auto;
 }
 
-form.convFormDynamic textarea.userInputDynamic {
-    border: none;
-    padding: 7px 10px;
-    outline: none;
-    font-size: 0.905rem;
-    float: left;
-    width: calc(100% - 70px);
-    line-height: 1.3em;
-    min-height: 1.7em;
-    max-height: 10rem;
-    display: block;
-    max-width: 88%;
-    margin-right: 2.5%;
-}
-
-
-form.convFormDynamic input.userInputDynamic {
-    border: none;
+/* form.convFormDynamic input.userInputDynamic {
+    border-color: #fff !important;
+    outline-color: #fff !important;
     padding: 15px 10px;
     outline: none;
     font-size: 0.905rem;
-    float: left;
-    width: calc(100% - 70px);
+    width: 85%;
     line-height: 1.3em;
     min-height: 1.7em;
     max-height: 10rem;
-    display: block;
-    max-width: 88%;
-    margin-right: 2.5%;
-}
-
-div.conv-form-wrapper div#messages {
-    max-height: 80vh;
-    -webkit-overflow-scrolling: touch;
-    overflow-y: scroll;
-}
-div.conv-form-wrapper div#messages:after {
-    content: '';
-    display: table;
-    clear: both;
-}
-div.conv-form-wrapper {
-    position: relative;
-}
-div.conv-form-wrapper div.wrapper-messages {
-    position: relative;
-    min-height: 80vh;
-    max-height: 80vh;
-    overflow-y: scroll;
-}
-/* div.conv-form-wrapper:before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    display: block;
-    height: 30px;
-    top: 0;
-    left: 0;
-    z-index: 2;
-    background: linear-gradient(#fff, transparent);
 } */
-@media (max-width: 767px) {
-    div.conv-form-wrapper div.wrapper-messages, div.conv-form-wrapper div#messages {
-        max-height: 80vh;
-    }
-}
 
-div.conv-form-wrapper div.wrapper-messages::-webkit-scrollbar, div#feed ul::-webkit-scrollbar, div.conv-form-wrapper div.options::-webkit-scrollbar {
-    width: 0px;
-    height: 0px;
-    /* remove scrollbar space */
-    background: transparent;
-    /* optional: just make scrollbar invisible */
-}
 input[type="text"].userInputDynamic.error {
     color: #ac0000 !important;
 }
+
+form.convFormDynamic button.btn-outline-secondary {
+    background: #ECEFF1;
+    border-color: #ECEFF1;
+    color: #004C87;
+}
+
+form.convFormDynamic button.btn-outline-secondary:active:focus {
+    background: #FF8D9C;
+    border-color: #FF8D9C;
+    color: #004C87;
+}
+
+.wrapper-user-input {
+    position: fixed;
+    width: 100%;
+    left: 0px;
+    right: 0px;
+    bottom: 40px;
+    text-align: center;
+}
+
+form.convFormDynamic button.submit:hover {
+    background: #FF8D9C;
+    color: #004C87;
+}
+
+button.submit.glow {
+    box-shadow: 0 0 10px 5px rgba(6, 197, 166, 0.4);
+}
+
 input[type="text"].userInputDynamic {
     -webkit-border-top-left-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
@@ -184,30 +151,13 @@ textarea.userInputDynamic {
 }
 
 div.conv-form-wrapper div#messages {
-    position: absolute;
-    top: 0px;
+    padding: 40px 0px 140px;
     width: 100%;
-    padding-top: 20px;
+    overflow: auto;
 }
 
-div.conv-form-wrapper div.options:after {
-    content: '';
-    display: table;
-    clear: both;
-}
-div.conv-form-wrapper div.options div.option {
-    padding: 7px 12px;
-    border: 1px solid rgba(6,153,184,0.3);
-    display: inline-block;
-    margin: 5px;
-    background: #fff;
-    color: #06c5a6;
-    cursor: pointer;
-    border-radius: 20px;
-    font-size: 0.9rem;
-}
 div.conv-form-wrapper div.message {
-    max-width: 49% !important;
+    max-width: 49%;
 }
 div.conv-form-wrapper div.message:after {
     content: '';
@@ -258,7 +208,6 @@ div.conv-form-wrapper  div#messages div.option {
     margin-bottom: 5px;
     float: left;
     clear: both;
-    max-width: 25%;
     word-wrap: break-word;
     animation: bounceIn 0.4s ease;
     transform-origin: 0 0 0;
@@ -272,6 +221,8 @@ div.conv-form-wrapper  div#messages div.option div.shortcut-key {
     display: inline-block;
     padding: 10px 15px;
     margin-right: 10px;
+    width: 50px;
+    text-align: center;
 }
 
 div.conv-form-wrapper  div#messages div.message-video {
@@ -315,53 +266,9 @@ div.conv-form-wrapper div.options div.option.selected:hover {
     background: #069c7f;
 }
 
-form.convFormDynamic button.submit {
-    /* padding: 4px; */
-    border: none;
-    float: left;
-    margin: 5px;
-    color: #fff;
-    cursor: pointer;
-    -webkit-border-top-right-radius: 5px;
-    -webkit-border-bottom-right-radius: 5px;
-    -moz-border-radius-topright: 5px;
-    -moz-border-radius-bottomright: 5px;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    font-size: 1.1rem;
-    width: 128px;
-    height: 55px;
-    margin-top: 7px;
-    margin-left: -28px;
-    background: #004C87;
-    outline: none !important;
 
-}
-
-
-form.convFormDynamic button.submit:hover {
-    background: #FF8D9C;
-    color: #004C87;
-}
-
-button.submit.glow {
-    box-shadow: 0 0 10px 5px rgba(6, 197, 166, 0.4);
-}
 .no-border {
     border: none !important;
-}
-.dragscroll {
-    cursor: grab;
-}
-div.conv-form-wrapper div#messages::-webkit-scrollbar, div#feed ul::-webkit-scrollbar {
-    width: 0px;
-    /* remove scrollbar space */
-    background: transparent;
-    /* optional: just make scrollbar invisible */
-}
-span.clear {
-    display: block;
-    clear: both;
 }
 
 .spinLoader,

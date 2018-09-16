@@ -235,7 +235,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
             buttonClassStyle : 'icon2-arrow',
             eventList : {
                 onSubmitForm : function(convState) {
-                    console.log('completed');
+                    // console.log('completed');
                     // convState.form.submit();
                     return true;
                 },
@@ -302,10 +302,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 
             switch(parameters.typeInputUi) {
                 case 'input':
-                    inputForm = jQuery('<form id="' + parameters.formIdName + '" class="convFormDynamic"><div class="options dragscroll"></div><input id="' + parameters.inputIdName + '" type="text" placeholder="'+ parameters.placeHolder +'" class="userInputDynamic"></><button type="submit" class="submit">'+parameters.buttonText+'</button><span class="clear"></span></form>');
-                    break;
-                case 'textarea':
-                    inputForm = jQuery('<form id="' + parameters.formIdName + '" class="convFormDynamic"><div class="options dragscroll"></div><textarea id="' + parameters.inputIdName + '" rows="1" placeholder="'+ parameters.placeHolder +'" class="userInputDynamic"></textarea><button type="submit" class="submit">'+parameters.buttonText+'</button><span class="clear"></span></form>');
+                    inputForm = jQuery('<div class="wrapper-user-input"><div class="container"><div class="row"><div class="col-12"><form id="' + parameters.formIdName + '" class="convFormDynamic"><div class="input-group mb-3"><input id="' + parameters.inputIdName + '" type="text" placeholder="' + parameters.placeHolder + '" class="form-control" autocomplete="off"><div class="input-group-append"><button type="submit" class="btn btn-outline-secondary">' + parameters.buttonText +'</button></div></form></div></div></div></div></div>');
                     break;
                 default :
                     console.log('typeInputUi must be input or textarea');
@@ -342,47 +339,11 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
             jQuery(inputForm).find(parameters.inputIdHashTagName).keypress(function(e){
                 if(e.which == 13) {
                     var input = jQuery(this).val();
-                    e.preventDefault();
-                    if(state.current.input.type=="select" && !state.current.input.multiple){
-                        if(state.current.input.required) {
-                            state.wrapper.find('#userInputBot').addClass('error');
-                        } else {
-                            var results = state.current.input.answers.filter(function (el) {
-                                return el.text.toLowerCase().indexOf(input.toLowerCase()) != -1;
-                            });
-                            if (results.length) {
-                                state.current.input.selected = results[0];
-                                jQuery(this).parent('form').submit();
-                            } else {
-                                state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
-                            }
-                        }
-                    } else if(state.current.input.type=="select" && state.current.input.multiple) {
-                        if(input.trim() != "") {
-                            var results = state.current.input.answers.filter(function(el){
-                                return el.text.toLowerCase().indexOf(input.toLowerCase()) != -1;
-                            });
-                            if(results.length){
-                                if(state.current.input.selected.indexOf(results[0].value) == -1){
-                                    state.current.input.selected.push(results[0].value);
-                                    state.wrapper.find(parameters.inputIdHashTagName).val("");
-                                } else {
-                                    state.wrapper.find(parameters.inputIdHashTagName).val("");
-                                }
-                            } else {
-                                state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
-                            }
-                        } else {
-                            if(state.current.input.selected.length) {
-                                jQuery(this).parent('form').submit();
-                            }
-                        }
+
+                    if (input.length!=0) {
+                        jQuery(this).parent('form').submit();
                     } else {
-                        if(input.trim()!='' && !state.wrapper.find(parameters.inputIdHashTagName).hasClass("error")) {
-                            jQuery(this).parent('form').submit();
-                        } else {
-                            jQuery(state.wrapper).find(parameters.inputIdHashTagName).focus();
-                        }
+                        e.preventDefault();
                     }
                 }
                 autosize.update(jQuery(state.wrapper).find(parameters.inputIdHashTagName));
@@ -408,72 +369,23 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
                 }
             });
 
-            jQuery(inputForm).find('button.submit').click(function(e){
-                var input = jQuery(state.wrapper).find(parameters.inputIdHashTagName).val();
-                e.preventDefault();
-                if(state.current.input.type=="select" && !state.current.input.multiple){
-                    if(state.current.input.required) {
-                        return false;
-                    } else {
-                        if (input == parameters.placeHolder) input = '';
-                        var results = state.current.input.answers.filter(function (el) {
-                            return el.text.toLowerCase().indexOf(input.toLowerCase()) != -1;
-                        });
-                        if (results.length) {
-                            state.current.input.selected = results[0];
-                            jQuery(this).parent('form').submit();
-                        } else {
-                            state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
-                        }
-                    }
-                } else if(state.current.input.type=="select" && state.current.input.multiple) {
-                    if(state.current.input.required) {
-                        return false;
-                    } else {
-                        if (input.trim() != "" && input != parameters.placeHolder) {
-                            var results = state.current.input.answers.filter(function (el) {
-                                return el.text.toLowerCase().indexOf(input.toLowerCase()) != -1;
-                            });
-                            if (results.length) {
-                                if (state.current.input.selected.indexOf(results[0].value) == -1) {
-                                    state.current.input.selected.push(results[0].value);
-                                    state.wrapper.find(parameters.inputIdHashTagName).val("");
-                                } else {
-                                    state.wrapper.find(parameters.inputIdHashTagName).val("");
-                                }
-                            } else {
-                                state.wrapper.find(parameters.inputIdHashTagName).addClass('error');
-                            }
-                        } else {
-                            if (state.current.input.selected.length) {
-                                jQuery(this).removeClass('glow');
-                                jQuery(this).parent('form').submit();
-                            }
-                        }
-                    }
-                } else {
-                    if(input.trim() != '' && !state.wrapper.find(parameters.inputIdHashTagName).hasClass("error")){
-                        jQuery(this).parent('form').submit();
-                    } else {
-                        jQuery(state.wrapper).find(parameters.inputIdHashTagName).focus();
-                    }
-                }
-                autosize.update(jQuery(state.wrapper).find(parameters.inputIdHashTagName));
-            });
-
             //binds form submit to state functions
             jQuery(inputForm).submit(function(e){
                 e.preventDefault();
                 var answer = jQuery(this).find(parameters.inputIdHashTagName).val();
                 jQuery(this).find(parameters.inputIdHashTagName).val("");
-                if(state.current.input.type == 'select'){
-                    if(!state.current.input.multiple){
-                        state.answerWith(state.current.input.selected.text, state.current.input.selected);
+                if (answer.length != 0) {
+                    if(state.current.input.type == 'select'){
+                        if(!state.current.input.multiple){
+                            state.answerWith(state.current.input.selected.text, state.current.input.selected);
+                        } else {
+                            state.answerWith(state.current.input.selected.join(', '), state.current.input.selected);
+                        }
                     } else {
-                        state.answerWith(state.current.input.selected.join(', '), state.current.input.selected);
+                        state.answerWith(answer, answer);
                     }
                 } else {
-                    state.answerWith(answer, answer);
+
                 }
             });
 

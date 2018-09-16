@@ -1,3 +1,8 @@
+function scrollPage() {
+	var y = jQuery(window).scrollTop();
+	jQuery("html, body").animate({ scrollTop: y + jQuery(window).height() }, 800);
+}
+
 function createNext(count, content, type, answers, length) {
 
 	// DISABLE INPUT SOMEWHERE
@@ -9,8 +14,6 @@ function createNext(count, content, type, answers, length) {
 
 		if (type == "Text") {
 			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
-		} else if (type == "Prompt") {
-			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
 		} else if (type == "User Input") {
 			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
 		} else if (type == "Video") {
@@ -21,7 +24,6 @@ function createNext(count, content, type, answers, length) {
 			}
 		}
 		
-
 		if (type === "Prompt") {
 			for (var i in answers) {
 				jQuery("body").find('#messages').append('<div class="option" data-value="' + answers[i].prompt + '"><div class="shortcut-key">' + answers[i].prompt_shortcut_key + '</div>' + answers[i].prompt + '</div>');
@@ -37,8 +39,7 @@ function createNext(count, content, type, answers, length) {
 				jQuery(".message.to.typing").remove();
 			}, 300);
 		}
-
-		jQuery("#messages").animate({ scrollTop: jQuery('#messages').prop("scrollHeight") }, 800);
+		scrollPage();
 
 	}, 1500 * count);
 
@@ -60,7 +61,9 @@ jQuery(function ($) {
 	var convForm = $('#chat').convform({
 		eventList: {
 			onInputSubmit: function (convState, ready) {
-				console.log(convState);
+				// console.log(convState);
+				scrollPage();
+
 				if (convState.current.answer.value === 'end') {
 					convState.current.next = false;
 					setTimeout(ready, Math.random() * 500 + 100);
@@ -68,7 +71,7 @@ jQuery(function ($) {
 					jQuery.ajax({
 						type: 'POST',
 						dataType: 'JSON',
-						url: 'chat-query?term=' + convState.current.answer.value,
+						url: 'api?term=' + convState.current.answer.value,
 						success: function (response) {
 
 							console.log(response);
@@ -81,7 +84,6 @@ jQuery(function ($) {
 								if (type==="Text") {
 									var content = response[i].text_response;
 								} else if (type === "Prompt") {
-									var content = response[i].prompt_response;
 									var answers = response[i].prompt_data_array;
 								} else if (type === "User Input") {
 									var content = "something";
