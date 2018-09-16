@@ -1,36 +1,61 @@
+function createNext(count, content, type, answers, length) {
+
+	// DISABLE INPUT SOMEWHERE
+	// jQuery('#convForm button').attr('disabled');
+
+	setTimeout(function () {
+
+		jQuery(".message.to.typing").remove();
+
+		if (type == "Text") {
+			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
+		} else if (type == "Prompt") {
+			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
+		} else if (type == "User Input") {
+			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
+		} else if (type == "Video") {
+			jQuery("body").find('#messages').append('<div class="message-video"><div class="embed-container"><iframe src="https://player.vimeo.com/video/' + content + '?autoplay=1&color=fbfbfb&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>');
+		} else if (type === "Content") {
+			for (var i in content) {
+				jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"></div>');
+			}
+		}
+		
+
+		if (type === "Prompt") {
+			for (var i in answers) {
+				jQuery("body").find('#messages').append('<div class="option" data-value="' + answers[i].prompt + '"><div class="shortcut-key">' + answers[i].prompt_shortcut_key + '</div>' + answers[i].prompt + '</div>');
+			}
+		}
+
+		setTimeout(function () {
+			jQuery("body").find('#messages').append('<div class="message to typing"><div class="typing_loader"></div></div>');
+		}, 300);
+
+		if (count === length - 1) {
+			setTimeout(function () {
+				jQuery(".message.to.typing").remove();
+			}, 300);
+		}
+
+		jQuery("#messages").animate({ scrollTop: jQuery('#messages').prop("scrollHeight") }, 800);
+
+	}, 1500 * count);
+
+	// DISABLE INPUT SOMEWHERE
+	// setTimeout(function () {
+
+	// 	jQuery('#convForm button').removeAttr('disabled');
+
+	// }, 1200 * length - 1);
+}
+
 jQuery(function ($) {
 
 	jQuery('body').on('click', '.option', function () {
-		jQuery('#userInput').attr('value', 'watch the showreel');
+		jQuery('#userInput').attr('value', jQuery(this).attr('data-value'));
 		jQuery("button").click();
 	});
-
-	function createNext(count, content, type, answers, length) {
-		setTimeout(function () {
-			
-			jQuery(".message.to.typing").remove();
-			
-			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
-			
-			setTimeout(function () {
-				jQuery("body").find('#messages').append('<div class="message to typing"><div class="typing_loader"></div></div>');
-			}, 300);
-
-			if (count === length-1) {
-				setTimeout(function () {
-					jQuery(".message.to.typing").remove();
-				}, 300);
-			}
-
-			// ADD IF PROMPT/INPUT LOGIC
-			if (count===5) {
-				jQuery("body").find('#convForm .options').append('<div class="option">prompt 1</div><div class="option">prompt 2</div>');
-			}
-			
-			jQuery("#messages").animate({ scrollTop: jQuery('#messages').prop("scrollHeight") }, 300);
-
-		}, 1500 * count);
-	}
 
 	var convForm = $('#chat').convform({
 		eventList: {
@@ -63,6 +88,8 @@ jQuery(function ($) {
 									var answers = response[i].user_input_data_array;
 								} else if (type === "Video") {
 									var content = response[i].video_response;
+								} else if (type === "Content") {
+									var content = response[i].content_response;
 								}
 
 								createNext(count, content, type, answers, response.length);
@@ -85,4 +112,5 @@ jQuery(function ($) {
 		buttonText: "→"
 		// timeOutFirstQuestion: 15000
 	});
+
 });

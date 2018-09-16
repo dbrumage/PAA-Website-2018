@@ -15,68 +15,68 @@
 }
 @-webkit-keyframes typing{
     0%{
-        background-color: rgba(255,255,255, 1);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,0.2);
+        background-color: rgba(194, 24, 91, 1);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
+        24px 0px 0px 0px rgba(194, 24, 91,0.2);
     }
     50% {
-        background-color: rgba(255,255,255, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,1),
-        24px 0px 0px 0px rgba(255,255,255,0.4);
+        background-color: rgba(194, 24, 91, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,1),
+        24px 0px 0px 0px rgba(194, 24, 91,0.4);
     }
-    100%{ background-color: rgba(255,255,255, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,1);
+    100%{ background-color: rgba(194, 24, 91, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
+        24px 0px 0px 0px rgba(194, 24, 91,1);
     }
 }
 
 @-moz-keyframes typing{
     0%{
-        background-color: rgba(255,255,255, 1);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,0.2);
+        background-color: rgba(194, 24, 91, 1);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
+        24px 0px 0px 0px rgba(194, 24, 91,0.2);
     }
     50% {
-        background-color: rgba(255,255,255, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,1),
-        24px 0px 0px 0px rgba(255,255,255,0.4);
+        background-color: rgba(194, 24, 91, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,1),
+        24px 0px 0px 0px rgba(194, 24, 91,0.4);
     }
-    100%{ background-color: rgba(255,255,255, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,1);
+    100%{ background-color: rgba(194, 24, 91, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
+        24px 0px 0px 0px rgba(194, 24, 91,1);
     }
 }
 
 @keyframes typing-black{
     0%{
-        background-color: rgba(74, 74, 74, 1);
-        box-shadow: 12px 0px 0px 0px rgba(74, 74, 74, 0.4),
-        24px 0px 0px 0px rgba(74, 74, 74, 0.2);
+        background-color: rgba(194, 24, 91, 1);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91, 0.4),
+        24px 0px 0px 0px rgba(194, 24, 91, 0.2);
     }
     50% {
-        background-color: rgba(74, 74, 74, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(74, 74, 74, 1),
-        24px 0px 0px 0px rgba(74, 74, 74,0.4);
+        background-color: rgba(194, 24, 91, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91, 1),
+        24px 0px 0px 0px rgba(194, 24, 91,0.4);
     }
-    100%{ background-color: rgba(74, 74, 74, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(74, 74, 74,0.4),
-        24px 0px 0px 0px rgba(74, 74, 74,1);
+    100%{ background-color: rgba(194, 24, 91, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
+        24px 0px 0px 0px rgba(194, 24, 91,1);
     }
 }
 @keyframes typing{
     0%{
-        background-color: rgba(255,255,255, 1);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,0.2);
+        background-color: rgba(194, 24, 91, 1);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
+        24px 0px 0px 0px rgba(194, 24, 91,0.2);
     }
     50% {
-        background-color: rgba(255,255,255, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,1),
-        24px 0px 0px 0px rgba(255,255,255,0.4);
+        background-color: rgba(194, 24, 91, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,1),
+        24px 0px 0px 0px rgba(194, 24, 91,0.4);
     }
-    100%{ background-color: rgba(255,255,255, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,1);
+    100%{ background-color: rgba(194, 24, 91, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
+        24px 0px 0px 0px rgba(194, 24, 91,1);
     }
 }
 
@@ -186,19 +186,10 @@ textarea.userInputDynamic {
 div.conv-form-wrapper div#messages {
     position: absolute;
     top: 0px;
-
     width: 100%;
     padding-top: 20px;
 }
-div.conv-form-wrapper div.options {
-    word-wrap: normal;
-    white-space: nowrap;
-    overflow-x: scroll;
-    position: absolute;
-    bottom: 100%;
-    width: 100%;
-    transform: translateY(-5px);
-}
+
 div.conv-form-wrapper div.options:after {
     content: '';
     display: table;
@@ -238,7 +229,6 @@ div.conv-form-wrapper  div#messages div.message {
     margin-bottom: 5px;
     float: right;
     clear: both;
-    max-width: 65%;
     word-wrap: break-word;
 }
 div.conv-form-wrapper  div#messages div.message.to {
@@ -257,6 +247,45 @@ div.conv-form-wrapper div#messages div.message.from {
 div.conv-form-wrapper  div#messages div.message.to:last-child {
     background:rgba(255,255,255, 0.8);
 }
+
+div.conv-form-wrapper  div#messages div.option {
+    font-size: 0.905rem;
+    color: #004C87;
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 0px 10px 0px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    float: left;
+    clear: both;
+    max-width: 25%;
+    word-wrap: break-word;
+    animation: bounceIn 0.4s ease;
+    transform-origin: 0 0 0;
+}
+
+div.conv-form-wrapper  div#messages div.option div.shortcut-key {
+    border-radius: 2px;
+    border: 1px solid #004C87;
+    font-size: 0.905rem;
+    color: #004C87;
+    display: inline-block;
+    padding: 10px 15px;
+    margin-right: 10px;
+}
+
+div.conv-form-wrapper  div#messages div.message-video {
+    padding: 0px;
+    margin-bottom: 5px;
+    float: left;
+    clear: both;
+    max-width: 100%;
+    width: 100%;
+    animation: bounceIn 0.4s ease;
+    transform-origin: 0 0 0;
+}
+
+.embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 @keyframes slideTop {
     0% {
@@ -338,14 +367,14 @@ span.clear {
 .spinLoader,
 .spinLoader:before,
 .spinLoader:after {
-    background: rgba(255,255,255, 0.5) !important;
+    background: rgba(194, 24, 91, 0.5) !important;
     -webkit-animation: spinLoaderChat 1s infinite ease-in-out;
     animation: spinLoaderChat 1s infinite ease-in-out;
     width: 1em;
     height: 4em;
 }
 .spinLoader {
-    color:rgba(255,255,255, 0.5) !important;
+    color:rgba(194, 24, 91, 0.5) !important;
     text-indent: -9999em;
     margin: 50% auto;
     position: relative;

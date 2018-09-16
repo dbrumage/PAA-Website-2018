@@ -1,13 +1,3 @@
-function createCallback(res) {
-    if (res) {
-        console.log('yes');
-    } else {
-        console.log('no');
-    }
-    console.log(res);
-    return true;
-}
-
 var entityMap = {
     '&': '&amp;',
     '<': '&lt;',
