@@ -236,6 +236,26 @@ div.conv-form-wrapper  div#messages div.message-video {
     transform-origin: 0 0 0;
 }
 
+div.conv-form-wrapper  div#messages div.message.link {
+    position: relative;
+    padding-bottom: 45px;
+}
+
+div.conv-form-wrapper  div#messages div.message.link a {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    display: block;
+    clear: both;
+    background: #004C87;
+    color: #FF8D9C;
+    font-size: 12px;
+    padding: 10px;
+    left: 0px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
 .embed-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; height: auto; } .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
 
 @keyframes slideTop {

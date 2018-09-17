@@ -59,21 +59,32 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                         'prompt_data_array' =>  $prompt_data_array
                     );
                 } else if (get_sub_field('response_type')=="User Input") {
-                    $input_data = array();
-                    while ( have_rows('user_input_response') ) : the_row();
-                        $input_data_array[] = array(
-                            'user_input_response_type' => get_sub_field('user_input_response_type'),
-                            'user_input_response_text' => get_sub_field('user_input_response_text')
-                        );
-                    endwhile;
                     $post_data[] = array(
                         'response_type' => get_sub_field('response_type'),
-                        'user_input_data_array' =>  $input_data_array
+                        'user_input_response_type' => get_sub_field('user_input_response_type'),
+                        'user_input_response_text' => get_sub_field('user_input_response_text')
                     );
                 } else if (get_sub_field('response_type')=="Video") {            
                     $post_data[] = array(
                         'response_type' => get_sub_field('response_type'),
                         'video_response' => get_sub_field('video_response')
+                    );
+                } else if (get_sub_field('response_type')=="Image") {            
+                    $post_data[] = array(
+                        'response_type' => get_sub_field('response_type'),
+                        'image_response' => get_sub_field('image_response')
+                    );
+                } else if (get_sub_field('response_type')=="HTML") {            
+                    $post_data[] = array(
+                        'response_type' => get_sub_field('response_type'),
+                        'html_response' => get_sub_field('html_response')
+                    );
+                } else if (get_sub_field('response_type')=="Link") {            
+                    $post_data[] = array(
+                        'response_type' => get_sub_field('response_type'),
+                        'link_response_pre_text' => get_sub_field('link_response_pre_text'),
+                        'link_response_text' => get_sub_field('link_response_text'),
+                        'link_response_url' => get_sub_field('link_response_url')
                     );
                 } else if (get_sub_field('response_type')=="Content") {   
                     if (get_sub_field('content_response_type')=="Work List") {
@@ -85,9 +96,11 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                         while ( $the_query->have_posts() ) : $the_query->the_post();
                             $content_data_array[] = array(
                                 'title' => get_the_title(),
-                                'client' => get_field('client'),
-                                'case_study' => get_field('case_study'),
-                                'image' => get_field('image')
+                                'client' => get_the_title(get_field('client')),
+                                'case_study_url' => get_the_permalink(get_field('case_study')),
+                                'case_study_title' => get_the_title(get_field('case_study')),
+                                'image' => get_field('image'),
+                                'content_type' => 'Work List'
                             );
                         endwhile;
                     }

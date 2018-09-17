@@ -16,6 +16,10 @@ input, button {
 	box-shadow:none !important;
 }
 
+a {
+	color: #004C87;
+}
+
 .form-control {
     border-color: #fff;
 }

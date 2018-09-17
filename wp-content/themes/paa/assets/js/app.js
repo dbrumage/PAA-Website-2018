@@ -1,9 +1,10 @@
 function scrollPage() {
-	var y = jQuery(window).scrollTop();
-	jQuery("html, body").animate({ scrollTop: y + jQuery(window).height() }, 800);
+	jQuery("html, body").animate({
+		scrollTop: document.body.scrollHeight
+	}, 600);
 }
 
-function createNext(count, content, type, answers, length) {
+function createNext(count, content, type, answers, length, link_response_pre_text, link_response_text, link_response_url) {
 
 	// DISABLE INPUT SOMEWHERE
 	// jQuery('#convForm button').attr('disabled');
@@ -14,13 +15,23 @@ function createNext(count, content, type, answers, length) {
 
 		if (type == "Text") {
 			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
-		} else if (type == "User Input") {
-			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
-		} else if (type == "Video") {
+		}
+		
+		if (type == "Video") {
 			jQuery("body").find('#messages').append('<div class="message-video"><div class="embed-container"><iframe src="https://player.vimeo.com/video/' + content + '?autoplay=1&color=fbfbfb&title=0&byline=0&portrait=0" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div>');
-		} else if (type === "Content") {
+		}
+
+		if (type == "Image") {
+			jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content + '" width="100%"></div>');
+		}
+
+		if (type == "HTML") {
+			jQuery("body").find('#messages').append('' + content + '');
+		}
+		
+		if (type === "Content") {
 			for (var i in content) {
-				jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"></div>');
+				jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].client + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
 			}
 		}
 		
@@ -30,15 +41,25 @@ function createNext(count, content, type, answers, length) {
 			}
 		}
 
-		setTimeout(function () {
-			jQuery("body").find('#messages').append('<div class="message to typing"><div class="typing_loader"></div></div>');
-		}, 300);
+		if (type == "Link") {
+			jQuery("body").find('#messages').append('<div class="message to ready link">' + link_response_pre_text + '<a href="' + link_response_url + '" class="message-link" target="_blank">' + link_response_text + '</a></div>');
+		}
+
+		// SORT THIS HACK, ADD BEFORE TRIGGERS
+		if (type === "User Input" || content === "Great. To start, give us your name." || content === "Enter your email address so Laura can get back to you.") {
+
+		} else {
+			setTimeout(function () {
+				jQuery("body").find('#messages').append('<div class="message to typing"><div class="typing_loader"></div></div>');
+			}, 300);
+		}
 
 		if (count === length - 1) {
 			setTimeout(function () {
 				jQuery(".message.to.typing").remove();
 			}, 300);
 		}
+
 		scrollPage();
 
 	}, 1500 * count);
@@ -58,7 +79,7 @@ jQuery(function ($) {
 		jQuery("button").click();
 	});
 
-	var convForm = $('#chat').convform({
+	var convForm = jQuery('#chat').convform({
 		eventList: {
 			onInputSubmit: function (convState, ready) {
 				// console.log(convState);
@@ -68,33 +89,53 @@ jQuery(function ($) {
 					convState.current.next = false;
 					setTimeout(ready, Math.random() * 500 + 100);
 				} else {
+					if (jQuery("input[data-user-input='Name']").length) {
+						var api_value = "user-email";
+					} else if (jQuery("input[data-user-input='Email']").length) {
+						var api_value = "form-submitted";
+						jQuery("#userInput").removeAttr('data-user-input');
+					} else {
+						var api_value = convState.current.answer.value;
+					}
+
 					jQuery.ajax({
 						type: 'POST',
 						dataType: 'JSON',
-						url: 'api?term=' + convState.current.answer.value,
+						url: 'api?term=' + api_value,
 						success: function (response) {
 
 							console.log(response);
+
 							var count = 0;
 					
 							for (var i in response) {
 
 								var type = response[i].response_type;
+								var length = response.length;
 
 								if (type==="Text") {
 									var content = response[i].text_response;
 								} else if (type === "Prompt") {
 									var answers = response[i].prompt_data_array;
 								} else if (type === "User Input") {
-									var content = "something";
-									var answers = response[i].user_input_data_array;
+									var user_input_response_type = response[i].user_input_response_type;
+									var user_input_response_text = response[i].user_input_response_text;
+									jQuery("#userInput").attr('data-user-input', user_input_response_type);
 								} else if (type === "Video") {
 									var content = response[i].video_response;
+								} else if (type === "Image") {
+									var content = response[i].image_response;
+								} else if (type === "HTML") {
+									var content = response[i].html_response;
+								} else if (type === "Link") {
+									var link_response_pre_text = response[i].link_response_pre_text;
+									var link_response_text = response[i].link_response_text;
+									var link_response_url = response[i].link_response_url;
 								} else if (type === "Content") {
 									var content = response[i].content_response;
 								}
 
-								createNext(count, content, type, answers, response.length);
+								createNext(count, content, type, answers, length, link_response_pre_text, link_response_text, link_response_url);
 
 								count++;
 							}
