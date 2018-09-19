@@ -228,7 +228,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
 
         echo json_encode( $post_data );
 
-    } else if ($the_query->post_count==0) {
+    } else if ($the_query->post_count==0 && $_GET['contact']!=1) {
         $args = array(
             'post_type' => 'chat',
             'posts_per_page' => '-1',
