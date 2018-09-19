@@ -3,14 +3,19 @@ function scrollPage() {
 		scrollTop: document.body.scrollHeight
 	}, 600);
 }
-function isEmail(email) {
+function validateEmail(email) {
 	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
 	return emailReg.test(email);
 }
 
-function isName(name) {
+function validateName(name) {
 	var nameReg = /^[a-z][a-z '-.,]{0,31}$|^$/i;
 	return nameReg.test(name);
+}
+
+function validateMessage(message) {
+	var messageReg = /^[a-z][a-z '-.,]{0,31}$|^$/i;
+	return messageReg.test(message);
 }
 
 function ajaxCall(api_url) {
@@ -114,7 +119,9 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 			}, 300);
 		}
 
-		scrollPage();
+		if (type != "Content") {
+			scrollPage();
+		}
 
 		if (count === length - 1) {
 			setTimeout(function () {
@@ -132,7 +139,26 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 	// }, 1200 * length - 1);
 }
 
+var idleTime = 0;
+
+function timerIncrement() {
+	idleTime = idleTime + 1;
+	if (idleTime > 100) {
+		ajaxCall('api?term=user-idol&idol=1');
+	}
+}
+
 jQuery(function ($) {
+
+	// var idleInterval = setInterval(timerIncrement, 10000);
+
+	// $(this).mousemove(function (e) {
+	// 	idleTime = 0;
+	// });
+	// $(this).keypress(function (e) {
+	// 	idleTime = 0;
+	// });
+
 	jQuery('body').on('click', '.option', function () {
 		jQuery('#userInput').attr('value', jQuery(this).attr('data-value'));
 		jQuery("button").click();
@@ -145,9 +171,12 @@ jQuery(function ($) {
 				scrollPage();
 
 				if (convState.current.answer.value === 'end') {
+
 					convState.current.next = false;
 					setTimeout(ready, Math.random() * 500 + 100);
+
 				} else {
+
 					var userInput = convState.current.answer.value;
 					var api_value;
 					var api_url;
@@ -159,11 +188,13 @@ jQuery(function ($) {
 							url: 'api?contact=1&term=' + userInput,
 							success: function (response) {
 								if (response == null) {
-									if (isName(userInput) === false) {
+									if (validateName(userInput) === false) {
 										api_value = userInput;
 										api_url = 'api?contact=1&term=no';
 										jQuery("#userInput").removeAttr('data-user-input');
 									} else {
+										var contactName = userInput;
+										// STORE IN HIDDEN INPUT HERE
 										api_value = "contact-email";
 										api_url = 'api?term=' + api_value;
 									}
@@ -179,16 +210,25 @@ jQuery(function ($) {
 						});
 					} else if (jQuery("input[data-user-input='Email']").length) {
 						jQuery("#userInput").removeAttr('data-user-input');
-						if (isEmail(userInput) === false) {
+						if (validateEmail(userInput) === false) {
 							api_value = userInput;
 							api_url = 'api?contact=1&term=email-error';
 							jQuery("#userInput").removeAttr('data-user-input');
 							ajaxCall(api_url);
-						} else if (isEmail(userInput) === true) {
-							api_value = "contact-thankyou";
+						} else if (validateEmail(userInput) === true) {
+							var contactEmail = userInput;
+							// STORE IN HIDDEN INPUT HERE
+							api_value = "contact-message";
 							api_url = 'api?term=' + api_value;
 							ajaxCall(api_url);
 						}
+					} else if (jQuery("input[data-user-input='Message']").length) {
+						jQuery("#userInput").removeAttr('data-user-input');
+							var contactMessage = escapeHtml(userInput);
+							// STORE IN HIDDEN INPUT HERE
+							api_value = "contact-thankyou";
+							api_url = 'api?term=' + api_value;
+							ajaxCall(api_url);
 					} else {
 						var api_value = userInput;
 						var api_url = 'api?term=' + api_value;

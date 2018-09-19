@@ -33,6 +33,24 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                 )
             )
         );
+    } else if ($_GET['idol']==1) {
+        $args = array(
+            'post_type' => 'chat',
+            'posts_per_page' => '-1',
+            'meta_query' => array(
+                'relation' => 'AND',
+                array(
+                    'key'     => 'trigger_%_user_input',
+                    'value'   => $_GET['term'],
+                    'compare' => '=',
+                ),
+                array(
+                    'key'     => 'dialog_type',
+                    'value'   => 'Follow Up',
+                    'compare' => '=',
+                )
+            )
+        );
     } else {
         $args = array(
             'post_type' => 'chat',
