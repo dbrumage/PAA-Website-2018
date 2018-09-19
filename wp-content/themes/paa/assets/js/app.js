@@ -3,8 +3,62 @@ function scrollPage() {
 		scrollTop: document.body.scrollHeight
 	}, 600);
 }
+function isEmail(email) {
+	var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+	return emailReg.test(email);
+}
 
-function createNext(count, content, type, answers, length, link_response_pre_text, link_response_text, link_response_url) {
+function isName(name) {
+	var nameReg = /^[a-z][a-z '-.,]{0,31}$|^$/i;
+	return nameReg.test(name);
+}
+
+function ajaxCall(api_url) {
+	jQuery.ajax({
+		type: 'POST',
+		dataType: 'JSON',
+		url: api_url,
+		success: function (response) {
+			console.log(response);
+			var count = 0;
+
+			for (var i in response) {
+				var type = response[i].response_type;
+				var next_field_behaviour = response[i].next_field_behaviour;
+				var length = response.length;
+
+				if (type === "Text") {
+					var content = response[i].text_response;
+				} else if (type === "Prompt") {
+					var answers = response[i].prompt_data_array;
+				} else if (type === "User Input") {
+					var user_input_response_type = response[i].user_input_response_type;
+					var user_input_response_text = response[i].user_input_response_text;
+					jQuery("#userInput").attr('data-user-input', user_input_response_type);
+				} else if (type === "Video") {
+					var content = response[i].video_response;
+				} else if (type === "Image") {
+					var content = response[i].image_response;
+				} else if (type === "HTML") {
+					var content = response[i].html_response;
+				} else if (type === "Link") {
+					var link_response_pre_text = response[i].link_response_pre_text;
+					var link_response_text = response[i].link_response_text;
+					var link_response_url = response[i].link_response_url;
+				} else if (type === "Content") {
+					var content = response[i].content_response;
+				}
+
+				createNext(count, content, type, next_field_behaviour, answers, length, link_response_pre_text, link_response_text, link_response_url);
+
+				count++;
+			}
+
+		}
+	});
+}
+
+function createNext(count, content, type, next_field_behaviour, answers, length, link_response_pre_text, link_response_text, link_response_url) {
 
 	// DISABLE INPUT SOMEWHERE
 	// jQuery('#convForm button').attr('disabled');
@@ -31,7 +85,15 @@ function createNext(count, content, type, answers, length, link_response_pre_tex
 		
 		if (type === "Content") {
 			for (var i in content) {
-				jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].client + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
+				if (content[i].content_type === "Work List" || content[i].content_type === "Work Items") {
+					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br />' + content[i].client + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
+				}
+				if (content[i].content_type === "Client List" || content[i].content_type === "Client Items") {
+					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
+				}
+				if (content[i].content_type === "Case Study List" || content[i].content_type === "Case Study Items") {
+					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">Case Study URL</a></div>');
+				}
 			}
 		}
 		
@@ -45,22 +107,20 @@ function createNext(count, content, type, answers, length, link_response_pre_tex
 			jQuery("body").find('#messages').append('<div class="message to ready link">' + link_response_pre_text + '<a href="' + link_response_url + '" class="message-link" target="_blank">' + link_response_text + '</a></div>');
 		}
 
-		// SORT THIS HACK, ADD BEFORE TRIGGERS
-		if (type === "User Input" || content === "Great. To start, give us your name." || content === "Enter your email address so Laura can get back to you.") {
-
+		if (type === "User Input" || next_field_behaviour === "Next field is user input") {
 		} else {
 			setTimeout(function () {
 				jQuery("body").find('#messages').append('<div class="message to typing"><div class="typing_loader"></div></div>');
 			}, 300);
 		}
 
+		scrollPage();
+
 		if (count === length - 1) {
 			setTimeout(function () {
 				jQuery(".message.to.typing").remove();
 			}, 300);
 		}
-
-		scrollPage();
 
 	}, 1500 * count);
 
@@ -73,7 +133,6 @@ function createNext(count, content, type, answers, length, link_response_pre_tex
 }
 
 jQuery(function ($) {
-
 	jQuery('body').on('click', '.option', function () {
 		jQuery('#userInput').attr('value', jQuery(this).attr('data-value'));
 		jQuery("button").click();
@@ -82,69 +141,59 @@ jQuery(function ($) {
 	var convForm = jQuery('#chat').convform({
 		eventList: {
 			onInputSubmit: function (convState, ready) {
-				// console.log(convState);
+
 				scrollPage();
 
 				if (convState.current.answer.value === 'end') {
 					convState.current.next = false;
 					setTimeout(ready, Math.random() * 500 + 100);
 				} else {
+					var userInput = convState.current.answer.value;
+					var api_value;
+					var api_url;
+
 					if (jQuery("input[data-user-input='Name']").length) {
-						var api_value = "user-email";
-					} else if (jQuery("input[data-user-input='Email']").length) {
-						var api_value = "form-submitted";
-						jQuery("#userInput").removeAttr('data-user-input');
-					} else {
-						var api_value = convState.current.answer.value;
-					}
-
-					jQuery.ajax({
-						type: 'POST',
-						dataType: 'JSON',
-						url: 'api?term=' + api_value,
-						success: function (response) {
-
-							console.log(response);
-
-							var count = 0;
-					
-							for (var i in response) {
-
-								var type = response[i].response_type;
-								var length = response.length;
-
-								if (type==="Text") {
-									var content = response[i].text_response;
-								} else if (type === "Prompt") {
-									var answers = response[i].prompt_data_array;
-								} else if (type === "User Input") {
-									var user_input_response_type = response[i].user_input_response_type;
-									var user_input_response_text = response[i].user_input_response_text;
-									jQuery("#userInput").attr('data-user-input', user_input_response_type);
-								} else if (type === "Video") {
-									var content = response[i].video_response;
-								} else if (type === "Image") {
-									var content = response[i].image_response;
-								} else if (type === "HTML") {
-									var content = response[i].html_response;
-								} else if (type === "Link") {
-									var link_response_pre_text = response[i].link_response_pre_text;
-									var link_response_text = response[i].link_response_text;
-									var link_response_url = response[i].link_response_url;
-								} else if (type === "Content") {
-									var content = response[i].content_response;
+						jQuery.ajax({
+							type: 'POST',
+							dataType: 'JSON',
+							url: 'api?contact=1&term=' + userInput,
+							success: function (response) {
+								if (response == null) {
+									if (isName(userInput) === false) {
+										api_value = userInput;
+										api_url = 'api?contact=1&term=no';
+										jQuery("#userInput").removeAttr('data-user-input');
+									} else {
+										api_value = "contact-email";
+										api_url = 'api?term=' + api_value;
+									}
+									ajaxCall(api_url);
 								}
-
-								createNext(count, content, type, answers, length, link_response_pre_text, link_response_text, link_response_url);
-
-								count++;
+								else {
+									api_value = userInput;
+									api_url = 'api?contact=1&term=' + api_value;
+									jQuery("#userInput").removeAttr('data-user-input');
+									ajaxCall(api_url);
+								}
 							}
-							
-						},
-						error: function (XMLHttpRequest, textStatus, errorThrown) {
-							console.log("Status: " + textStatus); console.log("Error: " + errorThrown);
+						});
+					} else if (jQuery("input[data-user-input='Email']").length) {
+						jQuery("#userInput").removeAttr('data-user-input');
+						if (isEmail(userInput) === false) {
+							api_value = userInput;
+							api_url = 'api?contact=1&term=email-error';
+							jQuery("#userInput").removeAttr('data-user-input');
+							ajaxCall(api_url);
+						} else if (isEmail(userInput) === true) {
+							api_value = "contact-thankyou";
+							api_url = 'api?term=' + api_value;
+							ajaxCall(api_url);
 						}
-					});
+					} else {
+						var api_value = userInput;
+						var api_url = 'api?term=' + api_value;
+						ajaxCall(api_url);
+					}
 					
 				}
 			
