@@ -174,6 +174,21 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                                 'content_type' => 'Work Items'
                             );
                         endwhile;
+                    } else if (get_sub_field('content_response_type')=="Generic Content Items") {
+                        $args = array(
+                            'post_type' => 'page',
+                            'post__in' => get_sub_field('generic_content_items'),
+                            'posts_per_page' => '-1'
+                        );
+                        $the_query = new WP_Query($args);
+                        while ( $the_query->have_posts() ) : $the_query->the_post();
+                            $content_data_array[] = array(
+                                'title' => get_the_title(get_the_ID()),
+                                'permalink' => get_the_permalink(get_the_ID()),
+                                'image' => get_the_post_thumbnail_url(get_the_ID(), 'full'),
+                                'content_type' => 'Generic Content Items'
+                            );
+                        endwhile;
                     } else if (get_sub_field('content_response_type')=="Client List") {
                         $args = array(
                             'post_type' => 'clients',
@@ -181,12 +196,39 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                         );
                         $the_query = new WP_Query($args);
                         while ( $the_query->have_posts() ) : $the_query->the_post();
+                            $postId = get_the_ID();
+                            $args2 = array(
+                                'post_type' => 'work',
+                                'posts_per_page' => '-1',
+                                'meta_query' => array(
+                                    'relation' => 'AND',
+                                    array(
+                                        'key'     => 'client',
+                                        'value'   => $postId,
+                                        'compare' => '=',
+                                    )
+                                )
+                            );
+                            $the_query2 = new WP_Query($args2);
+                            while ( $the_query2->have_posts() ) : $the_query2->the_post();
+                                $content_data_array2[] = array(
+                                    'title' => get_the_title(),
+                                    'client' => get_the_title(get_field('client')),
+                                    'case_study_url' => get_the_permalink(get_field('case_study')),
+                                    'case_study_title' => get_the_title(get_field('case_study')),
+                                    'image' => get_field('image'),
+                                    'content_type' => 'Work Items'
+                                );
+                            endwhile;
                             $content_data_array[] = array(
-                                'title' => get_the_title(),
+                                'title' => get_the_title($postId),
                                 'case_study_url' => get_the_permalink(get_field('case_study')),
                                 'case_study_title' => get_the_title(get_field('case_study')),
-                                'image' => get_field('image'),
-                                'content_type' => 'Client List'
+                                'link_type' => get_field('link_type', $postId),
+                                'link_text' => get_field('link_text', $postId),
+                                'image' => get_field('image', $postId),
+                                'content_type' => 'Client List',
+                                'work_items' => $content_data_array2
                             );
                         endwhile;
                     } else if (get_sub_field('content_response_type')=="Client Items") {
@@ -197,12 +239,39 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                         );
                         $the_query = new WP_Query($args);
                         while ( $the_query->have_posts() ) : $the_query->the_post();
+                            $postId = get_the_ID();
+                            $args2 = array(
+                                'post_type' => 'work',
+                                'posts_per_page' => '-1',
+                                'meta_query' => array(
+                                    'relation' => 'AND',
+                                    array(
+                                        'key'     => 'client',
+                                        'value'   => $postId,
+                                        'compare' => '=',
+                                    )
+                                )
+                            );
+                            $the_query2 = new WP_Query($args2);
+                            while ( $the_query2->have_posts() ) : $the_query2->the_post();
+                                $content_data_array2[] = array(
+                                    'title' => get_the_title(),
+                                    'client' => get_the_title(get_field('client')),
+                                    'case_study_url' => get_the_permalink(get_field('case_study')),
+                                    'case_study_title' => get_the_title(get_field('case_study')),
+                                    'image' => get_field('image'),
+                                    'content_type' => 'Work Items'
+                                );
+                            endwhile;
                             $content_data_array[] = array(
-                                'title' => get_the_title(),
+                                'title' => get_the_title($postId),
                                 'case_study_url' => get_the_permalink(get_field('case_study')),
                                 'case_study_title' => get_the_title(get_field('case_study')),
-                                'image' => get_field('image'),
-                                'content_type' => 'Client Items'
+                                'link_type' => get_field('link_type', $postId),
+                                'link_text' => get_field('link_text', $postId),
+                                'image' => get_field('image', $postId),
+                                'content_type' => 'Client Items',
+                                'work_items' => $content_data_array2
                             );
                         endwhile;
                     } else if (get_sub_field('content_response_type')=="Case Study List") {
@@ -234,7 +303,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                                 'content_type' => 'Case Study Items'
                             );
                         endwhile;
-                    } 
+                    }
                     $post_data[] = array(
                         'response_type' => get_sub_field('response_type'),
                         'next_field_behaviour' => get_sub_field('next_field_behaviour'),

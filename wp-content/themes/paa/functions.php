@@ -5,6 +5,7 @@ if (!defined('ABSPATH')) exit;
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function paa_setup() {
+    
     /**
      * Enqueue styles.
      */
@@ -64,6 +65,11 @@ function paa_setup() {
         );
     }
     add_action( 'wp_enqueue_scripts', 'load_scripts' );
+
+    /**
+     * Post thumbnails
+     */
+    add_theme_support('post-thumbnails');
 
     /**
      * Register Work Post Type
@@ -136,7 +142,7 @@ function paa_setup() {
             'label'               => __( 'case-studies', 'case-studies' ),
             'description'         => __( 'Case Studies', 'case-studies' ),
             'labels'              => $labels,
-            'supports'            => array( 'title', 'page-attributes' ),
+            'supports'            => array( 'title', 'page-attributes'),
             'hierarchical'        => true,
             'public'              => true,
             'show_ui'             => true,

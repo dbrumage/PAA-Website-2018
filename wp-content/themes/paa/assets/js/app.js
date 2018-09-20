@@ -65,7 +65,7 @@ function ajaxCall(api_url) {
 
 function createNext(count, content, type, next_field_behaviour, answers, length, link_response_pre_text, link_response_text, link_response_url) {
 
-	// DISABLE INPUT SOMEWHERE
+	// TODO DISABLE INPUT SOMEWHERE
 	// jQuery('#convForm button').attr('disabled');
 
 	setTimeout(function () {
@@ -99,6 +99,9 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 				if (content[i].content_type === "Case Study List" || content[i].content_type === "Case Study Items") {
 					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">Case Study URL</a></div>');
 				}
+				if (content[i].content_type === "Generic Content Items") {
+					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].permalink + '">Expand section</a></div>');
+				}
 			}
 		}
 		
@@ -131,7 +134,7 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 
 	}, 1500 * count);
 
-	// DISABLE INPUT SOMEWHERE
+	// TODO DISABLE INPUT SOMEWHERE
 	// setTimeout(function () {
 
 	// 	jQuery('#convForm button').removeAttr('disabled');
@@ -143,21 +146,21 @@ var idleTime = 0;
 
 function timerIncrement() {
 	idleTime = idleTime + 1;
-	if (idleTime > 100) {
+	if (idleTime > 4) {
 		ajaxCall('api?term=user-idol&idol=1');
 	}
 }
 
 jQuery(function ($) {
 
-	// var idleInterval = setInterval(timerIncrement, 10000);
+	var idleInterval = setInterval(timerIncrement, 10000);
 
-	// $(this).mousemove(function (e) {
-	// 	idleTime = 0;
-	// });
-	// $(this).keypress(function (e) {
-	// 	idleTime = 0;
-	// });
+	$(this).mousemove(function (e) {
+		idleTime = 0;
+	});
+	$(this).keypress(function (e) {
+		idleTime = 0;
+	});
 
 	jQuery('body').on('click', '.option', function () {
 		jQuery('#userInput').attr('value', jQuery(this).attr('data-value'));
@@ -176,7 +179,7 @@ jQuery(function ($) {
 					setTimeout(ready, Math.random() * 500 + 100);
 
 				} else {
-
+					
 					var userInput = convState.current.answer.value;
 					var api_value;
 					var api_url;
@@ -246,3 +249,9 @@ jQuery(function ($) {
 	});
 
 });
+
+// TODO CODE FOR CHAT PAGES
+if (window.location.hash) {
+	var hash = window.location.hash.substring(1);
+	// console.log(hash);
+}
