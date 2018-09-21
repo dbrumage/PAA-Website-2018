@@ -19,15 +19,22 @@ function paa_setup() {
         );
 
         wp_enqueue_style(
-            'convform',
-            get_template_directory_uri() . '/assets/css/convform.css',
+            'chatbot',
+            get_template_directory_uri() . '/assets/css/chatbot.css',
             array(),
             '1.0.0'
         );
 
         wp_enqueue_style(
-            'app',
-            get_template_directory_uri() . '/assets/css/app.css',
+            'hamburgers',
+            get_template_directory_uri() . '/assets/css/hamburgers.css',
+            array(),
+            '0.9.3'
+        );
+
+        wp_enqueue_style(
+            'default',
+            get_template_directory_uri() . '/assets/css/default.css',
             array(),
             '1.0.0'
         );

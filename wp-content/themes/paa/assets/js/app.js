@@ -153,18 +153,70 @@ function timerIncrement() {
 
 jQuery(function ($) {
 
-	var idleInterval = setInterval(timerIncrement, 10000);
+	jQuery('#userInput').focus();
 
-	$(this).mousemove(function (e) {
-		idleTime = 0;
-	});
-	$(this).keypress(function (e) {
-		idleTime = 0;
-	});
+	// var idleInterval = setInterval(timerIncrement, 10000);
+
+	// $(this).mousemove(function (e) {
+	// 	idleTime = 0;
+	// });
+	// $(this).keypress(function (e) {
+	// 	idleTime = 0;
+	// });
 
 	jQuery('body').on('click', '.option', function () {
 		jQuery('#userInput').attr('value', jQuery(this).attr('data-value'));
-		jQuery("button").click();
+		jQuery(".button-submit").click();
+	});
+
+	jQuery('body').on('focus', '#userInput', function () {
+		jQuery('#userInput').attr('placeholder', '');
+	});
+
+	// jQuery('body').on('focusout', '#userInput', function () {
+	// 	jQuery('#userInput').attr('placeholder', '');
+	// 	if (jQuery(this).val() == '') {
+	// 		jQuery(this).attr('placeholder', 'Start typing here');
+	// 	}
+	// });
+
+	$(".hamburger").hover(function () {
+		// jQuery('.hamburger-wrapper').toggleClass("hamburger-wrapper-invert");
+		// jQuery('.hamburger-inner').toggleClass("hamburger-inner-invert");
+		// jQuery('.logo').toggleClass("logo-invert");
+		// jQuery('.logo-1').toggle();
+		// jQuery('.logo-2').toggle();
+	});
+
+	$(".button-submit").hover(function () {
+		jQuery('.arrow-1').toggle();
+		jQuery('.arrow-2').toggle();
+	});
+
+
+	
+
+	jQuery(".hamburger").on("click", function (e) {
+
+		jQuery(this).toggleClass("is-active");
+		jQuery('.menu-wrapper').slideToggle();
+		jQuery('.logo').toggleClass("logo-invert");
+		jQuery('.hamburger-wrapper').toggleClass("hamburger-wrapper-invert");
+		jQuery('.hamburger-inner').toggleClass("hamburger-inner-invert");
+		jQuery('.logo-1').toggle();
+		jQuery('.logo-2').toggle();
+		setTimeout(function () {
+			jQuery('.logo').toggleClass('no-left-border-bottom-radius');
+			jQuery('.button-submit').toggleClass('no-right-border-bottom-radius');
+		}, 400);
+
+		if (jQuery('#userInput').attr('placeholder')==="") {
+			jQuery('#userInput').attr('placeholder', 'Choose a section, or type what you\'re looking for here');
+		} else {
+			jQuery('#userInput').attr('placeholder', '');
+			jQuery('#userInput').focus();
+		}
+
 	});
 
 	var convForm = jQuery('#chat').convform({

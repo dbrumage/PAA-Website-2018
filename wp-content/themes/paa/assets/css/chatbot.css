@@ -15,74 +15,75 @@
 }
 @-webkit-keyframes typing{
     0%{
-        background-color: rgba(194, 24, 91, 1);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
-        24px 0px 0px 0px rgba(194, 24, 91,0.2);
+        background-color: rgba(0,121,107, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,0.2);
     }
     50% {
-        background-color: rgba(194, 24, 91, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,1),
-        24px 0px 0px 0px rgba(194, 24, 91,0.4);
+        background-color: rgba(0,121,107, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,1),
+        24px 0px 0px 0px rgba(0,121,107,0.4);
     }
-    100%{ background-color: rgba(194, 24, 91, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
-        24px 0px 0px 0px rgba(194, 24, 91,1);
+    100%{ background-color: rgba(0,121,107, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,1);
     }
 }
 
 @-moz-keyframes typing{
     0%{
-        background-color: rgba(194, 24, 91, 1);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
-        24px 0px 0px 0px rgba(194, 24, 91,0.2);
+        background-color: rgba(0,121,107, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,0.2);
     }
     50% {
-        background-color: rgba(194, 24, 91, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,1),
-        24px 0px 0px 0px rgba(194, 24, 91,0.4);
+        background-color: rgba(0,121,107, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,1),
+        24px 0px 0px 0px rgba(0,121,107,0.4);
     }
-    100%{ background-color: rgba(194, 24, 91, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
-        24px 0px 0px 0px rgba(194, 24, 91,1);
+    100%{ background-color: rgba(0,121,107, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,1);
     }
 }
 
 @keyframes typing-black{
     0%{
-        background-color: rgba(194, 24, 91, 1);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91, 0.4),
-        24px 0px 0px 0px rgba(194, 24, 91, 0.2);
+        background-color: rgba(0,121,107, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107, 0.4),
+        24px 0px 0px 0px rgba(0,121,107, 0.2);
     }
     50% {
-        background-color: rgba(194, 24, 91, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91, 1),
-        24px 0px 0px 0px rgba(194, 24, 91,0.4);
+        background-color: rgba(0,121,107, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107, 1),
+        24px 0px 0px 0px rgba(0,121,107,0.4);
     }
-    100%{ background-color: rgba(194, 24, 91, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
-        24px 0px 0px 0px rgba(194, 24, 91,1);
+    100%{ background-color: rgba(0,121,107, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,1);
     }
 }
 @keyframes typing{
     0%{
-        background-color: rgba(194, 24, 91, 1);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
-        24px 0px 0px 0px rgba(194, 24, 91,0.2);
+        background-color: rgba(0,121,107, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,0.2);
     }
     50% {
-        background-color: rgba(194, 24, 91, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,1),
-        24px 0px 0px 0px rgba(194, 24, 91,0.4);
+        background-color: rgba(0,121,107, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,1),
+        24px 0px 0px 0px rgba(0,121,107,0.4);
     }
-    100%{ background-color: rgba(194, 24, 91, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(194, 24, 91,0.4),
-        24px 0px 0px 0px rgba(194, 24, 91,1);
+    100%{ background-color: rgba(0,121,107, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,1);
     }
 }
 
 form.convFormDynamic {
     width: 100%;
     margin: 0px auto;
+    box-shadow: 0 20px 45px 0 rgba(0,150,136,0.20);
 }
 
 /* form.convFormDynamic input.userInputDynamic {
@@ -108,9 +109,8 @@ form.convFormDynamic button.btn-outline-secondary {
 }
 
 form.convFormDynamic button.btn-outline-secondary:active:focus {
-    background: #FF8D9C;
-    border-color: #FF8D9C;
-    color: #004C87;
+    background: #4F0C3E;
+    border-color: #4F0C3E;
 }
 
 .wrapper-user-input {
@@ -118,13 +118,13 @@ form.convFormDynamic button.btn-outline-secondary:active:focus {
     width: 100%;
     left: 0px;
     right: 0px;
-    bottom: 40px;
+    bottom: 60px;
     text-align: center;
 }
 
 form.convFormDynamic button.submit:hover {
-    background: #FF8D9C;
-    color: #004C87;
+    background: #4F0C3E;
+    border-color: #4F0C3E;
 }
 
 button.submit.glow {
@@ -151,7 +151,7 @@ textarea.userInputDynamic {
 }
 
 div.conv-form-wrapper div#messages {
-    padding: 40px 0px 140px;
+    padding: 60px 0px 160px;
     width: 100%;
     overflow: auto;
 }
@@ -183,12 +183,12 @@ div.conv-form-wrapper  div#messages div.message {
 }
 div.conv-form-wrapper  div#messages div.message.to {
     background:rgba(255,255,255, 0.3);
-    color: #C2185B;
+    color: #00796B;
     float: left;
 }
 div.conv-form-wrapper div#messages div.message.from {
     background:rgba(255,255,255, 0.3);
-    color: #C2185B;
+    color: #00796B;
 }
 .message.to+.message.from, .message.from+.message.to {
     margin-top: 15px;
@@ -200,7 +200,7 @@ div.conv-form-wrapper  div#messages div.message.to:last-child {
 
 div.conv-form-wrapper  div#messages div.option {
     font-size: 0.905rem;
-    color: #004C87;
+    color: #4F0C3E;
     cursor: pointer;
     display: inline-block;
     padding: 10px 0px 10px 0px;
@@ -215,9 +215,9 @@ div.conv-form-wrapper  div#messages div.option {
 
 div.conv-form-wrapper  div#messages div.option div.shortcut-key {
     border-radius: 2px;
-    border: 1px solid #004C87;
+    border: 1px solid #4F0C3E;
     font-size: 0.905rem;
-    color: #004C87;
+    color: #4F0C3E;
     display: inline-block;
     padding: 10px 15px;
     margin-right: 10px;
@@ -247,8 +247,8 @@ div.conv-form-wrapper  div#messages div.message.link a {
     width: 100%;
     display: block;
     clear: both;
-    background: #004C87;
-    color: #FF8D9C;
+    background: #4F0C3E;
+    color: #1DE9B6;
     font-size: 12px;
     padding: 10px;
     left: 0px;
@@ -294,14 +294,14 @@ div.conv-form-wrapper div.options div.option.selected:hover {
 .spinLoader,
 .spinLoader:before,
 .spinLoader:after {
-    background: rgba(194, 24, 91, 0.5) !important;
+    background: rgba(0,121,107, 0.5) !important;
     -webkit-animation: spinLoaderChat 1s infinite ease-in-out;
     animation: spinLoaderChat 1s infinite ease-in-out;
     width: 1em;
     height: 4em;
 }
 .spinLoader {
-    color:rgba(194, 24, 91, 0.5) !important;
+    color:rgba(0,121,107, 0.5) !important;
     text-indent: -9999em;
     margin: 50% auto;
     position: relative;

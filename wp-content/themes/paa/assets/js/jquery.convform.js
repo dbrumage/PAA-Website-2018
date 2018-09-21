@@ -302,7 +302,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 
             switch(parameters.typeInputUi) {
                 case 'input':
-                    inputForm = jQuery('<div class="wrapper-user-input"><div class="container"><div class="row"><div class="col-12"><form id="' + parameters.formIdName + '" class="convFormDynamic"><div class="input-group mb-3"><input id="' + parameters.inputIdName + '" type="text" placeholder="' + parameters.placeHolder + '" class="form-control" autocomplete="off"><div class="input-group-append"><button type="submit" class="btn btn-outline-secondary">' + parameters.buttonText +'</button></div></form></div></div></div></div></div>');
+                    inputForm = jQuery('.wrapper-user-input');
                     break;
                 default :
                     console.log('typeInputUi must be input or textarea');
@@ -311,7 +311,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
 
             //appends messages wrapper and newly created form with the spinner load
             jQuery(wrapper).append('<div class="wrapper-messages"><div class="spinLoader ' + parameters.loadSpinnerVisible + ' "></div><div id="messages"></div></div>');
-            jQuery(wrapper).append(inputForm);
+            // jQuery(wrapper).append(inputForm);
 
             //creates new single state with first input
             var singleState = new SingleConvState(inputs[0]);
