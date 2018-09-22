@@ -164,6 +164,18 @@ jQuery(function ($) {
 	// 	idleTime = 0;
 	// });
 
+	jQuery('body').on('click', '.button-submit', function () {
+		jQuery('.button-submit').removeClass("button-submit-invert");
+		if (jQuery('.menu-wrapper').is(":hidden")) {
+			jQuery('.logo').removeClass("logo-invert");
+			jQuery('.logo-1').show();
+			jQuery('.logo-2').hide();
+		}
+		jQuery('.arrow-1').show();
+		jQuery('.arrow-2').hide();
+		jQuery('#userInput').focus();
+	});
+
 	jQuery('body').on('click', '.option', function () {
 		jQuery('#userInput').attr('value', jQuery(this).attr('data-value'));
 		jQuery(".button-submit").click();
@@ -201,13 +213,6 @@ jQuery(function ($) {
 		}
 	});
 
-	// jQuery('body').on('focusout', '#userInput', function () {
-	// 	jQuery('#userInput').attr('placeholder', '');
-	// 	if (jQuery(this).val() == '') {
-	// 		jQuery(this).attr('placeholder', 'Start typing here');
-	// 	}
-	// });
-
 	jQuery(".hamburger").on("click", function (e) {
 
 		jQuery(this).toggleClass("is-active");
@@ -217,6 +222,7 @@ jQuery(function ($) {
 			jQuery('.logo-1').toggle();
 			jQuery('.logo-2').toggle();
 		}
+
 		jQuery('.hamburger-wrapper').toggleClass("hamburger-wrapper-invert");
 		jQuery('.hamburger-inner').toggleClass("hamburger-inner-invert");
 		setTimeout(function () {
