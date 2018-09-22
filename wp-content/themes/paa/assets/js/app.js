@@ -173,6 +173,34 @@ jQuery(function ($) {
 		jQuery('#userInput').attr('placeholder', '');
 	});
 
+	var empty = true;
+	jQuery('#userInput').on('keyup', function () {
+		if (jQuery('#userInput').attr('placeholder') === "") {
+			if (jQuery('.hamburger').hasClass("is-active")) {
+				jQuery('#userInput').attr('placeholder', 'Choose a section, or type what you\'re looking for here');
+			}
+		} 
+		if (jQuery(this).val() != "") {
+			jQuery('.button-submit').addClass("button-submit-invert");
+			if (jQuery('.menu-wrapper').is(":hidden")) {
+				jQuery('.logo').addClass("logo-invert");
+				jQuery('.logo-1').hide();
+				jQuery('.logo-2').show();
+			}
+			jQuery('.arrow-1').hide();
+			jQuery('.arrow-2').show();
+		} else {
+			jQuery('.button-submit').removeClass("button-submit-invert");
+			if (jQuery('.menu-wrapper').is(":hidden")) {
+				jQuery('.logo').removeClass("logo-invert");
+				jQuery('.logo-1').show();
+				jQuery('.logo-2').hide();
+			}
+			jQuery('.arrow-1').show();
+			jQuery('.arrow-2').hide();
+		}
+	});
+
 	// jQuery('body').on('focusout', '#userInput', function () {
 	// 	jQuery('#userInput').attr('placeholder', '');
 	// 	if (jQuery(this).val() == '') {
@@ -180,38 +208,26 @@ jQuery(function ($) {
 	// 	}
 	// });
 
-	$(".hamburger").hover(function () {
-		// jQuery('.hamburger-wrapper').toggleClass("hamburger-wrapper-invert");
-		// jQuery('.hamburger-inner').toggleClass("hamburger-inner-invert");
-		// jQuery('.logo').toggleClass("logo-invert");
-		// jQuery('.logo-1').toggle();
-		// jQuery('.logo-2').toggle();
-	});
-
-	$(".button-submit").hover(function () {
-		jQuery('.arrow-1').toggle();
-		jQuery('.arrow-2').toggle();
-	});
-
-
-	
-
 	jQuery(".hamburger").on("click", function (e) {
 
 		jQuery(this).toggleClass("is-active");
 		jQuery('.menu-wrapper').slideToggle();
-		jQuery('.logo').toggleClass("logo-invert");
+		if (jQuery('#userInput').val() === "") {
+			jQuery('.logo').toggleClass("logo-invert");
+			jQuery('.logo-1').toggle();
+			jQuery('.logo-2').toggle();
+		}
 		jQuery('.hamburger-wrapper').toggleClass("hamburger-wrapper-invert");
 		jQuery('.hamburger-inner').toggleClass("hamburger-inner-invert");
-		jQuery('.logo-1').toggle();
-		jQuery('.logo-2').toggle();
 		setTimeout(function () {
 			jQuery('.logo').toggleClass('no-left-border-bottom-radius');
 			jQuery('.button-submit').toggleClass('no-right-border-bottom-radius');
 		}, 400);
 
 		if (jQuery('#userInput').attr('placeholder')==="") {
-			jQuery('#userInput').attr('placeholder', 'Choose a section, or type what you\'re looking for here');
+			if (jQuery('.hamburger').hasClass("is-active")) {
+				jQuery('#userInput').attr('placeholder', 'Choose a section, or type what you\'re looking for here');
+			}
 		} else {
 			jQuery('#userInput').attr('placeholder', '');
 			jQuery('#userInput').focus();

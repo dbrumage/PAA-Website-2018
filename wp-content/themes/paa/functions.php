@@ -33,8 +33,15 @@ function paa_setup() {
         );
 
         wp_enqueue_style(
-            'default',
-            get_template_directory_uri() . '/assets/css/default.css',
+            'core',
+            get_template_directory_uri() . '/assets/css/core.css',
+            array(),
+            '1.0.0'
+        );
+
+        wp_enqueue_style(
+            'color__teal',
+            get_template_directory_uri() . '/assets/css/color_teal.css',
             array(),
             '1.0.0'
         );

@@ -1,0 +1,89 @@
+/* BASIC */
+a, a:hover {
+	color: #4F0C3E;
+}
+
+/* CONTAINER */
+section#main {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff8d9c+0,ffd1d7+100 */
+	background: #bbf9e9; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #70c5bc 0%, #bbf9e9 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #70c5bc 0%,#bbf9e9 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #70c5bc 0%,#bbf9e9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70c5bc', endColorstr='#bbf9e9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+/* MENU */
+.menu-wrapper {
+    background: #4F0C3E;
+}
+
+.input-group-text {
+    color: #495057;
+    background-color: #ECEFF1;
+    border: 1px solid #ECEFF1;
+}
+
+.wrapper-user-input .logo {
+    background: #4F0C3E;
+    border-color: #4F0C3E;
+}
+
+.wrapper-user-input .logo-invert {
+    background: #fff;
+    border-color: #fff;
+}
+
+.wrapper-user-input .hamburger-wrapper-invert {
+    background: #4F0C3E;
+    border-color: #4F0C3E;
+}
+
+.wrapper-user-input .button-submit-invert {
+    background: #4F0C3E !important;
+    border-color: #4F0C3E !important;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: #4F0C3E;
+}
+
+.hamburger-inner-invert, .hamburger-inner-invert::before, .hamburger-inner-invert::after {
+    background-color: #1DE9B6;
+}
+
+
+/* FORM */
+.form-control {
+    color: #4F0C3E;
+	border-color: #fff;
+}
+
+::placeholder {
+    color: #4ca197!important;
+    opacity: 1; 
+}
+
+:-ms-input-placeholder {
+    color: #4ca197!important;
+}
+
+::-ms-input-placeholder {
+    color: #4ca197!important;
+}
+
+.form-control:focus {
+    color: #4F0C3E;
+}
+
+.button-submit:active:focus {
+    background: #ECEFF1 !important;
+    border-color: #ECEFF1 !important;
+}
+
+.button-submit-invert:active:focus {
+    background: #4F0C3E !important;
+    border-color: #4F0C3E !important;
+}
+
+/* CHATBOT CORE */
