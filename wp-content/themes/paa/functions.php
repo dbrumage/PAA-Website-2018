@@ -267,6 +267,49 @@ function paa_setup() {
     }
     add_action( 'init', 'post_type_chat', 0 );
 
+    /**
+    * Register Navigation Post Type
+    */
+    function post_type_navigation() {
+
+        $labels = array(
+            'name'                => _x( 'Navigation', 'Post Type General Name', 'post_type_navigation' ),
+            'singular_name'       => _x( 'Navigation', 'Post Type Singular Name', 'post_type_navigation' ),
+            'menu_name'           => __( 'Navigation', 'post_type_navigation' ),
+            'parent_item_colon'   => __( 'Parent Navigation Item:', 'post_type_navigation' ),
+            'all_items'           => __( 'All Navigation Items', 'post_type_navigation' ),
+            'view_item'           => __( 'View Navigation Item', 'post_type_navigation' ),
+            'add_new_item'        => __( 'Add Navigation Item', 'post_type_navigation' ),
+            'add_new'             => __( 'Add Navigation Item', 'post_type_navigation' ),
+            'edit_item'           => __( 'Edit Navigation Item', 'post_type_navigation' ),
+            'update_item'         => __( 'Update Navigation Item', 'post_type_navigation' ),
+            'search_items'        => __( 'Search Navigation Items', 'post_type_navigation' ),
+            'not_found'           => __( 'Not found', 'post_type_navigation' ),
+            'not_found_in_trash'  => __( 'Not found in Trash', 'post_type_navigation' ),
+        );
+        $args = array(
+            'label'               => __( 'navigation', 'navigation' ),
+            'description'         => __( 'Navigation', 'navigation' ),
+            'labels'              => $labels,
+            'supports'            => array( 'title' ),
+            'hierarchical'        => true,
+            'public'              => true,
+            'show_ui'             => true,
+            'show_in_menu'        => true,
+            'show_in_nav_menus'   => true,
+            'show_in_admin_bar'   => true,
+            'menu_position'       => 20,
+            'can_export'          => true,
+            'has_archive'         => true,
+            'exclude_from_search' => false,
+            'publicly_queryable'  => true,
+            'capability_type'     => 'page',
+            'menu_icon'           => 'dashicons-menu',
+            'rewrite' => array('slug' => '/navigation','with_front' => FALSE)
+        );
+        register_post_type( 'navigation', $args );
+    }
+    add_action( 'init', 'post_type_navigation', 0 );
 
     /**
      * Remove unused items from admin

@@ -95,7 +95,7 @@ ConvState.prototype.printQuestion = function(){
     var messageObj = jQuery(this.wrapper).find('.message.typing');
     setTimeout(function(){
         messageObj.html(question);
-        messageObj.removeClass('typing').addClass('ready');
+        messageObj.removeClass('typing').addClass('ready done');
         if(this.current.input.type=="select"){
             this.printAnswers(this.current.input.answers, this.current.input.multiple);
         }

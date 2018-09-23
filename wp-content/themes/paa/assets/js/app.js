@@ -73,7 +73,7 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		jQuery(".message.to.typing").remove();
 
 		if (type == "Text") {
-			jQuery("body").find('#messages').append('<div class="message to ready">' + content + '</div>');
+			jQuery("body").find('#messages').append('<div class="message to ready done">' + content + '</div>');
 		}
 		
 		if (type == "Video") {
@@ -81,7 +81,7 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		}
 
 		if (type == "Image") {
-			jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content + '" width="100%"></div>');
+			jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content + '" width="100%"></div>');
 		}
 
 		if (type == "HTML") {
@@ -91,16 +91,16 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		if (type === "Content") {
 			for (var i in content) {
 				if (content[i].content_type === "Work List" || content[i].content_type === "Work Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br />' + content[i].client + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br />' + content[i].client + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
 				}
 				if (content[i].content_type === "Client List" || content[i].content_type === "Client Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
 				}
 				if (content[i].content_type === "Case Study List" || content[i].content_type === "Case Study Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">Case Study URL</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">Case Study URL</a></div>');
 				}
 				if (content[i].content_type === "Generic Content Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].permalink + '">Expand section</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].permalink + '">Expand section</a></div>');
 				}
 			}
 		}
@@ -112,7 +112,7 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		}
 
 		if (type == "Link") {
-			jQuery("body").find('#messages').append('<div class="message to ready link">' + link_response_pre_text + '<a href="' + link_response_url + '" class="message-link" target="_blank">' + link_response_text + '</a></div>');
+			jQuery("body").find('#messages').append('<div class="message to ready done link">' + link_response_pre_text + '<a href="' + link_response_url + '" class="message-link" target="_blank">' + link_response_text + '</a></div>');
 		}
 
 		if (type === "User Input" || next_field_behaviour === "Next field is user input") {

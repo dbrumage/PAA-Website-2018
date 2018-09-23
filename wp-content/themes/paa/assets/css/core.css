@@ -1,14 +1,16 @@
 * {
-	font-family: 'Roboto', sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    line-height: 1.5;
 }
 html { 
     height:100%;
 }
 body { 
     min-height:100%;
+    -webkit-font-smoothing: antialiased;
 }
 html, body {
-	font-size: 22px;
+	font-size: 26px;
 }
 
 input, button, button:focus, span:focus {
@@ -40,7 +42,8 @@ section#main {
     position: relative;
     padding: 0;
     min-height: 100vh;
-	transition: height 9999s;
+    transition: height 9999s;
+    font-size: 26px;
 }
 .vertical-align {
 	position: absolute;
@@ -53,7 +56,7 @@ section#main {
 /* MENU */
 .menu-wrapper {
     display: none;
-    height: 506px;
+    overflow: auto;
     -webkit-border-bottom-right-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -moz-border-radius-bottomright: 5px;
@@ -62,6 +65,67 @@ section#main {
     border-bottom-left-radius: 5px;
 }
 
+.menu-col {
+    float: left;
+}
+
+.menu-col-left {
+    width: 60%;
+    background: #4F0C3E;
+}
+
+.menu-col-right {
+    width: 40%;
+    font-size: 14px;
+}
+
+.menu-vertical-align {
+    height: 100%;
+    display: inline-block;
+}
+
+.menu-inner-wrapper {
+    width: 100%;
+    /* padding: 50px 15px; */
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.menu {
+    list-style: none;
+    padding-left: 0px;
+    list-style: none;
+    padding-left: 0px;
+}
+
+.menu li {
+    color: #fff;
+    border-bottom: 1px solid #642955;
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+}
+
+.menu li:last-child {
+    border-bottom: none;
+    margin-bottom: 0px;
+}
+
+.menu li a {
+    color: #fff;
+    margin-left: 20px;
+}
+
+.menu-shortcut-key {
+    border: 1px solid #642955;
+    color: #642955;
+    border-radius: 2px;
+    font-size: 20px;
+    display: inline-block;
+    padding: 6px 12px;
+    width: 45px;
+    margin-right: 20px;
+    text-align: center;
+}
 
 .wrapper-user-input .logo {
     width: 90px;

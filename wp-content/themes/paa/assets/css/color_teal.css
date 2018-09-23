@@ -15,7 +15,9 @@ section#main {
 
 /* MENU */
 .menu-wrapper {
-    background: #4F0C3E;
+    background: #460a39;
+    color: #fff;
+    box-shadow: 0 20px 45px 0 rgba(0,150,136,0.20);
 }
 
 .input-group-text {
@@ -87,3 +89,30 @@ section#main {
 }
 
 /* CHATBOT CORE */
+div.conv-form-wrapper  div#messages div.message.to {
+    color: #00796B;
+}
+
+div.conv-form-wrapper div#messages div.message.from {
+    color: #00796B;
+}
+
+div.conv-form-wrapper  div#messages div.option {
+    color: #4F0C3E;
+}
+
+div.conv-form-wrapper  div#messages div.option div.shortcut-key {
+    border: 1px solid #4F0C3E;
+    color: #4F0C3E;
+}
+
+div.conv-form-wrapper  div#messages div.message.link a {
+    background: #4F0C3E;
+    color: #1DE9B6;
+}
+
+form.convFormDynamic button.btn-outline-secondary {
+    background: #ECEFF1;
+    border-color: #ECEFF1;
+    color: #004C87;
+}

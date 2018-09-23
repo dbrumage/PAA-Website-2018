@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12">     
                     <div id="chat">
-                        <form action="" method="GET" class="hidden">
+                        <form action="" method="GET" class="hidden" style="display:none;">
                             <?php
                             $args = array(
                                 'post_type' => 'chat',
@@ -62,7 +62,40 @@
                             </div>
                         </div>
                     </form>
-                    <div class="menu-wrapper"></div>
+                    <div class="menu-wrapper">
+                        <div class="menu-inner-wrapper">
+                            <div class="menu-col menu-col-left">
+                                <div class="menu-col-inner">
+                                    <ul class="menu">
+                                        <li><a href=""><span class="menu-shortcut-key">A</span>Who we are</a></li>
+                                        <li><a href=""><span class="menu-shortcut-key">S</span>What we do</a></li>
+                                        <li><a href=""><span class="menu-shortcut-key">W</span>Work we’re proud of</a></li>
+                                        <li><a href=""><span class="menu-shortcut-key">C</span>Clients we work with</a></li>
+                                        <li><a href=""><span class="menu-shortcut-key">P</span>Partners’ people</a></li>
+                                        <li><a href=""><span class="menu-shortcut-key">T</span>Some of our thoughts</a></li>
+                                        <li><a href=""><span class="menu-shortcut-key">G</span>Get in touch</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="menu-col menu-col-right">
+                                <div class="menu-col-inner">
+                                    <p>
+                                        2018 © Partners Andrews Aldridge. All rights reserved.
+                                        <br />
+                                        A part of Engine Group
+                                    </p>
+
+                                    <p>
+                                        <strong>
+                                            Terms & privacy policy
+                                            <br />
+                                            How we use cookies on this site
+                                        </strong>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
