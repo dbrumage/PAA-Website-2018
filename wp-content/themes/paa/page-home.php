@@ -4,7 +4,7 @@
             <div class="row">
                 <div class="col-12">     
                     <div id="chat">
-                        <form action="" method="GET" class="hidden" style="display:none;">
+                        <form action="" method="GET" class="hidden d-none">
                             <?php
                             $args = array(
                                 'post_type' => 'chat',
@@ -65,7 +65,7 @@
                     <div class="menu-wrapper">
                         <div class="menu-inner-wrapper">
                             <div class="menu-col menu-col-left">
-                                <div class="menu-col-inner">
+                                <div class="menu-col-left-inner">
                                     <ul class="menu">
                                         <li><a href=""><span class="menu-shortcut-key">A</span>Who we are</a></li>
                                         <li><a href=""><span class="menu-shortcut-key">S</span>What we do</a></li>
@@ -78,20 +78,26 @@
                                 </div>
                             </div>
                             <div class="menu-col menu-col-right">
-                                <div class="menu-col-inner">
-                                    <p>
-                                        2018 © Partners Andrews Aldridge. All rights reserved.
-                                        <br />
-                                        A part of Engine Group
-                                    </p>
-
-                                    <p>
-                                        <strong>
-                                            Terms & privacy policy
+                                <div class="menu-col-right-inner">
+                                    <div class="copyright-footer">
+                                        <p>
+                                            2018 © Partners Andrews Aldridge. All rights reserved.
                                             <br />
-                                            How we use cookies on this site
-                                        </strong>
-                                    </p>
+                                            A part of <a href="">Engine Group</a>
+                                        </p>
+                                        <p>
+                                            <a href="">Terms & privacy policy</a>
+                                            <br />
+                                            <a href="">How we use cookies on this site</a>
+                                        </p>
+                                    </div>
+                                    <div class="social-footer-menu">
+                                        <div class="social-footer-menu-item"><a href=""><i class="fab fa-linkedin"></i></a></div>
+                                        <div class="social-footer-menu-item"><a href=""><i class="fab fa-medium-m"></i></a></div>
+                                        <div class="social-footer-menu-item"><a href=""><i class="fab fa-instagram"></i></a></div>
+                                        <div class="social-footer-menu-item"><a href=""><i class="fab fa-facebook"></i></a></div>
+                                        <div class="social-footer-menu-item"><a href=""><i class="fab fa-twitter"></i></a></div>
+                                    </div>
                                 </div>
                             </div>
                         </div>

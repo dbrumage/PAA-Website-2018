@@ -13,48 +13,6 @@ section#main {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70c5bc', endColorstr='#bbf9e9',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 }
 
-/* MENU */
-.menu-wrapper {
-    background: #460a39;
-    color: #fff;
-    box-shadow: 0 20px 45px 0 rgba(0,150,136,0.20);
-}
-
-.input-group-text {
-    color: #495057;
-    background-color: #ECEFF1;
-    border: 1px solid #ECEFF1;
-}
-
-.wrapper-user-input .logo {
-    background: #4F0C3E;
-    border-color: #4F0C3E;
-}
-
-.wrapper-user-input .logo-invert {
-    background: #fff;
-    border-color: #fff;
-}
-
-.wrapper-user-input .hamburger-wrapper-invert {
-    background: #4F0C3E;
-    border-color: #4F0C3E;
-}
-
-.wrapper-user-input .button-submit-invert {
-    background: #4F0C3E !important;
-    border-color: #4F0C3E !important;
-}
-
-.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
-    background-color: #4F0C3E;
-}
-
-.hamburger-inner-invert, .hamburger-inner-invert::before, .hamburger-inner-invert::after {
-    background-color: #1DE9B6;
-}
-
-
 /* FORM */
 .form-control {
     color: #4F0C3E;
@@ -115,4 +73,46 @@ form.convFormDynamic button.btn-outline-secondary {
     background: #ECEFF1;
     border-color: #ECEFF1;
     color: #004C87;
+}
+
+
+/* MENU */
+.menu-wrapper {
+    background: #460a39;
+    color: #fff;
+    box-shadow: 0 20px 45px 0 rgba(0,150,136,0.20);
+}
+
+.input-group-text {
+    color: #495057;
+    background-color: #ECEFF1;
+    border: 1px solid #ECEFF1;
+}
+
+.wrapper-user-input .logo {
+    background: #4F0C3E;
+    border-color: #4F0C3E;
+}
+
+.wrapper-user-input .logo-invert {
+    background: #fff;
+    border-color: #fff;
+}
+
+.wrapper-user-input .hamburger-wrapper-invert {
+    background: #4F0C3E;
+    border-color: #4F0C3E;
+}
+
+.wrapper-user-input .button-submit-invert {
+    background: #4F0C3E !important;
+    border-color: #4F0C3E !important;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: #4F0C3E;
+}
+
+.hamburger-inner-invert, .hamburger-inner-invert::before, .hamburger-inner-invert::after {
+    background-color: #1DE9B6;
 }

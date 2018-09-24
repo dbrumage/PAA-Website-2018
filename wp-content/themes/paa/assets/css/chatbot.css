@@ -111,6 +111,13 @@ div.conv-form-wrapper div#messages {
 div.conv-form-wrapper div.message {
     max-width: 49%;
 }
+
+@media (max-width: 900px) {
+	div.conv-form-wrapper div.message {
+		max-width: 80%;
+	}
+}
+
 div.conv-form-wrapper div.message:after {
     content: '';
     display: table;

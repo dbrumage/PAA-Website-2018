@@ -33,6 +33,13 @@ function paa_setup() {
         );
 
         wp_enqueue_style(
+            'fontawesome',
+            get_template_directory_uri() . '/assets/css/fontawesome.css',
+            array(),
+            '5.3.1'
+        );
+
+        wp_enqueue_style(
             'core',
             get_template_directory_uri() . '/assets/css/core.css',
             array(),
