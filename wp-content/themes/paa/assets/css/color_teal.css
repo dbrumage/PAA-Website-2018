@@ -6,7 +6,7 @@ a, a:hover {
 /* CONTAINER */
 section#main {
 	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff8d9c+0,ffd1d7+100 */
-	background: #bbf9e9; /* Old browsers */
+	background: #bbf8e9; /* Old browsers */
 	background: -moz-linear-gradient(-45deg, #70c5bc 0%, #bbf9e9 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(-45deg, #70c5bc 0%,#bbf9e9 100%); /* Chrome10-25,Safari5.1-6 */
 	background: linear-gradient(135deg, #70c5bc 0%,#bbf9e9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -46,7 +46,72 @@ section#main {
     border-color: #4F0C3E !important;
 }
 
+.wrapper-user-input .button-arrow {
+    background: url('../images/arrow_1_teal.png') no-repeat center center;
+    background-size: 33px;
+}
+
+.wrapper-user-input .button-arrow-invert {
+    background: url('../images/arrow_2_teal.png') no-repeat center center;
+    background-size: 33px;
+}
+
 /* CHATBOT CORE */
+@-webkit-keyframes typing{
+    0%{
+        background-color: rgba(0,121,107, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,0.2);
+    }
+    50% {
+        background-color: rgba(0,121,107, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,1),
+        24px 0px 0px 0px rgba(0,121,107,0.4);
+    }
+    100%{ background-color: rgba(0,121,107, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,1);
+    }
+}
+
+@-moz-keyframes typing{
+    0%{
+        background-color: rgba(0,121,107, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,0.2);
+    }
+    50% {
+        background-color: rgba(0,121,107, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,1),
+        24px 0px 0px 0px rgba(0,121,107,0.4);
+    }
+    100%{ background-color: rgba(0,121,107, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,1);
+    }
+}
+
+@keyframes typing{
+    0%{
+        background-color: rgba(0,121,107, 1);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,0.2);
+    }
+    50% {
+        background-color: rgba(0,121,107, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,1),
+        24px 0px 0px 0px rgba(0,121,107,0.4);
+    }
+    100%{ background-color: rgba(0,121,107, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(0,121,107,0.4),
+        24px 0px 0px 0px rgba(0,121,107,1);
+    }
+}
+
+form.convFormDynamic {
+    box-shadow: 0 20px 45px 0 rgba(0,150,136,0.20);
+}
+
 div.conv-form-wrapper  div#messages div.message.to {
     color: #00796B;
 }
@@ -75,7 +140,6 @@ form.convFormDynamic button.btn-outline-secondary {
     color: #004C87;
 }
 
-
 /* MENU */
 .menu-wrapper {
     background: #460a39;
@@ -90,13 +154,15 @@ form.convFormDynamic button.btn-outline-secondary {
 }
 
 .wrapper-user-input .logo {
-    background: #4F0C3E;
+    background: #4F0C3E url('../images/logo_1_teal.png') no-repeat center center;
     border-color: #4F0C3E;
+    background-size: 60px;
 }
 
 .wrapper-user-input .logo-invert {
-    background: #fff;
+    background: #fff url('../images/logo_2_teal.png') no-repeat center center;
     border-color: #fff;
+    background-size: 60px;
 }
 
 .wrapper-user-input .hamburger-wrapper-invert {
@@ -115,4 +181,36 @@ form.convFormDynamic button.btn-outline-secondary {
 
 .hamburger-inner-invert, .hamburger-inner-invert::before, .hamburger-inner-invert::after {
     background-color: #1DE9B6;
+}
+
+.menu-col a:hover {
+    color: #1DE9B6;
+}
+
+.menu-col-left {
+    background: #4F0C3E;
+}
+
+.menu li {
+    border-bottom: 1px solid #642955;
+}
+
+.menu-shortcut-key {
+    border: 1px solid #642955;
+    color: #642955;
+}
+
+.menu li a:hover .menu-shortcut-key {
+    border: 1px solid #1DE9B6;
+    color: #460a39;
+    background: #1DE9B6;
+}
+
+/* SOCIAL FOOTER */
+.social-footer-menu {
+    border-top: 1px solid #642955;
+}
+
+.social-footer-menu-item {
+    border-right: 1px solid #642955;
 }

@@ -1,0 +1,216 @@
+/* BASIC */
+a, a:hover {
+	color: #522112;
+}
+
+/* CONTAINER */
+section#main {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ff8d9c+0,ffd1d7+100 */
+	background: #ffefbe; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #ffd453 0%, #ffefbc 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #ffd453 0%,#ffefbc 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #ffd453 0%,#ffefbc 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffd453', endColorstr='#ffefbc',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+/* FORM */
+.form-control {
+    color: #522112;
+	border-color: #fff;
+}
+
+::placeholder {
+    color: #FF5E33!important;
+    opacity: 1; 
+}
+
+:-ms-input-placeholder {
+    color: #FF5E33!important;
+}
+
+::-ms-input-placeholder {
+    color: #FF5E33!important;
+}
+
+.form-control:focus {
+    color: #522112;
+}
+
+.button-submit:active:focus {
+    background: #ECEFF1 !important;
+    border-color: #ECEFF1 !important;
+}
+
+.button-submit-invert:active:focus {
+    background: #522112 !important;
+    border-color: #522112 !important;
+}
+
+/* CHATBOT CORE */
+@-webkit-keyframes typing{
+    0%{
+        background-color: rgba(255,109,0, 1);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,0.4),
+        24px 0px 0px 0px rgba(255,109,0,0.2);
+    }
+    50% {
+        background-color: rgba(255,109,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,1),
+        24px 0px 0px 0px rgba(255,109,0,0.4);
+    }
+    100%{ background-color: rgba(255,109,0, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,0.4),
+        24px 0px 0px 0px rgba(255,109,0,1);
+    }
+}
+
+@-moz-keyframes typing{
+    0%{
+        background-color: rgba(255,109,0, 1);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,0.4),
+        24px 0px 0px 0px rgba(255,109,0,0.2);
+    }
+    50% {
+        background-color: rgba(255,109,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,1),
+        24px 0px 0px 0px rgba(255,109,0,0.4);
+    }
+    100%{ background-color: rgba(255,109,0, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,0.4),
+        24px 0px 0px 0px rgba(255,109,0,1);
+    }
+}
+
+@keyframes typing{
+    0%{
+        background-color: rgba(255,109,0, 1);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,0.4),
+        24px 0px 0px 0px rgba(255,109,0,0.2);
+    }
+    50% {
+        background-color: rgba(255,109,0, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,1),
+        24px 0px 0px 0px rgba(255,109,0,0.4);
+    }
+    100%{ background-color: rgba(255,109,0, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(255,109,0,0.4),
+        24px 0px 0px 0px rgba(255,109,0,1);
+    }
+}
+
+form.convFormDynamic {
+    box-shadow: 0 20px 45px 0 rgba(255,179,0,0.20);
+}
+
+div.conv-form-wrapper  div#messages div.message.to {
+    color: #FF6D00;
+}
+
+div.conv-form-wrapper div#messages div.message.from {
+    color: #FF6D00;
+}
+
+div.conv-form-wrapper  div#messages div.option {
+    color: #522112;
+}
+
+div.conv-form-wrapper  div#messages div.option div.shortcut-key {
+    border: 1px solid #522112;
+    color: #522112;
+}
+
+div.conv-form-wrapper  div#messages div.message.link a {
+    background: #522112;
+    color: #FF5E33;
+}
+
+form.convFormDynamic button.btn-outline-secondary {
+    background: #ECEFF1;
+    border-color: #ECEFF1;
+    color: #004C87;
+}
+
+.wrapper-user-input .button-arrow {
+    background: url('../images/arrow_1_yellow.png') no-repeat center center;
+    background-size: 33px;
+}
+
+.wrapper-user-input .button-arrow-invert {
+    background: url('../images/arrow_2_yellow.png') no-repeat center center;
+    background-size: 33px;
+}
+
+/* MENU */
+.menu-wrapper {
+    background: #491E10;
+    color: #fff;
+    box-shadow: 0 20px 45px 0 rgba(255,179,0,0.20);
+}
+
+.input-group-text {
+    color: #495057;
+    background-color: #ECEFF1;
+    border: 1px solid #ECEFF1;
+}
+
+.wrapper-user-input .logo {
+    background: #522112 url('../images/logo_1_yellow.png') no-repeat center center;
+    border-color: #522112;
+    background-size: 60px;
+}
+
+.wrapper-user-input .logo-invert {
+    background: #fff url('../images/logo_2_yellow.png') no-repeat center center;
+    border-color: #fff;
+    background-size: 60px;
+}
+
+.wrapper-user-input .hamburger-wrapper-invert {
+    background: #522112;
+    border-color: #522112;
+}
+
+.wrapper-user-input .button-submit-invert {
+    background: #522112 !important;
+    border-color: #522112 !important;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: #522112;
+}
+
+.hamburger-inner-invert, .hamburger-inner-invert::before, .hamburger-inner-invert::after {
+    background-color: #FF5E33;
+}
+
+.menu-col a:hover {
+    color: #FF5E33;
+}
+
+.menu-col-left {
+    background: #522112;
+}
+
+.menu li {
+    border-bottom: 1px solid #826056;
+}
+
+.menu-shortcut-key {
+    border: 1px solid #826056;
+    color: #826056;
+}
+
+.menu li a:hover .menu-shortcut-key {
+    border: 1px solid #FF5E33;
+    color: #522112;
+    background: #FF5E33;
+}
+
+/* SOCIAL FOOTER */
+.social-footer-menu {
+    border-top: 1px solid #826056;
+}
+
+.social-footer-menu-item {
+    border-right: 1px solid #826056;
+}

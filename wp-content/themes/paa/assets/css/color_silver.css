@@ -1,0 +1,216 @@
+/* BASIC */
+a, a:hover {
+	color: #263238;
+}
+
+/* CONTAINER */
+section#main {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#B2FF59+0,ffd1d7+100 */
+	background: #f1f3f5; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #8097a2 0%, #f1f3f5 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #8097a2 0%,#f1f3f5 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #8097a2 0%,#f1f3f5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8097a2', endColorstr='#f1f3f5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+/* FORM */
+.form-control {
+    color: #263238;
+	border-color: #fff;
+}
+
+::placeholder {
+    color: #92989b!important;
+    opacity: 1; 
+}
+
+:-ms-input-placeholder {
+    color: #92989b!important;
+}
+
+::-ms-input-placeholder {
+    color: #92989b!important;
+}
+
+.form-control:focus {
+    color: #263238;
+}
+
+.button-submit:active:focus {
+    background: #ECEFF1 !important;
+    border-color: #ECEFF1 !important;
+}
+
+.button-submit-invert:active:focus {
+    background: #263238 !important;
+    border-color: #263238 !important;
+}
+
+/* CHATBOT CORE */
+@-webkit-keyframes typing{
+    0%{
+        background-color: rgba(38,50,56, 1);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,0.4),
+        24px 0px 0px 0px rgba(38,50,56,0.2);
+    }
+    50% {
+        background-color: rgba(38,50,56, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,1),
+        24px 0px 0px 0px rgba(38,50,56,0.4);
+    }
+    100%{ background-color: rgba(38,50,56, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,0.4),
+        24px 0px 0px 0px rgba(38,50,56,1);
+    }
+}
+
+@-moz-keyframes typing{
+    0%{
+        background-color: rgba(38,50,56, 1);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,0.4),
+        24px 0px 0px 0px rgba(38,50,56,0.2);
+    }
+    50% {
+        background-color: rgba(38,50,56, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,1),
+        24px 0px 0px 0px rgba(38,50,56,0.4);
+    }
+    100%{ background-color: rgba(38,50,56, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,0.4),
+        24px 0px 0px 0px rgba(38,50,56,1);
+    }
+}
+
+@keyframes typing{
+    0%{
+        background-color: rgba(38,50,56, 1);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,0.4),
+        24px 0px 0px 0px rgba(38,50,56,0.2);
+    }
+    50% {
+        background-color: rgba(38,50,56, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,1),
+        24px 0px 0px 0px rgba(38,50,56,0.4);
+    }
+    100%{ background-color: rgba(38,50,56, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(38,50,56,0.4),
+        24px 0px 0px 0px rgba(38,50,56,1);
+    }
+}
+
+form.convFormDynamic {
+    box-shadow: 0 20px 45px 0 rgba(55,71,79,0.20);
+}
+
+div.conv-form-wrapper  div#messages div.message.to {
+    color: #263238;
+}
+
+div.conv-form-wrapper div#messages div.message.from {
+    color: #263238;
+}
+
+div.conv-form-wrapper  div#messages div.option {
+    color: #263238;
+}
+
+div.conv-form-wrapper  div#messages div.option div.shortcut-key {
+    border: 1px solid #263238;
+    color: #263238;
+}
+
+div.conv-form-wrapper  div#messages div.message.link a {
+    background: #263238;
+    color: #B2FF59;
+}
+
+form.convFormDynamic button.btn-outline-secondary {
+    background: #ECEFF1;
+    border-color: #ECEFF1;
+    color: #263238;
+}
+
+.wrapper-user-input .button-arrow {
+    background: url('../images/arrow_1_silver.png') no-repeat center center;
+    background-size: 33px;
+}
+
+.wrapper-user-input .button-arrow-invert {
+    background: url('../images/arrow_2_silver.png') no-repeat center center;
+    background-size: 33px;
+}
+
+/* MENU */
+.menu-wrapper {
+    background: #202B31;
+    color: #fff;
+    box-shadow: 0 20px 45px 0 rgba(55,71,79,0.20);
+}
+
+.input-group-text {
+    color: #495057;
+    background-color: #ECEFF1;
+    border: 1px solid #ECEFF1;
+}
+
+.wrapper-user-input .logo {
+    background: #263238 url('../images/logo_1_silver.png') no-repeat center center;
+    border-color: #263238;
+    background-size: 60px;
+}
+
+.wrapper-user-input .logo-invert {
+    background: #fff url('../images/logo_2_silver.png') no-repeat center center;
+    border-color: #fff;
+    background-size: 60px;
+}
+
+.wrapper-user-input .hamburger-wrapper-invert {
+    background: #263238;
+    border-color: #263238;
+}
+
+.wrapper-user-input .button-submit-invert {
+    background: #263238 !important;
+    border-color: #263238 !important;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: #263238;
+}
+
+.hamburger-inner-invert, .hamburger-inner-invert::before, .hamburger-inner-invert::after {
+    background-color: #B2FF59;
+}
+
+.menu-col a:hover {
+    color: #B2FF59;
+}
+
+.menu-col-left {
+    background: #263238;
+}
+
+.menu li {
+    border-bottom: 1px solid #404a50;
+}
+
+.menu-shortcut-key {
+    border: 1px solid #404a50;
+    color: #404a50;
+}
+
+.menu li a:hover .menu-shortcut-key {
+    border: 1px solid #B2FF59;
+    color: #263238;
+    background: #B2FF59;
+}
+
+/* SOCIAL FOOTER */
+.social-footer-menu {
+    border-top: 1px solid #404a50;
+}
+
+.social-footer-menu-item {
+    border-right: 1px solid #404a50;
+}

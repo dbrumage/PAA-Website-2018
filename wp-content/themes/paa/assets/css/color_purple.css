@@ -1,0 +1,216 @@
+/* BASIC */
+a, a:hover {
+	color: #311B92;
+}
+
+/* CONTAINER */
+section#main {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#B388FF+0,ffd1d7+100 */
+	background: #f8d9fe; /* Old browsers */
+	background: -moz-linear-gradient(-45deg, #964cb5 0%, #f8d9fe 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(-45deg, #964cb5 0%,#f8d9fe 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(135deg, #964cb5 0%,#f8d9fe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#964cb5', endColorstr='#f8d9fe',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+/* FORM */
+.form-control {
+    color: #311B92;
+	border-color: #fff;
+}
+
+::placeholder {
+    color: #988dc8!important;
+    opacity: 1; 
+}
+
+:-ms-input-placeholder {
+    color: #988dc8!important;
+}
+
+::-ms-input-placeholder {
+    color: #988dc8!important;
+}
+
+.form-control:focus {
+    color: #311B92;
+}
+
+.button-submit:active:focus {
+    background: #ECEFF1 !important;
+    border-color: #ECEFF1 !important;
+}
+
+.button-submit-invert:active:focus {
+    background: #311B92 !important;
+    border-color: #311B92 !important;
+}
+
+/* CHATBOT CORE */
+@-webkit-keyframes typing{
+    0%{
+        background-color: rgba(49,27,146, 1);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,0.4),
+        24px 0px 0px 0px rgba(49,27,146,0.2);
+    }
+    50% {
+        background-color: rgba(49,27,146, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,1),
+        24px 0px 0px 0px rgba(49,27,146,0.4);
+    }
+    100%{ background-color: rgba(49,27,146, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,0.4),
+        24px 0px 0px 0px rgba(49,27,146,1);
+    }
+}
+
+@-moz-keyframes typing{
+    0%{
+        background-color: rgba(49,27,146, 1);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,0.4),
+        24px 0px 0px 0px rgba(49,27,146,0.2);
+    }
+    50% {
+        background-color: rgba(49,27,146, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,1),
+        24px 0px 0px 0px rgba(49,27,146,0.4);
+    }
+    100%{ background-color: rgba(49,27,146, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,0.4),
+        24px 0px 0px 0px rgba(49,27,146,1);
+    }
+}
+
+@keyframes typing{
+    0%{
+        background-color: rgba(49,27,146, 1);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,0.4),
+        24px 0px 0px 0px rgba(49,27,146,0.2);
+    }
+    50% {
+        background-color: rgba(49,27,146, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,1),
+        24px 0px 0px 0px rgba(49,27,146,0.4);
+    }
+    100%{ background-color: rgba(49,27,146, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(49,27,146,0.4),
+        24px 0px 0px 0px rgba(49,27,146,1);
+    }
+}
+
+form.convFormDynamic {
+    box-shadow: 0 20px 45px 0 rgba(74,20,140,0.20);
+}
+
+div.conv-form-wrapper  div#messages div.message.to {
+    color: #311B92;
+}
+
+div.conv-form-wrapper div#messages div.message.from {
+    color: #311B92;
+}
+
+div.conv-form-wrapper  div#messages div.option {
+    color: #311B92;
+}
+
+div.conv-form-wrapper  div#messages div.option div.shortcut-key {
+    border: 1px solid #311B92;
+    color: #311B92;
+}
+
+div.conv-form-wrapper  div#messages div.message.link a {
+    background: #311B92;
+    color: #B388FF;
+}
+
+form.convFormDynamic button.btn-outline-secondary {
+    background: #ECEFF1;
+    border-color: #ECEFF1;
+    color: #311B92;
+}
+
+.wrapper-user-input .button-arrow {
+    background: url('../images/arrow_1_purple.png') no-repeat center center;
+    background-size: 33px;
+}
+
+.wrapper-user-input .button-arrow-invert {
+    background: url('../images/arrow_2_purple.png') no-repeat center center;
+    background-size: 33px;
+}
+
+/* MENU */
+.menu-wrapper {
+    background: #29167B;
+    color: #fff;
+    box-shadow: 0 20px 45px 0 rgba(74,20,140,0.20);
+}
+
+.input-group-text {
+    color: #495057;
+    background-color: #ECEFF1;
+    border: 1px solid #ECEFF1;
+}
+
+.wrapper-user-input .logo {
+    background: #311B92 url('../images/logo_1_purple.png') no-repeat center center;
+    border-color: #311B92;
+    background-size: 60px;
+}
+
+.wrapper-user-input .logo-invert {
+    background: #fff url('../images/logo_2_purple.png') no-repeat center center;
+    border-color: #fff;
+    background-size: 60px;
+}
+
+.wrapper-user-input .hamburger-wrapper-invert {
+    background: #311B92;
+    border-color: #311B92;
+}
+
+.wrapper-user-input .button-submit-invert {
+    background: #311B92 !important;
+    border-color: #311B92 !important;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: #311B92;
+}
+
+.hamburger-inner-invert, .hamburger-inner-invert::before, .hamburger-inner-invert::after {
+    background-color: #B388FF;
+}
+
+.menu-col a:hover {
+    color: #B388FF;
+}
+
+.menu-col-left {
+    background: #311B92;
+}
+
+.menu li {
+    border-bottom: 1px solid #4a369f;
+}
+
+.menu-shortcut-key {
+    border: 1px solid #4a369f;
+    color: #4a369f;
+}
+
+.menu li a:hover .menu-shortcut-key {
+    border: 1px solid #B388FF;
+    color: #311B92;
+    background: #B388FF;
+}
+
+/* SOCIAL FOOTER */
+.social-footer-menu {
+    border-top: 1px solid #4a369f;
+}
+
+.social-footer-menu-item {
+    border-right: 1px solid #4a369f;
+}

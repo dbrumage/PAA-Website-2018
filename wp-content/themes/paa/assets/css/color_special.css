@@ -1,0 +1,212 @@
+/* BASIC */
+a, a:hover {
+	color: #162BF4;
+}
+
+/* CONTAINER */
+section#main {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fff+0,ffd1d7+100 */
+	background: #d0d5fd; /* Old browsers */
+}
+
+/* FORM */
+.form-control {
+    color: #162BF4;
+	border-color: #fff;
+}
+
+::placeholder {
+    color: #7380f8!important;
+    opacity: 1; 
+}
+
+:-ms-input-placeholder {
+    color: #7380f8!important;
+}
+
+::-ms-input-placeholder {
+    color: #7380f8!important;
+}
+
+.form-control:focus {
+    color: #162BF4;
+}
+
+.button-submit:active:focus {
+    background: #ECEFF1 !important;
+    border-color: #ECEFF1 !important;
+}
+
+.button-submit-invert:active:focus {
+    background: #162BF4 !important;
+    border-color: #162BF4 !important;
+}
+
+/* CHATBOT CORE */
+@-webkit-keyframes typing{
+    0%{
+        background-color: rgba(22,43,244, 1);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,0.4),
+        24px 0px 0px 0px rgba(22,43,244,0.2);
+    }
+    50% {
+        background-color: rgba(22,43,244, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,1),
+        24px 0px 0px 0px rgba(22,43,244,0.4);
+    }
+    100%{ background-color: rgba(22,43,244, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,0.4),
+        24px 0px 0px 0px rgba(22,43,244,1);
+    }
+}
+
+@-moz-keyframes typing{
+    0%{
+        background-color: rgba(22,43,244, 1);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,0.4),
+        24px 0px 0px 0px rgba(22,43,244,0.2);
+    }
+    50% {
+        background-color: rgba(22,43,244, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,1),
+        24px 0px 0px 0px rgba(22,43,244,0.4);
+    }
+    100%{ background-color: rgba(22,43,244, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,0.4),
+        24px 0px 0px 0px rgba(22,43,244,1);
+    }
+}
+
+@keyframes typing{
+    0%{
+        background-color: rgba(22,43,244, 1);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,0.4),
+        24px 0px 0px 0px rgba(22,43,244,0.2);
+    }
+    50% {
+        background-color: rgba(22,43,244, 0.4);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,1),
+        24px 0px 0px 0px rgba(22,43,244,0.4);
+    }
+    100%{ background-color: rgba(22,43,244, 0.2);
+        box-shadow: 12px 0px 0px 0px rgba(22,43,244,0.4),
+        24px 0px 0px 0px rgba(22,43,244,1);
+    }
+}
+
+form.convFormDynamic {
+    box-shadow: 0 20px 45px 0 rgba(22,43,244,0.20);
+}
+
+div.conv-form-wrapper  div#messages div.message.to {
+    color: #162BF4;
+}
+
+div.conv-form-wrapper div#messages div.message.from {
+    color: #162BF4;
+}
+
+div.conv-form-wrapper  div#messages div.option {
+    color: #162BF4;
+}
+
+div.conv-form-wrapper  div#messages div.option div.shortcut-key {
+    border: 1px solid #162BF4;
+    color: #162BF4;
+}
+
+div.conv-form-wrapper  div#messages div.message.link a {
+    background: #162BF4;
+    color: #fff;
+}
+
+form.convFormDynamic button.btn-outline-secondary {
+    background: #ECEFF1;
+    border-color: #ECEFF1;
+    color: #162BF4;
+}
+
+.wrapper-user-input .button-arrow {
+    background: url('../images/arrow_1_special.png') no-repeat center center;
+    background-size: 33px;
+}
+
+.wrapper-user-input .button-arrow-invert {
+    background: url('../images/arrow_2_special.png') no-repeat center center;
+    background-size: 33px;
+}
+
+/* MENU */
+.menu-wrapper {
+    background: #1F37BF;
+    color: #fff;
+    box-shadow: 0 20px 45px 0 rgba(22,43,244,0.20);
+}
+
+.input-group-text {
+    color: #495057;
+    background-color: #ECEFF1;
+    border: 1px solid #ECEFF1;
+}
+
+.wrapper-user-input .logo {
+    background: #162BF4 url('../images/logo_1_special.png') no-repeat center center;
+    border-color: #162BF4;
+    background-size: 60px;
+}
+
+.wrapper-user-input .logo-invert {
+    background: #fff url('../images/logo_2_special.png') no-repeat center center;
+    border-color: #fff;
+    background-size: 60px;
+}
+
+.wrapper-user-input .hamburger-wrapper-invert {
+    background: #162BF4;
+    border-color: #162BF4;
+}
+
+.wrapper-user-input .button-submit-invert {
+    background: #162BF4 !important;
+    border-color: #162BF4 !important;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+    background-color: #162BF4;
+}
+
+.hamburger-inner-invert, .hamburger-inner-invert::before, .hamburger-inner-invert::after {
+    background-color: #fff;
+}
+
+.menu-col a:hover {
+    color: #fff;
+}
+
+.menu-col-left {
+    background: #162BF4;
+}
+
+.menu li {
+    border-bottom: 1px solid #3244f5;
+}
+
+.menu-shortcut-key {
+    border: 1px solid #3244f5;
+    color: #3244f5;
+}
+
+.menu li a:hover .menu-shortcut-key {
+    border: 1px solid #fff;
+    color: #162BF4;
+    background: #fff;
+}
+
+/* SOCIAL FOOTER */
+.social-footer-menu {
+    border-top: 1px solid #3244f5;
+}
+
+.social-footer-menu-item {
+    border-right: 1px solid #3244f5;
+}

@@ -168,11 +168,8 @@ jQuery(function ($) {
 		jQuery('.button-submit').removeClass("button-submit-invert");
 		if (jQuery('.menu-wrapper').is(":hidden")) {
 			jQuery('.logo').removeClass("logo-invert");
-			jQuery('.logo-1').show();
-			jQuery('.logo-2').hide();
 		}
-		jQuery('.arrow-1').show();
-		jQuery('.arrow-2').hide();
+		jQuery('.button-arrow').removeClass('button-arrow-invert');
 		jQuery('#userInput').focus();
 	});
 
@@ -196,20 +193,14 @@ jQuery(function ($) {
 			jQuery('.button-submit').addClass("button-submit-invert");
 			if (jQuery('.menu-wrapper').is(":hidden")) {
 				jQuery('.logo').addClass("logo-invert");
-				jQuery('.logo-1').hide();
-				jQuery('.logo-2').show();
 			}
-			jQuery('.arrow-1').hide();
-			jQuery('.arrow-2').show();
+			jQuery('.button-arrow').addClass('button-arrow-invert');
 		} else {
 			jQuery('.button-submit').removeClass("button-submit-invert");
 			if (jQuery('.menu-wrapper').is(":hidden")) {
 				jQuery('.logo').removeClass("logo-invert");
-				jQuery('.logo-1').show();
-				jQuery('.logo-2').hide();
 			}
-			jQuery('.arrow-1').show();
-			jQuery('.arrow-2').hide();
+			jQuery('.button-arrow').removeClass('button-arrow-invert');
 		}
 	});
 
@@ -219,8 +210,6 @@ jQuery(function ($) {
 		jQuery('.menu-wrapper').slideToggle();
 		if (jQuery('#userInput').val() === "") {
 			jQuery('.logo').toggleClass("logo-invert");
-			jQuery('.logo-1').toggle();
-			jQuery('.logo-2').toggle();
 		}
 
 		jQuery('.hamburger-wrapper').toggleClass("hamburger-wrapper-invert");

@@ -13,61 +13,10 @@
 .to .typing_loader {
     animation: typing 1s linear infinite alternate;
 }
-@-webkit-keyframes typing{
-    0%{
-        background-color: rgba(255,255,255, 1);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,0.2);
-    }
-    50% {
-        background-color: rgba(255,255,255, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,1),
-        24px 0px 0px 0px rgba(255,255,255,0.4);
-    }
-    100%{ background-color: rgba(255,255,255, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,1);
-    }
-}
-
-@-moz-keyframes typing{
-    0%{
-        background-color: rgba(255,255,255, 1);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,0.2);
-    }
-    50% {
-        background-color: rgba(255,255,255, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,1),
-        24px 0px 0px 0px rgba(255,255,255,0.4);
-    }
-    100%{ background-color: rgba(255,255,255, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,1);
-    }
-}
-
-@keyframes typing{
-    0%{
-        background-color: rgba(255,255,255, 1);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,0.2);
-    }
-    50% {
-        background-color: rgba(255,255,255, 0.4);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,1),
-        24px 0px 0px 0px rgba(255,255,255,0.4);
-    }
-    100%{ background-color: rgba(255,255,255, 0.2);
-        box-shadow: 12px 0px 0px 0px rgba(255,255,255,0.4),
-        24px 0px 0px 0px rgba(255,255,255,1);
-    }
-}
 
 form.convFormDynamic {
     width: 100%;
     margin: 0px auto;
-    box-shadow: 0 20px 45px 0 rgba(0,150,136,0.20);
 }
 
 .wrapper-user-input {
@@ -76,15 +25,6 @@ form.convFormDynamic {
     left: 0px;
     right: 0px;
     bottom: 60px;
-}
-
-form.convFormDynamic button.submit:hover {
-    background: #4F0C3E;
-    border-color: #4F0C3E;
-}
-
-button.submit.glow {
-    box-shadow: 0 0 10px 5px rgba(6, 197, 166, 0.4);
 }
 
 input[type="text"].userInputDynamic {
@@ -157,10 +97,9 @@ div.conv-form-wrapper div#messages div.message.from {
 }
 
 div.conv-form-wrapper  div#messages div.message.to.typing {
-    background: transparent;
-    /* -webkit-box-shadow:inset 0px 0px 0px 1px #fff;
-    -moz-box-shadow:inset 0px 0px 0px 1px #fff;
-    box-shadow:inset 0px 0px 0px 1px #fff; */
+    /* background: transparent; */
+    /* border: 1px solid #fff; */
+    background: #fff;
     border: 1px solid #fff;
 }
 

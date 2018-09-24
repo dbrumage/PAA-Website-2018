@@ -1,16 +1,31 @@
 <?php
-
 if (!defined('ABSPATH')) exit;
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  */
 function paa_setup() {
-    
     /**
      * Enqueue styles.
      */
     function load_styles()
     {
+        $colors = Array(
+            'teal',
+            'yellow',
+            'pink',
+            'special',
+            'red',
+            'green',
+            'silver',
+            'purple'
+        );
+
+        if ($_GET['color']!="") {
+            $cssColor = $_GET['color'];
+        } else {
+            $cssColor = $colors[array_rand($colors)];
+        }
+
         wp_enqueue_style(
             'bootstrap',
             get_template_directory_uri() . '/assets/css/bootstrap.min.css',
@@ -47,8 +62,8 @@ function paa_setup() {
         );
 
         wp_enqueue_style(
-            'color__teal',
-            get_template_directory_uri() . '/assets/css/color_teal.css',
+            'color_teal',
+            get_template_directory_uri() . '/assets/css/color_'.$cssColor.'.css',
             array(),
             '1.0.0'
         );
