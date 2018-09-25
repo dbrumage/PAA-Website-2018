@@ -118,14 +118,28 @@ section#main {
 
 /* MENU */
 .menu-wrapper {
-    display: none;
     overflow: auto;
+    display: none;
+    /* height: 533px;
+    width: 1300px; */
     -webkit-border-bottom-right-radius: 5px;
     -webkit-border-bottom-left-radius: 5px;
     -moz-border-radius-bottomright: 5px;
     -moz-border-radius-bottomleft: 5px;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+    /* -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -ms-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    backface-visibility: hidden;
+    perspective: 1000; */
+}
+
+.menu-wrapper-visible {
+    height: 533px;
+    overflow: hidden;
 }
 
 .menu-col {

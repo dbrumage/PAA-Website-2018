@@ -93,6 +93,14 @@ function paa_setup() {
         );
 
         wp_enqueue_script(
+            'velocity',
+            get_template_directory_uri() . '/assets/js/velocity.min.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+
+        wp_enqueue_script(
             'app',
             get_template_directory_uri() . '/assets/js/app.js',
             array('jquery'),
@@ -313,7 +321,7 @@ function paa_setup() {
             'label'               => __( 'navigation', 'navigation' ),
             'description'         => __( 'Navigation', 'navigation' ),
             'labels'              => $labels,
-            'supports'            => array( 'title' ),
+            'supports'            => array( 'title', 'page-attributes' ),
             'hierarchical'        => true,
             'public'              => true,
             'show_ui'             => true,

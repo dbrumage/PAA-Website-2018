@@ -146,7 +146,7 @@ var idleTime = 0;
 
 function timerIncrement() {
 	idleTime = idleTime + 1;
-	if (idleTime > 4) {
+	if (idleTime > 10) {
 		ajaxCall('api?term=user-idol&idol=1');
 	}
 }
@@ -154,6 +154,10 @@ function timerIncrement() {
 jQuery(function ($) {
 
 	jQuery('#userInput').focus();
+
+	setTimeout(function () {
+		jQuery('.person-1').fadeIn();
+	}, 1000);
 
 	// var idleInterval = setInterval(timerIncrement, 10000);
 
@@ -164,10 +168,44 @@ jQuery(function ($) {
 	// 	idleTime = 0;
 	// });
 
+	jQuery('body').on('click', '.menu li a', function (event) {
+		event.preventDefault();
+		jQuery('#userInput').val(jQuery(this).attr('data-trigger'));
+		jQuery('.button-submit').click();
+	});
+
 	jQuery('body').on('click', '.button-submit', function () {
+
+		if (jQuery('.person-2').is(":hidden") && jQuery('.person-1').is(":visible")) {
+			jQuery('.person-1').fadeOut();
+			jQuery('.person-2').fadeIn();
+		} else {
+			jQuery('.person-2').fadeOut();
+		}
+
 		jQuery('.button-submit').removeClass("button-submit-invert");
 		if (jQuery('.menu-wrapper').is(":hidden")) {
 			jQuery('.logo').removeClass("logo-invert");
+		} else {
+			jQuery('.logo').removeClass("logo-invert");
+			jQuery(".hamburger").toggleClass("is-active");
+			jQuery(".hamburger-wrapper").removeClass("hamburger-wrapper-invert");
+			jQuery(".hamburger-inner").removeClass("hamburger-inner-invert");
+			jQuery('.menu-wrapper').slideToggle();
+			// if (jQuery('.menu-wrapper').is(':visible')) {
+			// 	jQuery('.menu-wrapper').velocity("slideUp", function () {
+			// 		duration: 1500
+			// 	});
+			// } else {
+			// 	jQuery('.menu-wrapper').velocity("slideDown", function () {
+			// 		duration: 1500
+			// 	});
+			// }
+
+			setTimeout(function () {
+				jQuery('.logo').removeClass('no-left-border-bottom-radius');
+				jQuery('.button-submit').removeClass('no-right-border-bottom-radius');
+			}, 400);
 		}
 		jQuery('.button-arrow').removeClass('button-arrow-invert');
 		jQuery('#userInput').focus();
@@ -207,7 +245,19 @@ jQuery(function ($) {
 	jQuery(".hamburger").on("click", function (e) {
 
 		jQuery(this).toggleClass("is-active");
+
 		jQuery('.menu-wrapper').slideToggle();
+		
+		// if (jQuery('.menu-wrapper').is(':visible')) {
+		// 	jQuery('.menu-wrapper').velocity("slideUp", function () {
+		// 		duration: 1500
+		// 	});
+		// } else {
+		// 	jQuery('.menu-wrapper').velocity("slideDown", function () {
+		// 		duration: 1500
+		// 	});
+		// }
+
 		if (jQuery('#userInput').val() === "") {
 			jQuery('.logo').toggleClass("logo-invert");
 		}
