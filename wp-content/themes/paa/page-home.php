@@ -1,12 +1,11 @@
 <?php get_header(); ?>
     <section id="main">
-        <div class="person-1"></div>
-        <div class="person-2"></div>
+        <img src="http://localhost:8888/paa/wp-content/themes/paa/assets/images/dude-1.png" class="person-1" />
         <div class="container">
             <div class="row">
                 <div class="col-12">     
                     <div id="chat">
-                        <form action="" method="GET" class="hidden d-none">
+                        <form action="" method="GET" class="d-none">
                             <?php
                             $args = array(
                                 'post_type' => 'chat',
@@ -109,4 +108,6 @@
             </div>
         </div>
     </div>
+
+    <!-- <img src="http://localhost:8888/paa/wp-content/themes/paa/assets/images/dude-1.png" class="dude" style="display: none;" /> -->
 <?php get_footer(); ?>

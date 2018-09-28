@@ -185,7 +185,9 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                             $content_data_array[] = array(
                                 'title' => get_the_title(get_the_ID()),
                                 'permalink' => get_the_permalink(get_the_ID()),
-                                'image' => get_the_post_thumbnail_url(get_the_ID(), 'full'),
+                                'image_desktop' => get_field('image_desktop', get_the_ID()),
+                                'image_tablet' => get_field('image_tablet', get_the_ID()),
+                                'image_mobile' => get_field('image_mobile', get_the_ID()),
                                 'content_type' => 'Generic Content Items'
                             );
                         endwhile;

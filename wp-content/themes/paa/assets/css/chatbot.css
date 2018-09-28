@@ -15,6 +15,10 @@
 }
 
 form.convFormDynamic {
+    background: #fff;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
     width: 100%;
     margin: 0px auto;
 }
@@ -25,6 +29,7 @@ form.convFormDynamic {
     left: 0px;
     right: 0px;
     bottom: 60px;
+    z-index: 99999999999;
 }
 
 input[type="text"].userInputDynamic {
@@ -50,6 +55,7 @@ div.conv-form-wrapper div#messages {
 
 div.conv-form-wrapper div.message {
     max-width: 49%;
+    font-size: 24px;
 }
 
 @media (max-width: 900px) {
@@ -64,13 +70,12 @@ div.conv-form-wrapper div.message:after {
     clear: both;
 }
 div.conv-form-wrapper  div.message.ready {
-    animation: bounceIn 0.2s ease;
+    animation: enterIn 0.2s ease;
     transform-origin: 0 0 0;
 }
 div.conv-form-wrapper  div#messages div.message {
     border-radius: 20px;
     padding: 12px 22px;
-    font-size: 0.905rem;
     color: #333;
     display: inline-block;
     padding: 10px 15px 8px;
@@ -101,11 +106,12 @@ div.conv-form-wrapper  div#messages div.message.to.typing {
     /* border: 1px solid #fff; */
     background: #fff;
     border: 1px solid #fff;
+    padding: 10px 15px;
+    max-height: 54px;
 }
 
 
 div.conv-form-wrapper  div#messages div.option {
-    font-size: 0.905rem;
     cursor: pointer;
     display: inline-block;
     padding: 10px 0px 10px 0px;
@@ -114,7 +120,7 @@ div.conv-form-wrapper  div#messages div.option {
     float: left;
     clear: both;
     word-wrap: break-word;
-    animation: bounceIn 0.4s ease;
+    animation: enterIn 0.4s ease;
     transform-origin: 0 0 0;
 }
 
@@ -134,7 +140,7 @@ div.conv-form-wrapper  div#messages div.message-video {
     clear: both;
     max-width: 100%;
     width: 100%;
-    animation: bounceIn 0.4s ease;
+    animation: enterIn 0.4s ease;
     transform-origin: 0 0 0;
 }
 
@@ -167,7 +173,7 @@ div.conv-form-wrapper  div#messages div.message.link a {
     }
 }
 
-@keyframes bounceIn {
+@keyframes enterIn {
     0% {
         transform: scale(0.75, 0.75);
     }

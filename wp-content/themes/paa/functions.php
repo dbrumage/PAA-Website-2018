@@ -54,6 +54,20 @@ function paa_setup() {
             '5.3.1'
         );
 
+        // wp_enqueue_style(
+        //     'animate',
+        //     get_template_directory_uri() . '/assets/css/animate.min.css',
+        //     array(),
+        //     '3.5.2'
+        // );
+
+        wp_enqueue_style(
+            'fancybox',
+            get_template_directory_uri() . '/assets/css/fancybox.css',
+            array(),
+            '3.4.2'
+        );
+
         wp_enqueue_style(
             'core',
             get_template_directory_uri() . '/assets/css/core.css',
@@ -61,12 +75,15 @@ function paa_setup() {
             '1.0.0'
         );
 
-        wp_enqueue_style(
-            'color_teal',
-            get_template_directory_uri() . '/assets/css/color_'.$cssColor.'.css',
-            array(),
-            '1.0.0'
-        );
+        if (is_front_page()) {
+            wp_enqueue_style(
+                'color_teal',
+                get_template_directory_uri() . '/assets/css/color_'.$cssColor.'.css',
+                array(),
+                '1.0.0'
+            );
+        }
+        
 
     }
     add_action( 'wp_enqueue_scripts', 'load_styles' );
@@ -76,44 +93,49 @@ function paa_setup() {
      */
     function load_scripts()
     {
-        wp_enqueue_script(
-            'autosize',
-            get_template_directory_uri() . '/assets/js/autosize.min.js',
-            array('jquery'),
-            '3.0.20',
-            true
-        );
+        if (is_front_page()) {
+            wp_enqueue_script(
+                'autosize',
+                get_template_directory_uri() . '/assets/js/autosize.min.js',
+                array('jquery'),
+                '3.0.20',
+                true
+            );
 
-        wp_enqueue_script(
-            'convform',
-            get_template_directory_uri() . '/assets/js/jquery.convform.js',
-            array('jquery'),
-            '1.0.0',
-            true
-        );
+            wp_enqueue_script(
+                'convform',
+                get_template_directory_uri() . '/assets/js/jquery.convform.js',
+                array('jquery'),
+                '1.0.0',
+                true
+            );
 
-        wp_enqueue_script(
-            'velocity',
-            get_template_directory_uri() . '/assets/js/velocity.min.js',
-            array('jquery'),
-            '1.0.0',
-            true
-        );
+            wp_enqueue_script(
+                'velocity',
+                get_template_directory_uri() . '/assets/js/velocity.min.js',
+                array('jquery'),
+                '1.0.0',
+                true
+            );
 
-        wp_enqueue_script(
-            'app',
-            get_template_directory_uri() . '/assets/js/app.js',
-            array('jquery'),
-            '1.0.0',
-            true
-        );
+            wp_enqueue_script(
+                'fancybox',
+                get_template_directory_uri() . '/assets/js/jquery.fancybox.min.js',
+                array('jquery'),
+                '3.4.2',
+                true
+            );
+
+            wp_enqueue_script(
+                'app',
+                get_template_directory_uri() . '/assets/js/app.js',
+                array('jquery'),
+                '1.0.0',
+                true
+            );
+        }
     }
     add_action( 'wp_enqueue_scripts', 'load_scripts' );
-
-    /**
-     * Post thumbnails
-     */
-    add_theme_support('post-thumbnails');
 
     /**
      * Register Work Post Type

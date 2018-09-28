@@ -91,16 +91,16 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		if (type === "Content") {
 			for (var i in content) {
 				if (content[i].content_type === "Work List" || content[i].content_type === "Work Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br />' + content[i].client + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br />' + content[i].client + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
 				}
 				if (content[i].content_type === "Client List" || content[i].content_type === "Client Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
 				}
 				if (content[i].content_type === "Case Study List" || content[i].content_type === "Case Study Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">Case Study URL</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">Case Study URL</a></div>');
 				}
 				if (content[i].content_type === "Generic Content Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready done"><img src="' + content[i].image + '" width="100%"><br />' + content[i].title + '<br /><a href="' + content[i].permalink + '">Expand section</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a data-fancybox data-type="ajax" data-src="' + content[i].permalink + '?color-teal" href="javascript:;" class="btn btn-primary">Expand section</a></div>');
 				}
 			}
 		}
@@ -152,12 +152,17 @@ function timerIncrement() {
 }
 
 jQuery(function ($) {
+	// console.log(jQuery('.dude').attr('src'));
+
+	// setTimeout(function () {
+	// 	jQuery('#messages').append('<img src="'+jQuery('.dude').attr('src')+'" class="newdude" />');
+	// }, 1200);
 
 	jQuery('#userInput').focus();
 
 	setTimeout(function () {
 		jQuery('.person-1').fadeIn();
-	}, 1000);
+	}, 1200);
 
 	// var idleInterval = setInterval(timerIncrement, 10000);
 
@@ -176,12 +181,14 @@ jQuery(function ($) {
 
 	jQuery('body').on('click', '.button-submit', function () {
 
-		if (jQuery('.person-2').is(":hidden") && jQuery('.person-1').is(":visible")) {
-			jQuery('.person-1').fadeOut();
-			jQuery('.person-2').fadeIn();
-		} else {
-			jQuery('.person-2').fadeOut();
-		}
+		// if (jQuery('.person-2').is(":hidden") && jQuery('.person-1').is(":visible")) {
+		// 	jQuery('.person-1').fadeOut();
+		// 	jQuery('.person-2').fadeIn();
+		// } else {
+		// 	jQuery('.person-2').fadeOut();
+		// }
+
+		jQuery('.person-1').fadeOut();
 
 		jQuery('.button-submit').removeClass("button-submit-invert");
 		if (jQuery('.menu-wrapper').is(":hidden")) {
