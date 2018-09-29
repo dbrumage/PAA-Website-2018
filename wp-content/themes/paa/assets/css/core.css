@@ -330,6 +330,36 @@ section#main .person-2 {
 }
 
 /* CONTENT PAGES */
+.elementor-inner {
+    margin: 15px;
+    background: #fff;
+    padding-bottom: 160px;
+}
+
+.elementor-image img {
+    width: 100%;
+}
+
+.elementor-section.elementor-section-boxed>.elementor-container {
+    max-width: 1320px !important;
+}
+
+.modal-wrapper.styled {
+    background: transparent;
+    width: 100%;
+}
+
+.modal-wrapper.styled .modal {
+    position: relative;
+    background-color: transparent;
+    margin: 0px auto;
+    padding: 0px 0px 0px 0px;
+    border: none;
+    width: 100%;
+    min-height: 100vh;
+    transition: all 2s ease;
+}
+
 .content-hero {
     position: relative;
     background: transparent !important;

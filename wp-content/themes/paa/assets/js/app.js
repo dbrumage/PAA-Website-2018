@@ -100,8 +100,11 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">Case Study URL</a></div>');
 				}
 				if (content[i].content_type === "Generic Content Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a data-fancybox data-type="ajax" data-src="' + content[i].permalink + '?color-teal" href="javascript:;" class="btn btn-primary">Expand section</a></div>');
+					var subType = "Generic Content Items";
+					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a href="' + content[i].permalink + '" class="btn btn-primary modal-link">Expand section</a></div>');
+
 				}
+					// jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a data-fancybox data-type="ajax" data-src="' + content[i].permalink + '" href="javascript:;" class="btn btn-primary">Expand section</a></div>');
 			}
 		}
 		
@@ -123,6 +126,10 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		}
 
 		if (type != "Content") {
+			scrollPage();
+		}
+
+		if (subType === "Generic Content Items") {
 			scrollPage();
 		}
 
@@ -177,6 +184,17 @@ jQuery(function ($) {
 		event.preventDefault();
 		jQuery('#userInput').val(jQuery(this).attr('data-trigger'));
 		jQuery('.button-submit').click();
+	});
+
+	/* SORT THIS */
+	jQuery('body').on('click', '.close-modal', function (event) {
+		event.preventDefault();
+		jQuery('#userInput').val('Do something else');
+		jQuery('.button-submit').click();
+	});
+
+	jQuery('body').on('click', '.modal-link', function (event) {
+		event.preventDefault();
 	});
 
 	jQuery('body').on('click', '.button-submit', function () {

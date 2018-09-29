@@ -1,4 +1,6 @@
 <?php get_header(); ?>
+<?php the_post(); ?>
+<?php the_content(); ?>
     <section id="main">
         <img src="http://localhost:8888/paa/wp-content/themes/paa/assets/images/dude-1.png" class="person-1" />
         <div class="container">

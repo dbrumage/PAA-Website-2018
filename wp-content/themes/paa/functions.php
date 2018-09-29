@@ -22,8 +22,10 @@ function paa_setup() {
 
         if ($_GET['color']!="") {
             $cssColor = $_GET['color'];
+            define("COLOR", $cssColor);
         } else {
             $cssColor = $colors[array_rand($colors)];
+            define("COLOR", $cssColor);
         }
 
         wp_enqueue_style(
@@ -54,20 +56,6 @@ function paa_setup() {
             '5.3.1'
         );
 
-        // wp_enqueue_style(
-        //     'animate',
-        //     get_template_directory_uri() . '/assets/css/animate.min.css',
-        //     array(),
-        //     '3.5.2'
-        // );
-
-        wp_enqueue_style(
-            'fancybox',
-            get_template_directory_uri() . '/assets/css/fancybox.css',
-            array(),
-            '3.4.2'
-        );
-
         wp_enqueue_style(
             'core',
             get_template_directory_uri() . '/assets/css/core.css',
@@ -75,15 +63,12 @@ function paa_setup() {
             '1.0.0'
         );
 
-        if (is_front_page()) {
-            wp_enqueue_style(
-                'color_teal',
-                get_template_directory_uri() . '/assets/css/color_'.$cssColor.'.css',
-                array(),
-                '1.0.0'
-            );
-        }
-        
+        wp_enqueue_style(
+            'color_teal',
+            get_template_directory_uri() . '/assets/css/color_'.$cssColor.'.css',
+            array(),
+            '1.0.0'
+        );
 
     }
     add_action( 'wp_enqueue_scripts', 'load_styles' );
@@ -115,14 +100,6 @@ function paa_setup() {
                 get_template_directory_uri() . '/assets/js/velocity.min.js',
                 array('jquery'),
                 '1.0.0',
-                true
-            );
-
-            wp_enqueue_script(
-                'fancybox',
-                get_template_directory_uri() . '/assets/js/jquery.fancybox.min.js',
-                array('jquery'),
-                '3.4.2',
                 true
             );
 
