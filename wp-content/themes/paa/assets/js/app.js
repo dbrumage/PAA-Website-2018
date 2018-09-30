@@ -186,15 +186,19 @@ jQuery(function ($) {
 		jQuery('.button-submit').click();
 	});
 
-	/* SORT THIS */
+	/* TODO SORT THIS */
 	jQuery('body').on('click', '.close-modal', function (event) {
 		event.preventDefault();
-		jQuery('#userInput').val('Do something else');
-		jQuery('.button-submit').click();
+		api_url = window.siteUrl+'/api?term=modal-close';
+		ajaxCall(api_url);
+		jQuery('.close-modal').hide();
 	});
 
 	jQuery('body').on('click', '.modal-link', function (event) {
 		event.preventDefault();
+		setTimeout(function () {
+			jQuery('.close-modal').fadeIn();
+		}, 800);
 	});
 
 	jQuery('body').on('click', '.button-submit', function () {

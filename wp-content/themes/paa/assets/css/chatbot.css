@@ -125,12 +125,13 @@ div.conv-form-wrapper  div#messages div.option {
 }
 
 div.conv-form-wrapper  div#messages div.option div.shortcut-key {
-    border-radius: 2px;
+    border-radius: 8px;
     display: inline-block;
     padding: 8px 15px;
     margin-right: 10px;
     width: 52px;
     text-align: center;
+    font-size: 22px;
 }
 
 div.conv-form-wrapper  div#messages div.message-video {

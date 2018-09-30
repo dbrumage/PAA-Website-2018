@@ -1,16 +1,24 @@
 /* BASIC */
+body {
+    color: #263238;
+	background: #f1f3f5;
+	background: -moz-linear-gradient(-45deg, #8097a2 0%, #f1f3f5 100%);
+	background: -webkit-linear-gradient(-45deg, #8097a2 0%,#f1f3f5 100%);
+	background: linear-gradient(135deg, #8097a2 0%,#f1f3f5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8097a2', endColorstr='#f1f3f5',GradientType=1 );
+}
+
 a, a:hover {
 	color: #263238;
 }
 
 /* CONTAINER */
-section#main {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#B2FF59+0,ffd1d7+100 */
-	background: #f1f3f5; /* Old browsers */
-	background: -moz-linear-gradient(-45deg, #8097a2 0%, #f1f3f5 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(-45deg, #8097a2 0%,#f1f3f5 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(135deg, #8097a2 0%,#f1f3f5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8097a2', endColorstr='#f1f3f5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+#main {
+	background: #f1f3f5;
+	background: -moz-linear-gradient(-45deg, #8097a2 0%, #f1f3f5 100%);
+	background: -webkit-linear-gradient(-45deg, #8097a2 0%,#f1f3f5 100%);
+	background: linear-gradient(135deg, #8097a2 0%,#f1f3f5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8097a2', endColorstr='#f1f3f5',GradientType=1 );
 }
 
 /* FORM */
@@ -213,4 +221,56 @@ form.convFormDynamic button.btn-outline-secondary {
 
 .social-footer-menu-item {
     border-right: 1px solid #404a50;
+}
+
+/* CONTENT & PAGES */
+.elementor-container h1, 
+.elementor-container h2, 
+.elementor-container h3, 
+.elementor-container h4, 
+.elementor-container h5 {
+    color:#B2FF59;
+}
+
+.modal-wrapper.styled .modal .close-modal {
+    background: #263238;
+    color: #B2FF59;
+}
+
+.modal-wrapper.styled .modal .close-modal:before,
+.modal-wrapper.styled .modal .close-modal:after,
+.close-modal-page:before, .close-modal-page:after {
+    background-color: #B2FF59;
+}
+
+.close-modal-page {
+    background: #263238;
+    color: #B2FF59;
+}
+
+.modal-wrapper.styled {
+	background: #f1f3f5;
+	background: -moz-linear-gradient(-45deg, #8097a2 0%, #f1f3f5 100%);
+	background: -webkit-linear-gradient(-45deg, #8097a2 0%,#f1f3f5 100%);
+	background: linear-gradient(135deg, #8097a2 0%,#f1f3f5 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8097a2', endColorstr='#f1f3f5',GradientType=1 );
+    width: 100%;
+}
+
+/* BUTTONS */
+.btn-primary {
+    color: #B2FF59;
+    background-color: #263238;
+    border-color: #263238;
+}
+
+.btn-primary:focus, .btn-primary:active {
+    background-color: #263238 !important;
+    border-color: #263238 !important;
+}
+
+.btn-primary:hover {
+    background-color: #202B31 !important;
+    color: #B2FF59;
+    border-color: #202B31 !important;
 }

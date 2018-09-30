@@ -78,39 +78,37 @@ function paa_setup() {
      */
     function load_scripts()
     {
-        if (is_front_page()) {
-            wp_enqueue_script(
-                'autosize',
-                get_template_directory_uri() . '/assets/js/autosize.min.js',
-                array('jquery'),
-                '3.0.20',
-                true
-            );
+        wp_enqueue_script(
+            'autosize',
+            get_template_directory_uri() . '/assets/js/autosize.min.js',
+            array('jquery'),
+            '3.0.20',
+            true
+        );
 
-            wp_enqueue_script(
-                'convform',
-                get_template_directory_uri() . '/assets/js/jquery.convform.js',
-                array('jquery'),
-                '1.0.0',
-                true
-            );
+        wp_enqueue_script(
+            'convform',
+            get_template_directory_uri() . '/assets/js/jquery.convform.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
 
-            wp_enqueue_script(
-                'velocity',
-                get_template_directory_uri() . '/assets/js/velocity.min.js',
-                array('jquery'),
-                '1.0.0',
-                true
-            );
+        wp_enqueue_script(
+            'velocity',
+            get_template_directory_uri() . '/assets/js/velocity.min.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
 
-            wp_enqueue_script(
-                'app',
-                get_template_directory_uri() . '/assets/js/app.js',
-                array('jquery'),
-                '1.0.0',
-                true
-            );
-        }
+        wp_enqueue_script(
+            'app',
+            get_template_directory_uri() . '/assets/js/app.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
     }
     add_action( 'wp_enqueue_scripts', 'load_scripts' );
 

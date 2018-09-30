@@ -1,12 +1,16 @@
 /* BASIC */
+body {
+    color: #000;
+    background: #d0d5fd;
+}
+
 a, a:hover {
 	color: #162BF4;
 }
 
 /* CONTAINER */
-section#main {
-	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fff+0,ffd1d7+100 */
-	background: #d0d5fd; /* Old browsers */
+#main {
+    background: #d0d5fd;
 }
 
 /* FORM */
@@ -209,4 +213,52 @@ form.convFormDynamic button.btn-outline-secondary {
 
 .social-footer-menu-item {
     border-right: 1px solid #3244f5;
+}
+
+/* CONTENT & PAGES */
+.elementor-container h1, 
+.elementor-container h2, 
+.elementor-container h3, 
+.elementor-container h4, 
+.elementor-container h5 {
+    color:#162BF4;
+}
+
+.modal-wrapper.styled .modal .close-modal {
+    background: #162BF4;
+    color: #fff;
+}
+
+.modal-wrapper.styled .modal .close-modal:before,
+.modal-wrapper.styled .modal .close-modal:after,
+.close-modal-page:before, .close-modal-page:after {
+    background-color: #fff;
+}
+
+.close-modal-page {
+    background: #162BF4;
+    color: #fff;
+}
+
+.modal-wrapper.styled {
+	background-color: #162BF4;
+    width: 100%;
+}
+
+/* BUTTONS */
+.btn-primary {
+    color: #fff;
+    background-color: #162BF4;
+    border-color: #162BF4;
+}
+
+.btn-primary:focus, .btn-primary:active {
+    background-color: #162BF4 !important;
+    border-color: #162BF4 !important;
+}
+
+.btn-primary:hover {
+    background-color: #1F37BF !important;
+    color: #fff;
+    border-color: #1F37BF !important;
 }
