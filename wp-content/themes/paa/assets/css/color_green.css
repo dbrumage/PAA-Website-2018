@@ -5,7 +5,8 @@ body {
 	background: -moz-linear-gradient(-45deg, #448b47 0%, #e6f8b2 100%);
 	background: -webkit-linear-gradient(-45deg, #448b47 0%,#e6f8b2 100%);
 	background: linear-gradient(135deg, #448b47 0%,#e6f8b2 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#448b47', endColorstr='#e6f8b2',GradientType=1 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#448b47', endColorstr='#e6f8b2',GradientType=1 );
+    background-attachment: fixed;
 }
 
 a, a:hover {
@@ -18,7 +19,8 @@ a, a:hover {
 	background: -moz-linear-gradient(-45deg, #448b47 0%, #e6f8b2 100%);
 	background: -webkit-linear-gradient(-45deg, #448b47 0%,#e6f8b2 100%);
 	background: linear-gradient(135deg, #448b47 0%,#e6f8b2 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#448b47', endColorstr='#e6f8b2',GradientType=1 );
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#448b47', endColorstr='#e6f8b2',GradientType=1 );
+    background-attachment: fixed;
 }
 
 /* FORM */
@@ -107,7 +109,11 @@ a, a:hover {
 }
 
 form.convFormDynamic {
-    box-shadow: 0 20px 45px 0 rgba(27,94,32,0.20);
+    box-shadow: 0px 20px 45px 20px rgba(27,94,32,0.20);
+}
+
+form.convFormDynamic.modal-shadow {
+    box-shadow: 0px 10px 45px 10px rgba(55,71,79,0.20);
 }
 
 div.conv-form-wrapper  div#messages div.message.to {

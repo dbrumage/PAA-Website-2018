@@ -18,6 +18,21 @@ function validateMessage(message) {
 	return messageReg.test(message);
 }
 
+var getUrlParameter = function getUrlParameter(sParam) {
+	var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+		sURLVariables = sPageURL.split('&'),
+		sParameterName,
+		i;
+
+	for (i = 0; i < sURLVariables.length; i++) {
+		sParameterName = sURLVariables[i].split('=');
+
+		if (sParameterName[0] === sParam) {
+			return sParameterName[1] === undefined ? true : sParameterName[1];
+		}
+	}
+};
+
 function ajaxCall(api_url) {
 	jQuery.ajax({
 		type: 'POST',
@@ -89,9 +104,14 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		}
 		
 		if (type === "Content") {
+			var random = Math.floor((Math.random() * 999999999999999) + 1);
+
+			jQuery("body").find('#messages').append('<div class="work-hero-wrapper work-hero-wrapper-'+random+'"><div class="work-hero-row"></div></div>');
+
 			for (var i in content) {
 				if (content[i].content_type === "Work List" || content[i].content_type === "Work Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br />' + content[i].client + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
+					jQuery("body").find('.work-hero-wrapper-'+random+' .work-hero-row').append('<div class="message to ready work-hero-col"><a href="' + content[i].case_study_url + '" class="modal-link close-work"><div class="work-hero" style="background: url(' + content[i].image + ') no-repeat center center !important;"><div class="work-hero-text"><img src="' + content[i].client_logo + '" class="client-logo" /><h2>' + content[i].title + '</h2></div></div></a></div>');
+					// <a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link">' + content[i].case_study_title + '</a>
 				}
 				if (content[i].content_type === "Client List" || content[i].content_type === "Client Items") {
 					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
@@ -101,10 +121,9 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 				}
 				if (content[i].content_type === "Generic Content Items") {
 					var subType = "Generic Content Items";
-					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a href="' + content[i].permalink + '" class="btn btn-primary modal-link">Expand section</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a href="' + content[i].permalink + '" class="btn btn-primary modal-link close-content">Expand section</a></div>');
 
 				}
-					// jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a data-fancybox data-type="ajax" data-src="' + content[i].permalink + '" href="javascript:;" class="btn btn-primary">Expand section</a></div>');
 			}
 		}
 		
@@ -133,7 +152,9 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 			scrollPage();
 		}
 
+		/* TODO */
 		if (count === length - 1) {
+			jQuery(".message.to.typing").addClass('d-none');
 			setTimeout(function () {
 				jQuery(".message.to.typing").remove();
 			}, 300);
@@ -167,6 +188,12 @@ jQuery(function ($) {
 
 	jQuery('#userInput').focus();
 
+	// if (window.location.href.indexOf("q") > -1) {
+	// 	api_url = window.siteUrl + '/api?term='+getUrlParameter('q');
+	// 	ajaxCall(api_url);
+	// 	jQuery('#userInput')
+	// } 
+
 	setTimeout(function () {
 		jQuery('.person-1').fadeIn();
 	}, 1200);
@@ -189,16 +216,36 @@ jQuery(function ($) {
 	/* TODO SORT THIS */
 	jQuery('body').on('click', '.close-modal', function (event) {
 		event.preventDefault();
-		api_url = window.siteUrl+'/api?term=modal-close';
-		ajaxCall(api_url);
+		if (jQuery(this).hasClass('close-content')){ 
+			api_url = window.siteUrl+'/api?term=modal-close';
+			ajaxCall(api_url);
+		}
+		if (jQuery(this).hasClass('close-work')){ 
+			// api_url = window.siteUrl+'/api?term=modal-close';
+			// ajaxCall(api_url);
+		}
+		jQuery('.convFormDynamic').removeClass('modal-shadow');
 		jQuery('.close-modal').hide();
 	});
 
 	jQuery('body').on('click', '.modal-link', function (event) {
 		event.preventDefault();
+		jQuery('.convFormDynamic').addClass('modal-shadow');
 		setTimeout(function () {
 			jQuery('.close-modal').fadeIn();
 		}, 800);
+		if (jQuery(this).hasClass('close-work')){ 
+			setTimeout(function () {
+				jQuery('.close-modal').addClass('close-work');
+				jQuery('.close-modal').removeClass('close-content');
+			}, 1500);
+		}
+		if (jQuery(this).hasClass('close-content')){ 
+			setTimeout(function () {
+				jQuery('.close-modal').addClass('close-content');
+				jQuery('.close-modal').removeClass('close-work');
+			}, 1500);
+		}
 	});
 
 	jQuery('body').on('click', '.button-submit', function () {
@@ -339,7 +386,7 @@ jQuery(function ($) {
 										jQuery("#userInput").removeAttr('data-user-input');
 									} else {
 										var contactName = userInput;
-										// STORE IN HIDDEN INPUT HERE
+										// TODO STORE IN HIDDEN INPUT HERE
 										api_value = "contact-email";
 										api_url = 'api?term=' + api_value;
 									}

@@ -6,6 +6,7 @@ body {
 	background: -webkit-linear-gradient(-45deg, #70c5bc 0%,#bbf9e9 100%);
 	background: linear-gradient(135deg, #70c5bc 0%,#bbf9e9 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70c5bc', endColorstr='#bbf9e9',GradientType=1 );
+    background-attachment: fixed;
 }
 
 a, a:hover {
@@ -19,6 +20,7 @@ a, a:hover {
 	background: -webkit-linear-gradient(-45deg, #70c5bc 0%,#bbf9e9 100%);
 	background: linear-gradient(135deg, #70c5bc 0%,#bbf9e9 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#70c5bc', endColorstr='#bbf9e9',GradientType=1 );
+    background-attachment: fixed;
 }
 
 /* FORM */
@@ -117,7 +119,11 @@ a, a:hover {
 }
 
 form.convFormDynamic {
-    box-shadow: 0 20px 45px 0 rgba(0,150,136,0.20);
+    box-shadow: 0px 20px 45px 20px rgba(0,150,136,0.20);
+}
+
+form.convFormDynamic.modal-shadow {
+    box-shadow: 0px 10px 45px 10px rgba(55,71,79,0.20);
 }
 
 div.conv-form-wrapper  div#messages div.message.to {

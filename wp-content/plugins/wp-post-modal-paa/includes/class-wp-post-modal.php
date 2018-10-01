@@ -68,7 +68,7 @@ class WP_Post_Modal {
 	 */
 	public function __construct() {
 
-		$this->plugin_name = 'wp-post-modal';
+		$this->plugin_name = 'wp-post-modal-paa';
 		$this->version     = '1.0.0';
 
 		$this->load_dependencies();

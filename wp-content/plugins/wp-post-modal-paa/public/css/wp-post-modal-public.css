@@ -58,13 +58,6 @@ body.no-scroll {
     z-index: 1;
 }
 
-.modal-wrapper.styled .modal .loading {
-    display: block;
-    width: 100px;
-    margin: auto;
-    padding: 25vh 0;
-}
-
 .modal-wrapper.styled .modal .entry-content p {
     font-size: 16px;
     text-rendering: optimizeLegibility;

@@ -8,20 +8,14 @@
  * registers the activation and deactivation functions, and defines a function
  * that starts the plugin.
  *
- * @link              https://allurewebsolutions.com
  * @since             1.0.0
- * @package           WP_Post_Modal
+ * @package           WP_Post_Modal_PAA
  *
  * @wp-plugin
- * Plugin Name:       WP Post Popup
- * Plugin URI:        https://allurewebsolutions.com
+ * Plugin Name:       WP Post Modal PAA
  * Description:       This plugin allows any content to be pulled into a modal window dynamically. To use, just create a link with class "modal-link".
- * Version:           2.2
- * Author:            Allure Web Solutions
- * Author URI:        https://allurewebsolutions.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wp-post-modal
+ * Version:           1.0
+ * Text Domain:       wp-post-modal-paa
  * Domain Path:       /languages
  */
 

@@ -1,5 +1,5 @@
 <?php
-if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest') {
+if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && defined('ABSPATH') ) {
 
     function trigger_posts_where( $where ) {
         global $wpdb;
@@ -151,6 +151,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                             $content_data_array[] = array(
                                 'title' => get_the_title(),
                                 'client' => get_the_title(get_field('client')),
+                                'client_logo' => get_field('image', get_field('client')),
                                 'case_study_url' => get_the_permalink(get_field('case_study')),
                                 'case_study_title' => get_the_title(get_field('case_study')),
                                 'image' => get_field('image'),
@@ -168,6 +169,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                             $content_data_array[] = array(
                                 'title' => get_the_title(),
                                 'client' => get_the_title(get_field('client')),
+                                'client_logo' => get_field('image', get_field('client')),
                                 'case_study_url' => get_the_permalink(get_field('case_study')),
                                 'case_study_title' => get_the_title(get_field('case_study')),
                                 'image' => get_field('image'),

@@ -155,7 +155,7 @@
                 // if using URL parameter to open modal
                 if (getUrlParameter('modal-link')) {
                     if (fromPHP.styled) {
-                        $('#modal-content').html('<img class="loading" src="' + fromPHP.pluginUrl + '/images/loading.gif" />');
+                        $('#modal-content').html('<div class="spinLoader"></div>');
                     }
 
                     if (fromPHP.legacy) {
@@ -193,7 +193,7 @@
                     var postAnchor = postSlug.lastIndexOf('#') !== -1 ? postSlug.substring(postSlug.lastIndexOf('#')) : false;
                     var dataDivID = ' #' + $this.attr('data-div');
                     var dataBuddypress = $this.attr('data-buddypress');
-                    var loader = '<img class="loading" src="' + fromPHP.pluginUrl + '/images/loading.gif" />';
+                    var loader = '<div class="spinLoader"></div>';
 
                     // prevent link from being followed
                     e.preventDefault();

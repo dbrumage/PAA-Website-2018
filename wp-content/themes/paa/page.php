@@ -4,7 +4,6 @@
 <?php } ?>
 <?php the_post(); ?>
 <?php the_content(); ?>
-
 <?php
 if(empty($_SERVER['HTTP_X_REQUESTED_WITH'])) {
     include "template_parts/chat-input.php"; 

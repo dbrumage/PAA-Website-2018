@@ -408,18 +408,6 @@ section#main .person-2 {
     min-height: 100vh;
     transition: all 2s ease;
 }
-/* 
-.modal-wrapper.styled .modal .loading {
-    display: block;
-    width: 100px;
-    margin: auto;
-    padding: 25vh 0;
-    animation: typing 1s linear infinite alternate;
-} */
-
-.modal-wrapper.styled .modal .loading img {
-    display: none !important;
-}
 
 .content-hero {
     position: relative;
@@ -439,6 +427,7 @@ section#main .person-2 {
     position: absolute;
     top: 0px;
     color: #fff;
+    width: 100%;
 }
 
 .content-hero-text h2 {
@@ -451,6 +440,65 @@ section#main .person-2 {
     position: absolute;
     bottom: 0px;
     padding: 12px 20px;
+}
+
+/* WORK */
+.work-hero-wrapper {
+    padding-top: 40px;
+    clear: both;
+}
+
+.work-hero-row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -2px;
+    margin-left: -2px;
+}
+
+.work-hero-col {
+    background: transparent !important;
+    position: relative;
+    -ms-flex: 0 0 50% !important;
+    flex: 0 0 50% !important;
+    width: 50% !important;
+    height: 120px;
+    max-width: 50% !important;
+    margin-top: 0px !important;
+    margin-bottom: 4px !important;
+    clear: none !important;
+    padding: 0px 2px 0px 2px !important;
+}
+
+.work-hero {
+    overflow: hidden;
+    height: 120px;
+    border-radius: 5px;
+}
+
+.work-hero-text {
+    padding: 0px 40px;
+    position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	left: 0;
+	width: 100%;
+    color: #fff;
+    width: 100%;
+}
+
+
+.work-hero h2 {
+    font-weight: normal;
+    font-size: 29px;
+}
+
+.work-hero .client-logo {
+    width: 65px;
+    float: left;
+    margin-right: 40px;
+    margin-top: 7px;
 }
 
 /* BUTTONS */
