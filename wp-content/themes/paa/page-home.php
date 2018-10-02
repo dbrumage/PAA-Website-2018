@@ -2,7 +2,6 @@
 <?php the_post(); ?>
 <?php the_content(); ?>
     <section id="main">
-        <img src="<?php bloginfo('template_url'); ?>/assets/images/dude-1.png" class="person-1" />
         <div class="container">
             <div class="row">
                 <div class="col-12">     
@@ -45,6 +44,7 @@
                 </div>
             </div>
         </div>
+        <img src="<?php bloginfo('template_url'); ?>/assets/images/person-1-<?php echo COLOR; ?>.png" class="person" />
 	</section>
    <?php include "template_parts/chat-input.php"; ?>
 <?php get_footer(); ?>

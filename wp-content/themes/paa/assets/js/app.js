@@ -105,13 +105,18 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		
 		if (type === "Content") {
 			var random = Math.floor((Math.random() * 999999999999999) + 1);
-
+			var loopCount = 0;
 			jQuery("body").find('#messages').append('<div class="work-hero-wrapper work-hero-wrapper-'+random+'"><div class="work-hero-row"></div></div>');
 
 			for (var i in content) {
 				if (content[i].content_type === "Work List" || content[i].content_type === "Work Items") {
-					jQuery("body").find('.work-hero-wrapper-'+random+' .work-hero-row').append('<div class="message to ready work-hero-col"><a href="' + content[i].case_study_url + '" class="modal-link close-work"><div class="work-hero" style="background: url(' + content[i].image + ') no-repeat center center !important;"><div class="work-hero-text"><img src="' + content[i].client_logo + '" class="client-logo" /><h2>' + content[i].title + '</h2></div></div></a></div>');
-					// <a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link">' + content[i].case_study_title + '</a>
+					if (content[i].case_study_title!="") {
+						var caseStudy = '<a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link">' + content[i].case_study_title + '</a>';
+					} else {
+						var caseStudy = '';
+					}
+
+					jQuery("body").find('.work-hero-wrapper-' + random + ' .work-hero-row').append('<div class="message to ready work-hero-col"><div class="work-hero"><img src="' + content[i].image + '" class="work-hero-image"><div class="work-hero-text"><img src="' + content[i].client_logo + '" class="client-logo" /><h2>' + content[i].title + '</h2>'+caseStudy+'</div></div></div>');
 				}
 				if (content[i].content_type === "Client List" || content[i].content_type === "Client Items") {
 					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
@@ -124,7 +129,12 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a href="' + content[i].permalink + '" class="btn btn-primary modal-link close-content">Expand section</a></div>');
 
 				}
+				loopCount++;
 			}
+			jQuery('.work-hero-wrapper-' + random + ' .work-hero-row .work-hero-col').each(function (i, e) {
+				if (i % 2 == 0) div = jQuery('<div/>').addClass('work-hero-items-row').appendTo('.work-hero-wrapper-' + random + ' .work-hero-row');
+				div.append(e);
+			});
 		}
 		
 		if (type === "Prompt") {
@@ -144,8 +154,12 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 			}, 300);
 		}
 
+		/* TODO */
 		if (type != "Content") {
 			scrollPage();
+		} else if(subType != "Generic Content Items") {
+			var y = jQuery(window).scrollTop();
+			jQuery(window).scrollTop(y + 120);
 		}
 
 		if (subType === "Generic Content Items") {
@@ -195,7 +209,7 @@ jQuery(function ($) {
 	// } 
 
 	setTimeout(function () {
-		jQuery('.person-1').fadeIn();
+		jQuery('.person').fadeIn();
 	}, 1200);
 
 	// var idleInterval = setInterval(timerIncrement, 10000);
@@ -207,6 +221,20 @@ jQuery(function ($) {
 	// 	idleTime = 0;
 	// });
 
+	jQuery(document).on("mouseenter", ".work-hero-items-row", function () {
+		jQuery(this).addClass('work-hero-items-row-hover');
+		jQuery('.work-hero', this).addClass('work-hero-hover');
+		jQuery('.work-hero-text', this).addClass('work-hero-text-hover');
+		jQuery('.btn', this).fadeIn();
+	});
+
+	jQuery(document).on("mouseleave", ".work-hero-items-row", function () {
+		jQuery('.work-hero-items-row').removeClass('work-hero-items-row-hover');
+		jQuery('.work-hero').removeClass('work-hero-hover');
+		jQuery('.work-hero-text', this).removeClass('work-hero-text-hover');
+		jQuery('.work-hero .btn').hide();
+	});
+	
 	jQuery('body').on('click', '.menu li a', function (event) {
 		event.preventDefault();
 		jQuery('#userInput').val(jQuery(this).attr('data-trigger'));
@@ -257,7 +285,7 @@ jQuery(function ($) {
 		// 	jQuery('.person-2').fadeOut();
 		// }
 
-		jQuery('.person-1').fadeOut();
+		jQuery('.person').fadeOut();
 
 		jQuery('.button-submit').removeClass("button-submit-invert");
 		if (jQuery('.menu-wrapper').is(":hidden")) {

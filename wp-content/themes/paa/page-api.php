@@ -148,12 +148,19 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                         );
                         $the_query = new WP_Query($args);
                         while ( $the_query->have_posts() ) : $the_query->the_post();
+                            if (get_field('case_study')!="") {
+                                $csTitle = get_the_title(get_field('case_study'));
+                                $csUrl = get_the_permalink(get_field('case_study'));
+                            } else {
+                                $csTitle = "";
+                                $csUrl = "";
+                            }
                             $content_data_array[] = array(
                                 'title' => get_the_title(),
                                 'client' => get_the_title(get_field('client')),
                                 'client_logo' => get_field('image', get_field('client')),
-                                'case_study_url' => get_the_permalink(get_field('case_study')),
-                                'case_study_title' => get_the_title(get_field('case_study')),
+                                'case_study_url' => $csUrl,
+                                'case_study_title' => $csTitle,
                                 'image' => get_field('image'),
                                 'content_type' => 'Work List'
                             );
@@ -166,12 +173,19 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                         );
                         $the_query = new WP_Query($args);
                         while ( $the_query->have_posts() ) : $the_query->the_post();
+                            if (get_field('case_study')!="") {
+                                $csTitle = get_the_title(get_field('case_study'));
+                                $csUrl = get_the_permalink(get_field('case_study'));
+                            } else {
+                                $csTitle = "";
+                                $csUrl = "";
+                            }
                             $content_data_array[] = array(
                                 'title' => get_the_title(),
                                 'client' => get_the_title(get_field('client')),
                                 'client_logo' => get_field('image', get_field('client')),
-                                'case_study_url' => get_the_permalink(get_field('case_study')),
-                                'case_study_title' => get_the_title(get_field('case_study')),
+                                'case_study_url' => $csUrl,
+                                'case_study_title' => $csTitle,
                                 'image' => get_field('image'),
                                 'content_type' => 'Work Items'
                             );
