@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <form class="convFormDynamic modal-shadow" id="convForm" name="convForm" action="<?php bloginfo('url') ?>" method="get">
+                <form class="convFormDynamic <?php if (!is_front_page()) { echo "modal-shadow"; } ?>" id="convForm" name="convForm" action="<?php bloginfo('url') ?>" method="get">
                     <div class="input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text logo"></span>

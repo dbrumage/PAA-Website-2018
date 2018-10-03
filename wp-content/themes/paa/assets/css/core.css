@@ -21,7 +21,7 @@ input, button, button:focus, span:focus {
 }
 
 .container {
-	max-width: 1330px;
+	max-width: 1320px;
 }
 
 .form-control {
@@ -353,6 +353,11 @@ section#main .person {
     max-width: 1320px !important;
 }
 
+form.convFormDynamic.modal-shadow {
+    box-shadow: 0px 20px 45px 20px rgba(55,71,79,0.20);
+    /* margin-left: -7px; */
+}
+
 .modal-wrapper.styled .modal .close-modal {
     display: none;
     position: fixed;
@@ -433,6 +438,7 @@ section#main .person {
 
 .content-hero img {
     width: 100%;
+    max-width: 100%;
 }
 
 .content-hero-text {
@@ -558,6 +564,27 @@ section#main .person {
     float: left;
     margin-right: 40px;
     margin-top: 7px;
+}
+
+/* CLIENTS */
+.clients-hero-col .work-hero {
+    background:rgba(255,255,255,1) !important;
+}
+
+.clients-hero-items-row {
+    width: 100%;
+    height: 180px;
+    margin-bottom: 4px !important;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
+}
+
+.clients-hero-items-row-hover, .work-hero-hover {
+    height: 270px;
+    -moz-transition: all .5s;
+    -webkit-transition: all .5s;
+    transition: all .5s;
 }
 
 /* BUTTONS */

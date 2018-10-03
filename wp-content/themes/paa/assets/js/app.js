@@ -110,31 +110,46 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 
 			for (var i in content) {
 				if (content[i].content_type === "Work List" || content[i].content_type === "Work Items") {
+					var content_type = content[i].content_type;
 					if (content[i].case_study_title!="") {
-						var caseStudy = '<a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link">' + content[i].case_study_title + '</a>';
+						var caseStudy = '<a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link close-work">' + content[i].case_study_title + '</a>';
 					} else {
 						var caseStudy = '';
 					}
-
 					jQuery("body").find('.work-hero-wrapper-' + random + ' .work-hero-row').append('<div class="message to ready work-hero-col"><div class="work-hero"><img src="' + content[i].image + '" class="work-hero-image"><div class="work-hero-text"><img src="' + content[i].client_logo + '" class="client-logo" /><h2>' + content[i].title + '</h2>'+caseStudy+'</div></div></div>');
 				}
 				if (content[i].content_type === "Client List" || content[i].content_type === "Client Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">' + content[i].case_study_title + '</a></div>');
-				}
-				if (content[i].content_type === "Case Study List" || content[i].content_type === "Case Study Items") {
-					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image + '"><br />' + content[i].title + '<br /><a href="' + content[i].case_study_url + '">Case Study URL</a></div>');
+					var content_type = content[i].content_type;
+					if (content[i].case_study_title != "") {
+						var caseStudy = '<a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link close-work">' + content[i].case_study_title + '</a>';
+					} else {
+						var caseStudy = '';
+					}
+					jQuery("body").find('.work-hero-wrapper-' + random + ' .work-hero-row').append('<div class="message to ready work-hero-col clients-hero-col"><div class="work-hero"><div class="work-hero-text"><img src="' + content[i].image + '" class="client-logo" /><h2>' + content[i].title + '</h2>' + caseStudy + '</div></div></div>');
 				}
 				if (content[i].content_type === "Generic Content Items") {
+					var content_type = content[i].content_type;
 					var subType = "Generic Content Items";
 					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a href="' + content[i].permalink + '" class="btn btn-primary modal-link close-content">Expand section</a></div>');
 
 				}
 				loopCount++;
 			}
-			jQuery('.work-hero-wrapper-' + random + ' .work-hero-row .work-hero-col').each(function (i, e) {
-				if (i % 2 == 0) div = jQuery('<div/>').addClass('work-hero-items-row').appendTo('.work-hero-wrapper-' + random + ' .work-hero-row');
-				div.append(e);
-			});
+
+			if (content_type === "Work List" || content_type === "Work Items") {
+				jQuery('.work-hero-wrapper-' + random + ' .work-hero-row .work-hero-col').each(function (i, e) {
+					if (i % 2 == 0) div = jQuery('<div/>').addClass('work-hero-items-row').appendTo('.work-hero-wrapper-' + random + ' .work-hero-row');
+					div.append(e);
+				});
+			}
+
+			if (content_type === "Client List" || content_type === "Client Items") {
+				jQuery('.work-hero-wrapper-' + random + ' .work-hero-row .work-hero-col').each(function (i, e) {
+					if (i % 2 == 0) div = jQuery('<div/>').addClass('clients-hero-items-row').appendTo('.work-hero-wrapper-' + random + ' .work-hero-row');
+					div.append(e);
+				});
+			}
+			
 		}
 		
 		if (type === "Prompt") {
@@ -194,45 +209,41 @@ function timerIncrement() {
 }
 
 jQuery(function ($) {
-	// console.log(jQuery('.dude').attr('src'));
 
-	// setTimeout(function () {
-	// 	jQuery('#messages').append('<img src="'+jQuery('.dude').attr('src')+'" class="newdude" />');
-	// }, 1200);
+	// var idleInterval = setInterval(timerIncrement, 10000);
+	// jQuery(this).mousemove(function (e) {
+	// 	idleTime = 0;
+	// });
+	// jQuery(this).keypress(function (e) {
+	// 	idleTime = 0;
+	// });
 
 	jQuery('#userInput').focus();
 
+	setTimeout(function () {
+		jQuery('.person').fadeIn();
+		jQuery('.wrapper-user-input').fadeIn();
+	}, 1200);
+
+	// TODO
 	// if (window.location.href.indexOf("q") > -1) {
 	// 	api_url = window.siteUrl + '/api?term='+getUrlParameter('q');
 	// 	ajaxCall(api_url);
 	// 	jQuery('#userInput')
 	// } 
 
-	setTimeout(function () {
-		jQuery('.person').fadeIn();
-	}, 1200);
-
-	// var idleInterval = setInterval(timerIncrement, 10000);
-
-	// $(this).mousemove(function (e) {
-	// 	idleTime = 0;
-	// });
-	// $(this).keypress(function (e) {
-	// 	idleTime = 0;
-	// });
-
 	jQuery(document).on("mouseenter", ".work-hero-items-row", function () {
-		jQuery(this).addClass('work-hero-items-row-hover');
-		jQuery('.work-hero', this).addClass('work-hero-hover');
-		jQuery('.work-hero-text', this).addClass('work-hero-text-hover');
-		jQuery('.btn', this).fadeIn();
+		jQuery(this).stop().addClass('work-hero-items-row-hover');
+		jQuery('.work-hero', this).stop().addClass('work-hero-hover');
+		jQuery('.work-hero-text', this).stop().addClass('work-hero-text-hover');
+		jQuery('.btn', this).stop().fadeIn();
 	});
 
 	jQuery(document).on("mouseleave", ".work-hero-items-row", function () {
-		jQuery('.work-hero-items-row').removeClass('work-hero-items-row-hover');
-		jQuery('.work-hero').removeClass('work-hero-hover');
-		jQuery('.work-hero-text', this).removeClass('work-hero-text-hover');
-		jQuery('.work-hero .btn').hide();
+		jQuery('.work-hero-items-row').stop().removeClass('work-hero-items-row-hover');
+		jQuery('.work-hero').stop().removeClass('work-hero-hover');
+		jQuery('.work-hero-text', this).stop().removeClass('work-hero-text-hover');
+		jQuery('.work-hero .btn').stop().hide();
 	});
 	
 	jQuery('body').on('click', '.menu li a', function (event) {
@@ -259,6 +270,10 @@ jQuery(function ($) {
 	jQuery('body').on('click', '.modal-link', function (event) {
 		event.preventDefault();
 		jQuery('.convFormDynamic').addClass('modal-shadow');
+		jQuery('.wrapper-user-input').hide();
+		setTimeout(function () {
+			jQuery('.wrapper-user-input').fadeIn();
+		}, 1200);
 		setTimeout(function () {
 			jQuery('.close-modal').fadeIn();
 		}, 800);

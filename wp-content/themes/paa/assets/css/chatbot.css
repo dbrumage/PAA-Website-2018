@@ -23,13 +23,20 @@ form.convFormDynamic {
     margin: 0px auto;
 }
 
+.wrapper-messages {
+    width: 100%;
+    max-width: 1320px;
+}
+
 .wrapper-user-input {
     position: fixed;
     width: 100%;
+    max-width: 100%;
     left: 0px;
     right: 0px;
     bottom: 60px;
     z-index: 99999999999;
+    display: none;
 }
 
 input[type="text"].userInputDynamic {
@@ -47,10 +54,21 @@ textarea.userInputDynamic {
     margin: 7px 0px;
 }
 
+.conv-form-wrapper {
+    display: block;
+    width: 100%;
+    max-width: 1290px;
+}
+
 div.conv-form-wrapper div#messages {
     padding: 60px 0px 160px;
     width: 100%;
-    overflow: auto;
+    overflow-x: hidden;
+    overflow-y: auto;
+    max-width: 1111px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
 }
 
 div.conv-form-wrapper div.message {

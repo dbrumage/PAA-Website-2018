@@ -102,10 +102,6 @@ form.convFormDynamic {
     box-shadow: 0px 20px 45px 20px rgba(22,43,244,0.20);
 }
 
-form.convFormDynamic.modal-shadow {
-    box-shadow: 0px 10px 45px 10px rgba(55,71,79,0.20);
-}
-
 div.conv-form-wrapper  div#messages div.message.to {
     color: #162BF4;
 }
