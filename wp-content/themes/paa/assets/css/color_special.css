@@ -245,6 +245,15 @@ form.convFormDynamic button.btn-outline-secondary {
     width: 100%;
 }
 
+/* CLIENTS */
+.clients-hero-col .work-hero {
+    background: #E0F2F1 !important;
+}
+
+.clients-hero-col .clients-hero-hover {
+    background: #1F37BF !important;
+}
+
 /* BUTTONS */
 .btn-primary {
     color: #fff;

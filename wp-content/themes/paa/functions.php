@@ -13,7 +13,7 @@ function paa_setup() {
             'teal',
             'yellow',
             'pink',
-            'special',
+            // 'special',
             'red',
             'green',
             'silver',

@@ -112,7 +112,7 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 				if (content[i].content_type === "Work List" || content[i].content_type === "Work Items") {
 					var content_type = content[i].content_type;
 					if (content[i].case_study_title!="") {
-						var caseStudy = '<a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link close-work">' + content[i].case_study_title + '</a>';
+						var caseStudy = '<a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link close-work">' + content[i].link_text + '</a>';
 					} else {
 						var caseStudy = '';
 					}
@@ -120,8 +120,8 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 				}
 				if (content[i].content_type === "Client List" || content[i].content_type === "Client Items") {
 					var content_type = content[i].content_type;
-					if (content[i].case_study_title != "") {
-						var caseStudy = '<a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link close-work">' + content[i].case_study_title + '</a>';
+					if (content[i].link_text != "") {
+						var caseStudy = '<a href="' + content[i].case_study_url + '" class="btn btn-primary modal-link close-work">' + content[i].link_text + '</a>';
 					} else {
 						var caseStudy = '';
 					}
@@ -130,7 +130,7 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 				if (content[i].content_type === "Generic Content Items") {
 					var content_type = content[i].content_type;
 					var subType = "Generic Content Items";
-					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a href="' + content[i].permalink + '" class="btn btn-primary modal-link close-content">Expand section</a></div>');
+					jQuery("body").find('#messages').append('<div class="message to ready content-hero"><img src="' + content[i].image_desktop + '" class="content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="content-hero-img-mobile"><div class="content-hero-text"><h2>' + content[i].title + '</h2></div><a href="' + content[i].permalink + '" class="btn btn-primary modal-link close-content">' + content[i].link_text + '</a></div>');
 
 				}
 				loopCount++;
@@ -145,7 +145,7 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 
 			if (content_type === "Client List" || content_type === "Client Items") {
 				jQuery('.work-hero-wrapper-' + random + ' .work-hero-row .work-hero-col').each(function (i, e) {
-					if (i % 2 == 0) div = jQuery('<div/>').addClass('clients-hero-items-row').appendTo('.work-hero-wrapper-' + random + ' .work-hero-row');
+					if (i % 3 == 0) div = jQuery('<div/>').addClass('clients-hero-items-row').appendTo('.work-hero-wrapper-' + random + ' .work-hero-row');
 					div.append(e);
 				});
 			}
@@ -242,8 +242,28 @@ jQuery(function ($) {
 	jQuery(document).on("mouseleave", ".work-hero-items-row", function () {
 		jQuery('.work-hero-items-row').stop().removeClass('work-hero-items-row-hover');
 		jQuery('.work-hero').stop().removeClass('work-hero-hover');
-		jQuery('.work-hero-text', this).stop().removeClass('work-hero-text-hover');
+		jQuery('.work-hero-text').stop().removeClass('work-hero-text-hover');
 		jQuery('.work-hero .btn').stop().hide();
+	});
+
+	jQuery(document).on("mouseenter", ".clients-hero-items-row .clients-hero-col", function () {
+		jQuery(this).parent().stop().addClass('clients-hero-items-row-hover');
+		jQuery(this).parent().find('.work-hero').stop().addClass('work-hero-hover');
+		jQuery('.work-hero', this).stop().addClass('clients-hero-hover');
+		jQuery('.work-hero-text', this).stop().addClass('clients-hero-text-hover');
+		jQuery('.work-hero-text h2', this).stop().fadeIn();
+		jQuery('.client-logo', this).stop().hide();
+		jQuery('.btn', this).stop().fadeIn();
+	});
+
+	jQuery(document).on("mouseleave", ".clients-hero-items-row .clients-hero-col", function () {
+		jQuery(this).parent().stop().removeClass('clients-hero-items-row-hover');
+		jQuery(this).parent().find('.work-hero').stop().removeClass('work-hero-hover');
+		jQuery('.work-hero', this).stop().removeClass('clients-hero-hover');
+		jQuery('.work-hero-text', this).stop().removeClass('clients-hero-text-hover');
+		jQuery('.work-hero-text h2', this).stop().hide();
+		jQuery('.btn', this).stop().hide();
+		jQuery('.client-logo', this).stop().fadeIn();
 	});
 	
 	jQuery('body').on('click', '.menu li a', function (event) {

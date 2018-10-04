@@ -259,6 +259,19 @@ form.convFormDynamic button.btn-outline-secondary {
     width: 100%;
 }
 
+/* CLIENTS */
+.clients-hero-col .work-hero {
+    background: #FFEBEE !important;
+}
+
+.clients-hero-col .clients-hero-hover {
+    background: #00BFA5 !important;
+    background: -moz-linear-gradient(45deg, #FF6D00 0%, #DD2C00 100%) !important;
+    background: -webkit-linear-gradient(45deg, #FF6D00 0%,#DD2C00 100%) !important;
+    background: linear-gradient(45deg, #FF6D00 0%,#DD2C00 100%) !important;
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FF6D00', endColorstr='#DD2C00',GradientType=1 ) !important;
+}
+
 /* BUTTONS */
 .btn-primary {
     color: #FF5E33;

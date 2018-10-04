@@ -161,6 +161,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                                 'client_logo' => get_field('image', get_field('client')),
                                 'case_study_url' => $csUrl,
                                 'case_study_title' => $csTitle,
+                                'link_text' => get_field('link_text', get_the_ID()),
                                 'image' => get_field('image'),
                                 'content_type' => 'Work List'
                             );
@@ -186,6 +187,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                                 'client_logo' => get_field('image', get_field('client')),
                                 'case_study_url' => $csUrl,
                                 'case_study_title' => $csTitle,
+                                'link_text' => get_field('link_text', get_the_ID()),
                                 'image' => get_field('image'),
                                 'content_type' => 'Work Items'
                             );
@@ -204,6 +206,7 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                                 'image_desktop' => get_field('image_desktop', get_the_ID()),
                                 'image_tablet' => get_field('image_tablet', get_the_ID()),
                                 'image_mobile' => get_field('image_mobile', get_the_ID()),
+                                'link_text' => get_field('link_text', get_the_ID()),
                                 'content_type' => 'Generic Content Items'
                             );
                         endwhile;
@@ -217,12 +220,9 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                             $content_data_array[] = array(
                                 'title' => get_the_title($postId),
                                 'case_study_url' => get_the_permalink(get_field('case_study')),
-                                'case_study_title' => get_the_title(get_field('case_study')),
-                                'link_type' => get_field('link_type', $postId),
                                 'link_text' => get_field('link_text', $postId),
                                 'image' => get_field('image_colour', $postId),
-                                'content_type' => 'Client List',
-                                'work_items' => "blh"
+                                'content_type' => 'Client List'
                             );
                         endwhile;
                     } else if (get_sub_field('content_response_type')=="Client Items") {
@@ -236,12 +236,9 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                             $content_data_array[] = array(
                                 'title' => get_the_title($postId),
                                 'case_study_url' => get_the_permalink(get_field('case_study')),
-                                'case_study_title' => get_the_title(get_field('case_study')),
-                                'link_type' => get_field('link_type', $postId),
                                 'link_text' => get_field('link_text', $postId),
                                 'image' => get_field('image_colour', $postId),
-                                'content_type' => 'Client Items',
-                                'work_items' => "blh"
+                                'content_type' => 'Client Items'
                             );
                         endwhile;
                     } else if (get_sub_field('content_response_type')=="Case Study List") {

@@ -568,7 +568,16 @@ form.convFormDynamic.modal-shadow {
 
 /* CLIENTS */
 .clients-hero-col .work-hero {
-    background:rgba(255,255,255,1) !important;
+    height: 180px;
+}
+
+.clients-hero-col  {
+    height: 33.3333333%;
+    max-width: 33.3333333% !important;
+}
+
+.clients-hero-col .clients-hero-hover {
+    height: 270px;
 }
 
 .clients-hero-items-row {
@@ -581,10 +590,36 @@ form.convFormDynamic.modal-shadow {
 }
 
 .clients-hero-items-row-hover, .work-hero-hover {
-    height: 270px;
+    height: 270px !important;
     -moz-transition: all .5s;
     -webkit-transition: all .5s;
     transition: all .5s;
+}
+
+.clients-hero-col .work-hero-text {
+    text-align: center;
+}
+
+.clients-hero-col .client-logo {
+    width: 50%;
+    max-width: 50%;
+    float: none;
+}
+
+.clients-hero-col .work-hero-text h2 {
+    display: none;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+}
+
+.clients-hero-col .work-hero-text .btn {
+    bottom: 30px;
+    left: 30px;
+}
+
+.clients-hero-text-hover {
+    height: 100%;
 }
 
 /* BUTTONS */
