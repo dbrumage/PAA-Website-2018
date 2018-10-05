@@ -355,8 +355,43 @@ jQuery(function ($) {
 		jQuery(".button-submit").click();
 	});
 
-	jQuery('body').on('focus', '#userInput', function () {
+	jQuery('#userInput').on('keyup', function () {
 		jQuery('#userInput').attr('placeholder', '');
+
+		if (jQuery(window).width() < 768) {
+			jQuery('.input-group-text.logo').addClass('logo-collapse');
+			jQuery('.hamburger-wrapper').addClass('hamburger-wrapper-collapse');
+			jQuery('#userInput').addClass('no-border');
+			jQuery('.input-group-submit').show('no-border');
+		}
+	});
+
+	jQuery(window).resize(function () {
+		jQuery('#userInput').on('keyup', function () {
+			if (jQuery(window).width() < 768) {
+				jQuery('.input-group-text.logo').addClass('logo-collapse');
+				jQuery('.hamburger-wrapper').addClass('hamburger-wrapper-collapse');
+				jQuery('#userInput').addClass('no-border');
+				jQuery('.input-group-submit').show('no-border');
+			}
+		});
+		if (jQuery(window).width() > 767) {
+			jQuery('.input-group-text.logo').removeClass('logo-collapse');
+			jQuery('.hamburger-wrapper').removeClass('hamburger-wrapper-collapse');
+			jQuery('#userInput').removeClass('no-border');
+			jQuery('.input-group-submit').show();
+		} else {
+			jQuery('.input-group-submit').hide();
+		}
+	});
+
+	jQuery('body').on('click', '.button-submit', function () {
+		if (jQuery(window).width() < 768) {
+			jQuery('.input-group-text.logo').removeClass('logo-collapse');
+			jQuery('.hamburger-wrapper').removeClass('hamburger-wrapper-collapse');
+			jQuery('#userInput').removeClass('no-border');
+			jQuery('.input-group-submit').hide();
+		}
 	});
 
 	var empty = true;
@@ -369,7 +404,9 @@ jQuery(function ($) {
 		if (jQuery(this).val() != "") {
 			jQuery('.button-submit').addClass("button-submit-invert");
 			if (jQuery('.menu-wrapper').is(":hidden")) {
-				jQuery('.logo').addClass("logo-invert");
+				if (jQuery(window).width() > 767) {
+					jQuery('.logo').addClass("logo-invert");
+				}
 			}
 			jQuery('.button-arrow').addClass('button-arrow-invert');
 		} else {
@@ -406,6 +443,7 @@ jQuery(function ($) {
 		setTimeout(function () {
 			jQuery('.logo').toggleClass('no-left-border-bottom-radius');
 			jQuery('.button-submit').toggleClass('no-right-border-bottom-radius');
+			jQuery('#userInput').toggleClass('no-border-bottom');
 		}, 400);
 
 		if (jQuery('#userInput').attr('placeholder')==="") {

@@ -4,7 +4,7 @@
             <div class="col-12">
                 <form class="convFormDynamic <?php if (!is_front_page()) { echo "modal-shadow"; } ?>" id="convForm" name="convForm" action="<?php bloginfo('url') ?>" method="get">
                     <div class="input-group">
-                        <div class="input-group-prepend">
+                        <div class="input-group-prepend input-group-logo">
                             <span class="input-group-text logo"></span>
                             <span class="input-group-text hamburger-wrapper">
                             <button class="hamburger hamburger--boring" type="button">
@@ -15,7 +15,7 @@
                             </span>
                         </div>
                         <input autocomplete="off" class="form-control" id="userInput" name="q" placeholder="" type="text">
-                        <div class="input-group-append">
+                        <div class="input-group-append input-group-submit">
                             <button class="btn btn-outline-secondary button-submit" type="submit">
                                 <div class="button-arrow"></div>
                             </button>
