@@ -311,6 +311,8 @@ section#main {
 @media (max-width: 767px) {
     .menu-inner-wrapper {
         height: 450px;
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 }
 
@@ -411,7 +413,7 @@ section#main {
     }
 
     .menu-col-left-inner {
-        padding: 50px 30px;
+        padding: 30px 15px;
     }
 
     .menu-col-right-inner {
@@ -447,7 +449,7 @@ section#main .person {
 @media(max-width:767px) {
     section#main .person {
         max-width: none;
-        width: 509px;
+        width: 460px;
     }
 }
 
@@ -610,6 +612,16 @@ form.convFormDynamic.modal-shadow {
     padding: 0px 2px 0px 2px !important;
 }
 
+@media(max-width:767px) {
+    .work-hero-col {
+        -ms-flex: 0 0 100% !important;
+        flex: 0 0 100% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        padding: 2px 0px 2px 0px !important;
+    }
+}
+
 .work-hero {
     overflow: hidden;
     height: 120px;
@@ -693,8 +705,15 @@ form.convFormDynamic.modal-shadow {
 }
 
 .clients-hero-col  {
-    height: 33.3333333%;
+    width: 33.3333333%;
     max-width: 33.3333333% !important;
+}
+
+@media(max-width:767px) {
+    .clients-hero-col  {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
 }
 
 .clients-hero-col .clients-hero-hover {

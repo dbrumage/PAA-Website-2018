@@ -347,7 +347,9 @@ jQuery(function ($) {
 			}, 400);
 		}
 		jQuery('.button-arrow').removeClass('button-arrow-invert');
-		jQuery('#userInput').focus();
+		if (jQuery(window).width() > 767) {
+			jQuery('#userInput').focus();
+		}
 	});
 
 	jQuery('body').on('click', '.option', function () {
@@ -452,7 +454,9 @@ jQuery(function ($) {
 			}
 		} else {
 			jQuery('#userInput').attr('placeholder', '');
-			jQuery('#userInput').focus();
+			if (jQuery(window).width() > 767) {
+				jQuery('#userInput').focus();
+			}
 		}
 
 	});
