@@ -491,14 +491,6 @@ form.convFormDynamic.modal-shadow {
     border-bottom-left-radius: 5px;
 }
 
-@media(max-width:767px) {
-    .modal-wrapper.styled .modal .close-modal {
-        right: 15px;
-        width: 70px;
-        height: 64px;
-    }
-}
-
 .modal-wrapper.styled .modal .close-modal:before,
 .modal-wrapper.styled .modal .close-modal:after,
 .close-modal-page:before, .close-modal-page:after {
@@ -508,6 +500,25 @@ form.convFormDynamic.modal-shadow {
     content: ' ';
     height: 33px;
     width: 2px;
+}
+
+@media(max-width:767px) {
+    .modal-wrapper.styled .modal .close-modal {
+        right: 15px;
+        width: 60px;
+        height: 54px;
+    }
+
+    .modal-wrapper.styled .modal .close-modal:before,
+    .modal-wrapper.styled .modal .close-modal:after,
+    .close-modal-page:before, .close-modal-page:after {
+        position: absolute;
+        left: 29px;
+        top: 9px;
+        content: ' ';
+        height: 33px;
+        width: 2px;
+    }
 }
 
 .modal-wrapper.styled .modal .close-modal:before,
@@ -562,6 +573,7 @@ form.convFormDynamic.modal-shadow {
 .content-hero img {
     width: 100%;
     max-width: 100%;
+    border-radius: 5px;
 }
 
 .content-hero-text {
@@ -584,9 +596,23 @@ form.convFormDynamic.modal-shadow {
     padding: 12px 20px;
 }
 
+@media(max-width:767px) {
+    .content-hero-text {
+        padding: 20px;
+    }
+
+    .content-hero-text h2 {
+        font-size: 22px;
+    }
+
+    .content-hero .btn {
+        margin: 20px;
+        padding: 12px 20px;
+    }
+}
+
 /* WORK */
 .work-hero-wrapper {
-    padding-top: 40px;
     clear: both;
 }
 
@@ -598,6 +624,18 @@ form.convFormDynamic.modal-shadow {
     margin-right: -2px;
     margin-left: -2px;
     margin-bottom: 40px;
+}
+
+.work-hero-row:first-child {
+    padding-top: 40px;
+}
+
+@media(max-width:767px) {
+    .work-hero-row {
+        margin-right: 0px;
+        margin-left: 0px;
+        margin-bottom: 0px;
+    }
 }
 
 .work-hero-col {
@@ -645,6 +683,17 @@ form.convFormDynamic.modal-shadow {
     transition: all .5s;
 }
 
+@media(max-width:767px) {
+    .work-hero-items-row {
+        height: auto;
+        margin-bottom: 0px !important;
+    }
+
+    .work-hero-items-row .message {
+        margin-bottom: 0px !important;
+    }
+}
+
 .work-hero-items-row-hover, .work-hero-hover {
     height: 270px;
     -moz-transition: all .5s;
@@ -690,6 +739,29 @@ form.convFormDynamic.modal-shadow {
 .work-hero h2 {
     font-weight: normal;
     font-size: 29px;
+    display: table;
+}
+
+@media(max-width:767px) {
+    .work-hero-text {
+        padding: 0px 20px;
+    }
+
+    .work-hero-text-hover {
+        padding-top: 20px;
+        height: 100%;
+    }
+
+    .work-hero .btn {
+        display: none;
+        bottom: 20px;
+        left: 20px;
+        padding: 12px 20px;
+    }
+
+    .work-hero h2 {
+        font-size: 22px;
+    }
 }
 
 .work-hero .client-logo {
@@ -697,6 +769,15 @@ form.convFormDynamic.modal-shadow {
     float: left;
     margin-right: 40px;
     margin-top: 7px;
+}
+
+@media(max-width:767px) {
+    .work-hero .client-logo {
+        width: 65px;
+        float: left;
+        margin-right: 20px;
+        margin-top: 7px;
+    }
 }
 
 /* CLIENTS */
@@ -720,6 +801,10 @@ form.convFormDynamic.modal-shadow {
     height: 270px;
 }
 
+.clients-hero-col .client-logo {
+    margin-right: 0px;
+}
+
 .clients-hero-items-row {
     width: 100%;
     height: 180px;
@@ -727,6 +812,7 @@ form.convFormDynamic.modal-shadow {
     -moz-transition: all .5s;
     -webkit-transition: all .5s;
     transition: all .5s;
+    overflow: hidden;
 }
 
 .clients-hero-items-row-hover, .work-hero-hover {
@@ -734,6 +820,25 @@ form.convFormDynamic.modal-shadow {
     -moz-transition: all .5s;
     -webkit-transition: all .5s;
     transition: all .5s;
+}
+
+@media(max-width:767px) {
+    .clients-hero-items-row {
+        height: auto;
+        margin-bottom: 0px !important;
+    }
+
+    .clients-hero-items-row-hover {
+        height: auto !important;
+    }
+
+    .work-hero-hover {
+        height: 200px !important;
+    }
+
+    .clients-hero-items-row .message {
+        margin-bottom: 0px !important;
+    }
 }
 
 .clients-hero-col .work-hero-text {

@@ -106,7 +106,8 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		if (type === "Content") {
 			var random = Math.floor((Math.random() * 999999999999999) + 1);
 			var loopCount = 0;
-			jQuery("body").find('#messages').append('<div class="work-hero-wrapper work-hero-wrapper-'+random+'"><div class="work-hero-row"></div></div>');
+
+			jQuery("body").find('#messages').append('<div class="work-hero-wrapper work-hero-wrapper-' + random + '"><div class="work-hero-row"></div></div>');
 
 			for (var i in content) {
 				if (content[i].content_type === "Work List" || content[i].content_type === "Work Items") {
@@ -116,7 +117,7 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 					} else {
 						var caseStudy = '';
 					}
-					jQuery("body").find('.work-hero-wrapper-' + random + ' .work-hero-row').append('<div class="message to ready work-hero-col"><div class="work-hero"><img src="' + content[i].image + '" class="work-hero-image"><div class="work-hero-text"><img src="' + content[i].client_logo + '" class="client-logo" /><h2>' + content[i].title + '</h2>'+caseStudy+'</div></div></div>');
+					jQuery("body").find('.work-hero-wrapper-' + random + ' .work-hero-row').append('<div class="message to ready work-hero-col"><div class="work-hero"><img src="' + content[i].image_desktop + '" class="work-hero-image content-hero-img-desktop"><img src="' + content[i].image_tablet + '" class="work-hero-image content-hero-img-tablet"><img src="' + content[i].image_mobile + '" class="work-hero-image content-hero-img-mobile"><div class="work-hero-text"><img src="' + content[i].client_logo + '" class="client-logo" /><h2>' + content[i].title + '</h2>'+caseStudy+'</div></div></div>');
 				}
 				if (content[i].content_type === "Client List" || content[i].content_type === "Client Items") {
 					var content_type = content[i].content_type;
@@ -218,11 +219,17 @@ jQuery(function ($) {
 	// 	idleTime = 0;
 	// });
 
-	jQuery('#userInput').focus();
+	
+	if (jQuery(window).width() < 768) {
+		jQuery('#userInput').attr('placeholder', '');
+	} 
 
 	setTimeout(function () {
 		jQuery('.person').fadeIn();
 		jQuery('.wrapper-user-input').fadeIn();
+		if (jQuery(window).width() > 767) {
+			jQuery('#userInput').focus();
+		} 
 	}, 1200);
 
 	// TODO
@@ -232,39 +239,65 @@ jQuery(function ($) {
 	// 	jQuery('#userInput')
 	// } 
 
-	jQuery(document).on("mouseenter", ".work-hero-items-row", function () {
-		jQuery(this).stop().addClass('work-hero-items-row-hover');
-		jQuery('.work-hero', this).stop().addClass('work-hero-hover');
-		jQuery('.work-hero-text', this).stop().addClass('work-hero-text-hover');
-		jQuery('.btn', this).stop().fadeIn();
-	});
+	if (jQuery(window).width() > 768) {
+		jQuery(document).on("mouseenter", ".work-hero-items-row", function () {
+			jQuery(this).stop().addClass('work-hero-items-row-hover');
+			jQuery('.work-hero', this).stop().addClass('work-hero-hover');
+			jQuery('.work-hero-text', this).stop().addClass('work-hero-text-hover');
+			jQuery('.btn', this).stop().fadeIn();
+		});
 
-	jQuery(document).on("mouseleave", ".work-hero-items-row", function () {
-		jQuery('.work-hero-items-row').stop().removeClass('work-hero-items-row-hover');
-		jQuery('.work-hero').stop().removeClass('work-hero-hover');
-		jQuery('.work-hero-text').stop().removeClass('work-hero-text-hover');
-		jQuery('.work-hero .btn').stop().hide();
-	});
+		jQuery(document).on("mouseleave", ".work-hero-items-row", function () {
+			jQuery('.work-hero-items-row').stop().removeClass('work-hero-items-row-hover');
+			jQuery('.work-hero').stop().removeClass('work-hero-hover');
+			jQuery('.work-hero-text').stop().removeClass('work-hero-text-hover');
+			jQuery('.work-hero .btn').stop().hide();
+		});
 
-	jQuery(document).on("mouseenter", ".clients-hero-items-row .clients-hero-col", function () {
-		jQuery(this).parent().stop().addClass('clients-hero-items-row-hover');
-		jQuery(this).parent().find('.work-hero').stop().addClass('work-hero-hover');
-		jQuery('.work-hero', this).stop().addClass('clients-hero-hover');
-		jQuery('.work-hero-text', this).stop().addClass('clients-hero-text-hover');
-		jQuery('.work-hero-text h2', this).stop().fadeIn();
-		jQuery('.client-logo', this).stop().hide();
-		jQuery('.btn', this).stop().fadeIn();
-	});
+		jQuery(document).on("mouseenter", ".clients-hero-items-row .clients-hero-col", function () {
+			jQuery(this).parent().stop().addClass('clients-hero-items-row-hover');
+			jQuery(this).parent().find('.work-hero').stop().addClass('work-hero-hover');
+			jQuery('.work-hero', this).stop().addClass('clients-hero-hover');
+			jQuery('.work-hero-text', this).stop().addClass('clients-hero-text-hover');
+			jQuery('.work-hero-text h2', this).stop().fadeIn();
+			jQuery('.client-logo', this).stop().hide();
+			jQuery('.btn', this).stop().fadeIn();
+		});
 
-	jQuery(document).on("mouseleave", ".clients-hero-items-row .clients-hero-col", function () {
-		jQuery(this).parent().stop().removeClass('clients-hero-items-row-hover');
-		jQuery(this).parent().find('.work-hero').stop().removeClass('work-hero-hover');
-		jQuery('.work-hero', this).stop().removeClass('clients-hero-hover');
-		jQuery('.work-hero-text', this).stop().removeClass('clients-hero-text-hover');
-		jQuery('.work-hero-text h2', this).stop().hide();
-		jQuery('.btn', this).stop().hide();
-		jQuery('.client-logo', this).stop().fadeIn();
-	});
+		jQuery(document).on("mouseleave", ".clients-hero-items-row .clients-hero-col", function () {
+			jQuery(this).parent().stop().removeClass('clients-hero-items-row-hover');
+			jQuery(this).parent().find('.work-hero').stop().removeClass('work-hero-hover');
+			jQuery('.work-hero', this).stop().removeClass('clients-hero-hover');
+			jQuery('.work-hero-text', this).stop().removeClass('clients-hero-text-hover');
+			jQuery('.work-hero-text h2', this).stop().hide();
+			jQuery('.btn', this).stop().hide();
+			jQuery('.client-logo', this).stop().fadeIn();
+		});
+	} else {
+		jQuery(document).on("click", ".work-hero-col", function () {
+			jQuery('.work-hero').stop().removeClass('work-hero-hover');
+			jQuery('.work-hero-text').stop().removeClass('work-hero-text-hover');
+			jQuery('.btn').stop().hide();
+
+			jQuery('.work-hero', this).stop().addClass('work-hero-hover');
+			jQuery('.work-hero-text', this).stop().addClass('work-hero-text-hover');
+			jQuery('.btn', this).stop().fadeIn();
+		});
+
+		jQuery(document).on("click", ".clients-hero-col", function () {
+			jQuery('.work-hero').stop().removeClass('clients-hero-hover');
+			jQuery('.work-hero-text').stop().removeClass('clients-hero-text-hover');
+			jQuery('.work-hero-text h2').stop().hide();
+			jQuery('.client-logo').stop().fadeIn();
+			jQuery('.btn').stop().hide();
+
+			jQuery('.work-hero', this).stop().addClass('clients-hero-hover');
+			jQuery('.work-hero-text', this).stop().addClass('clients-hero-text-hover');
+			jQuery('.work-hero-text h2', this).stop().fadeIn();
+			jQuery('.client-logo', this).stop().hide();
+			jQuery('.btn', this).stop().fadeIn();
+		});
+	}
 	
 	jQuery('body').on('click', '.menu li a', function (event) {
 		event.preventDefault();
@@ -344,6 +377,7 @@ jQuery(function ($) {
 			setTimeout(function () {
 				jQuery('.logo').removeClass('no-left-border-bottom-radius');
 				jQuery('.button-submit').removeClass('no-right-border-bottom-radius');
+				jQuery('#userInput').toggleClass('no-border-bottom');
 			}, 400);
 		}
 		jQuery('.button-arrow').removeClass('button-arrow-invert');
@@ -400,7 +434,11 @@ jQuery(function ($) {
 	jQuery('#userInput').on('keyup', function () {
 		if (jQuery('#userInput').attr('placeholder') === "") {
 			if (jQuery('.hamburger').hasClass("is-active")) {
-				jQuery('#userInput').attr('placeholder', 'Choose a section, or type what you\'re looking for here');
+				if (jQuery(window).width() > 767) {
+					jQuery('#userInput').attr('placeholder', 'Choose a section, or type what you\'re looking for here');
+				} else {
+					jQuery('#userInput').attr('placeholder', 'Choose a section');
+				}
 			}
 		} 
 		if (jQuery(this).val() != "") {
@@ -450,7 +488,11 @@ jQuery(function ($) {
 
 		if (jQuery('#userInput').attr('placeholder')==="") {
 			if (jQuery('.hamburger').hasClass("is-active")) {
-				jQuery('#userInput').attr('placeholder', 'Choose a section, or type what you\'re looking for here');
+				if (jQuery(window).width() > 767) {
+					jQuery('#userInput').attr('placeholder', 'Choose a section, or type what you\'re looking for here');
+				} else {
+					jQuery('#userInput').attr('placeholder', 'Choose a section');
+				}
 			}
 		} else {
 			jQuery('#userInput').attr('placeholder', '');

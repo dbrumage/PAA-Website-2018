@@ -162,7 +162,9 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                                 'case_study_url' => $csUrl,
                                 'case_study_title' => $csTitle,
                                 'link_text' => get_field('link_text', get_the_ID()),
-                                'image' => get_field('image'),
+                                'image_desktop' => get_field('image_desktop', get_the_ID()),
+                                'image_tablet' => get_field('image_tablet', get_the_ID()),
+                                'image_mobile' => get_field('image_mobile', get_the_ID()),
                                 'content_type' => 'Work List'
                             );
                         endwhile;
@@ -188,7 +190,9 @@ if(!empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQU
                                 'case_study_url' => $csUrl,
                                 'case_study_title' => $csTitle,
                                 'link_text' => get_field('link_text', get_the_ID()),
-                                'image' => get_field('image'),
+                                'image_desktop' => get_field('image_desktop', get_the_ID()),
+                                'image_tablet' => get_field('image_tablet', get_the_ID()),
+                                'image_mobile' => get_field('image_mobile', get_the_ID()),
                                 'content_type' => 'Work Items'
                             );
                         endwhile;

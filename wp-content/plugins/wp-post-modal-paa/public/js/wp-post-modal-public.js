@@ -150,7 +150,7 @@
             var windowsize = $window.width();
 
             // if the window is greater than 767px wide then do below. we don't want the modal to show on mobile devices and instead the link will be followed.
-            if (windowsize >= fromPHP.breakpoint) {
+            if (windowsize >= 0) {
 
                 // if using URL parameter to open modal
                 if (getUrlParameter('modal-link')) {
