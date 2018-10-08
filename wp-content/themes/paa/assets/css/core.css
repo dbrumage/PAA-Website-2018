@@ -965,3 +965,8 @@ form.convFormDynamic.modal-shadow {
         display: block;
     }
 }
+
+/* CONTACT */
+.wpcf7 {
+    display: none !important;
+}

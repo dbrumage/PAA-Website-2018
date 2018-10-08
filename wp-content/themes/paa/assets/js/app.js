@@ -544,7 +544,8 @@ jQuery(function ($) {
 										jQuery("#userInput").removeAttr('data-user-input');
 									} else {
 										var contactName = userInput;
-										// TODO STORE IN HIDDEN INPUT HERE
+										jQuery('body').find("#contact-name").attr("value", userInput);
+										jQuery('body').find("#contact-subject").attr("value", "PAA contact form submission");
 										api_value = "contact-email";
 										api_url = 'api?term=' + api_value;
 									}
@@ -571,7 +572,7 @@ jQuery(function ($) {
 							ajaxCall(api_url);
 						} else if (validateEmail(userInput) === true) {
 							var contactEmail = userInput;
-							// STORE IN HIDDEN INPUT HERE
+							jQuery('body').find("#contact-email").attr("value", userInput);
 							api_value = "contact-message";
 							api_url = 'api?term=' + api_value;
 							ajaxCall(api_url);
@@ -583,7 +584,8 @@ jQuery(function ($) {
 						}, 100);
 						jQuery("#userInput").removeAttr('data-user-input');
 							var contactMessage = escapeHtml(userInput);
-							// STORE IN HIDDEN INPUT HERE
+							jQuery('body').find("#contact-message").attr("value", contactMessage);
+							jQuery(".wpcf7-submit").click();
 							api_value = "contact-thankyou";
 							api_url = 'api?term=' + api_value;
 							ajaxCall(api_url);
