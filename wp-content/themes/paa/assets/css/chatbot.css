@@ -85,6 +85,18 @@ div.conv-form-wrapper div#messages {
 div.conv-form-wrapper div.message {
     max-width: 49%;
     font-size: 24px;
+    position: relative;
+}
+
+.message-small-print {
+    font-size: 14px;
+    float: left;
+    margin-top: 10px;
+    margin-bottom: 13px;
+}
+
+.message-small-print a {
+    text-decoration: underline;
 }
 
 @media (max-width: 767px) {
@@ -183,7 +195,7 @@ div.conv-form-wrapper  div#messages div.option div.shortcut-key {
 
 @media (max-width: 767px) {
     div.conv-form-wrapper  div#messages div.option div.shortcut-key {
-        width: 46px;
+        width: 47px;
         font-size: 18px;
     }
 }

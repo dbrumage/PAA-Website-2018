@@ -135,8 +135,8 @@ div.conv-form-wrapper  div#messages div.option {
 }
 
 div.conv-form-wrapper  div#messages div.option div.shortcut-key {
-    border: 1px solid #4F0C3E;
-    color: #4F0C3E;
+    border: 1px solid #00796B;
+    color: #00796B;
 }
 
 div.conv-form-wrapper  div#messages div.message.link a {
@@ -148,6 +148,14 @@ form.convFormDynamic button.btn-outline-secondary {
     background: #ECEFF1;
     border-color: #ECEFF1;
     color: #004C87;
+}
+
+.user-input-highlight {
+    border: 1px solid #00796B;
+}
+
+.user-input-highlight .user-input-highlight-title {
+    border-bottom: 1px solid #00796B;
 }
 
 /* MENU */

@@ -140,6 +140,14 @@ form.convFormDynamic button.btn-outline-secondary {
     background-size: 33px;
 }
 
+.user-input-highlight {
+    border: 1px solid #162BF4;
+}
+
+.user-input-highlight .user-input-highlight-title {
+    border-bottom: 1px solid #162BF4;
+}
+
 /* MENU */
 .menu-wrapper {
     background: #1F37BF;

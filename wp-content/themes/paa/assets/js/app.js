@@ -49,6 +49,7 @@ function ajaxCall(api_url) {
 
 				if (type === "Text") {
 					var content = response[i].text_response;
+					var text_response_small_print = response[i].text_response_small_print;
 				} else if (type === "Prompt") {
 					var answers = response[i].prompt_data_array;
 				} else if (type === "User Input") {
@@ -69,7 +70,7 @@ function ajaxCall(api_url) {
 					var content = response[i].content_response;
 				}
 
-				createNext(count, content, type, next_field_behaviour, answers, length, link_response_pre_text, link_response_text, link_response_url);
+				createNext(count, content, text_response_small_print, type, next_field_behaviour, answers, length, link_response_pre_text, link_response_text, link_response_url, user_input_response_type);
 
 				count++;
 			}
@@ -78,7 +79,7 @@ function ajaxCall(api_url) {
 	});
 }
 
-function createNext(count, content, type, next_field_behaviour, answers, length, link_response_pre_text, link_response_text, link_response_url) {
+function createNext(count, content, text_response_small_print, type, next_field_behaviour, answers, length, link_response_pre_text, link_response_text, link_response_url) {
 
 	// TODO DISABLE INPUT SOMEWHERE
 	// jQuery('#convForm button').attr('disabled');
@@ -88,7 +89,13 @@ function createNext(count, content, type, next_field_behaviour, answers, length,
 		jQuery(".message.to.typing").remove();
 
 		if (type == "Text") {
-			jQuery("body").find('#messages').append('<div class="message to ready done">' + content + '</div>');
+			if (text_response_small_print!=undefined) {
+				var smallPrint = '<div class="message-small-print">' + text_response_small_print + '</div>';
+			} else {
+				var smallPrint = '';
+			}
+			
+			jQuery("body").find('#messages').append('<div class="message to ready done">' + content + '</div>' + smallPrint + '');
 		}
 		
 		if (type == "Video") {
@@ -521,6 +528,10 @@ jQuery(function ($) {
 					var api_url;
 
 					if (jQuery("input[data-user-input='Name']").length) {
+						setTimeout(function () {
+							jQuery(".message.from").last().addClass("user-input-highlight");
+							jQuery(".message.from").last().prepend('<div class="user-input-highlight-title">● Your name</div>');
+						}, 100);
 						jQuery.ajax({
 							type: 'POST',
 							dataType: 'JSON',
@@ -548,6 +559,10 @@ jQuery(function ($) {
 							}
 						});
 					} else if (jQuery("input[data-user-input='Email']").length) {
+						setTimeout(function () {
+							jQuery(".message.from").last().addClass("user-input-highlight");
+							jQuery(".message.from").last().prepend('<div class="user-input-highlight-title">● Your email</div>');
+						}, 100);
 						jQuery("#userInput").removeAttr('data-user-input');
 						if (validateEmail(userInput) === false) {
 							api_value = userInput;
@@ -562,6 +577,10 @@ jQuery(function ($) {
 							ajaxCall(api_url);
 						}
 					} else if (jQuery("input[data-user-input='Message']").length) {
+						setTimeout(function () {
+							jQuery(".message.from").last().addClass("user-input-highlight");
+							jQuery(".message.from").last().prepend('<div class="user-input-highlight-title">● Your message</div>');
+						}, 100);
 						jQuery("#userInput").removeAttr('data-user-input');
 							var contactMessage = escapeHtml(userInput);
 							// STORE IN HIDDEN INPUT HERE

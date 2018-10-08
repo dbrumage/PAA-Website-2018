@@ -187,7 +187,7 @@ ConvState.prototype.answerWith = function(answerText, answerObject) {
     //prints answer within messages wrapper
     if(this.current.input.type == 'password')
         answerText = answerText.replace(/./g, '*');
-    var message = jQuery('<div class="message from">' +escapeHtml(answerText)+'</div>');
+    var message = jQuery('<div class="message from">' +escapeHtml(answerText)+ '</div>');
 
     //removes options before appending message so scroll animation runs without problems
     jQuery(this.wrapper).find("div.options div.option").remove();
